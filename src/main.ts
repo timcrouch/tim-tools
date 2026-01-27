@@ -10,7 +10,14 @@ interface App {
 
 // Live apps - these are ready to use
 const liveApps: App[] = [
-  // Add live apps here as we build them
+  {
+    id: 'ai-survey',
+    name: 'AI Course Pre-Assessment',
+    description: 'Survey for gauging participant AI knowledge and goals before training sessions.',
+    icon: '📋',
+    path: '/apps/ai-survey/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline
