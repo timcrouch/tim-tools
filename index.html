@@ -4,27 +4,40 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A collection of personal tools and apps built by Tim & Giterdone" />
+    <meta name="theme-color" content="#0a0a0f" />
     <title>Tim's Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
+    <div class="bg-grid"></div>
     <div id="app">
       <header>
-        <h1>🛠️ Tim's Tools</h1>
-        <p class="tagline">Small apps & experiments</p>
+        <div class="logo">🛠️</div>
+        <h1>Tim's Tools</h1>
+        <p class="tagline">A growing collection of personal apps & experiments, crafted one idea at a time.</p>
+        <div class="badge">
+          <span class="dot"></span>
+          <span>Built with Vite + TypeScript</span>
+        </div>
       </header>
       
-      <main class="app-grid" id="app-grid">
-        <!-- Apps are injected here by main.ts -->
-        <div class="app-card placeholder">
-          <div class="app-icon">🚀</div>
-          <h2>Coming Soon</h2>
-          <p>Your first app will appear here</p>
+      <main>
+        <h2 class="section-title">Apps</h2>
+        <div class="app-grid" id="app-grid">
+          <!-- Apps are injected here by main.ts -->
         </div>
       </main>
       
       <footer>
-        <p>Built by Tim & <a href="https://github.com/clawdbot/clawdbot">Giterdone</a> 😉</p>
+        <div class="footer-links">
+          <a href="https://github.com/timcrouch/tim-tools" target="_blank">GitHub</a>
+          <a href="https://github.com/clawdbot/clawdbot" target="_blank">Powered by Clawdbot</a>
+        </div>
+        <p>Built by Tim & Giterdone 😉</p>
       </footer>
     </div>
     <script type="module" src="/src/main.ts"></script>
