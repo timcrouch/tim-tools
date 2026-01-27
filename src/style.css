@@ -243,6 +243,82 @@ main {
   margin-bottom: 0.5rem;
 }
 
+/* Hero section */
+.hero-section {
+  margin-bottom: 3rem;
+}
+
+.hero-description {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 700px;
+  line-height: 1.8;
+}
+
+/* About section */
+.about-section {
+  margin-top: 4rem;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.about-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.about-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.about-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Coming soon section */
+.coming-section {
+  margin-top: 4rem;
+}
+
+.app-card.coming-soon {
+  opacity: 0.7;
+  pointer-events: none;
+  position: relative;
+}
+
+.app-card.coming-soon::before {
+  display: none;
+}
+
+.status-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--accent);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 /* Footer */
 footer {
   text-align: center;
@@ -250,7 +326,7 @@ footer {
   color: var(--text-muted);
   font-size: 0.875rem;
   border-top: 1px solid var(--border);
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 footer a {
@@ -261,6 +337,13 @@ footer a {
 
 footer a:hover {
   color: var(--accent-hover);
+}
+
+.footer-quote {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  color: var(--text-muted);
+  opacity: 0.7;
 }
 
 .footer-links {
