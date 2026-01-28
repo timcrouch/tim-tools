@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clawdbot Migration Checklist | Mac Mini</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 Clawdbot Migration</h1>
+            <p class="subtitle">Moving to the new Mac Mini</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="progress-text"><span id="completed">0</span> / <span id="total">0</span> tasks complete</p>
+        </header>
+
+        <main>
+            <!-- Phase 1: Pre-Migration -->
+            <section class="phase" data-phase="1">
+                <h2>📦 Phase 1: Pre-Migration (Current Mac)</h2>
+                <p class="phase-desc">Backup and document everything before we move.</p>
+                
+                <div class="task" data-id="1.1">
+                    <input type="checkbox" id="task-1-1">
+                    <label for="task-1-1">
+                        <span class="task-title">Export Clawdbot configuration</span>
+                        <span class="task-detail">Copy ~/.clawdbot/ folder to transfer location</span>
+                        <code>cp -r ~/.clawdbot ~/Desktop/clawdbot-backup/</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="1.2">
+                    <input type="checkbox" id="task-1-2">
+                    <label for="task-1-2">
+                        <span class="task-title">Backup workspace</span>
+                        <span class="task-detail">Copy ~/clawd/ (SOUL.md, USER.md, memory, etc.)</span>
+                        <code>cp -r ~/clawd ~/Desktop/clawdbot-backup/</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="1.3">
+                    <input type="checkbox" id="task-1-3">
+                    <label for="task-1-3">
+                        <span class="task-title">Document Node.js version</span>
+                        <span class="task-detail">Record current Node version for compatibility</span>
+                        <code>node --version > ~/Desktop/clawdbot-backup/node-version.txt</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="1.4">
+                    <input type="checkbox" id="task-1-4">
+                    <label for="task-1-4">
+                        <span class="task-title">List installed skills</span>
+                        <span class="task-detail">Document all installed Clawdbot skills</span>
+                        <code>clawdbot skills list > ~/Desktop/clawdbot-backup/skills.txt</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="1.5">
+                    <input type="checkbox" id="task-1-5">
+                    <label for="task-1-5">
+                        <span class="task-title">Export cron jobs</span>
+                        <span class="task-detail">Save scheduled tasks and reminders</span>
+                        <code>clawdbot cron list --json > ~/Desktop/clawdbot-backup/cron.json</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="1.6">
+                    <input type="checkbox" id="task-1-6">
+                    <label for="task-1-6">
+                        <span class="task-title">Stop Clawdbot gateway</span>
+                        <span class="task-detail">Gracefully shut down before migration</span>
+                        <code>clawdbot gateway stop</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="1.7">
+                    <input type="checkbox" id="task-1-7">
+                    <label for="task-1-7">
+                        <span class="task-title">Transfer backup to new Mac</span>
+                        <span class="task-detail">Use AirDrop, external drive, or network share</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Phase 2: New Mac Setup -->
+            <section class="phase" data-phase="2">
+                <h2>🖥️ Phase 2: New Mac Mini Setup</h2>
+                <p class="phase-desc">Install prerequisites on the fresh system.</p>
+
+                <div class="task" data-id="2.1">
+                    <input type="checkbox" id="task-2-1">
+                    <label for="task-2-1">
+                        <span class="task-title">Install Xcode Command Line Tools</span>
+                        <span class="task-detail">Required for Homebrew and compilation</span>
+                        <code>xcode-select --install</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="2.2">
+                    <input type="checkbox" id="task-2-2">
+                    <label for="task-2-2">
+                        <span class="task-title">Install Homebrew</span>
+                        <span class="task-detail">Package manager for macOS</span>
+                        <code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="2.3">
+                    <input type="checkbox" id="task-2-3">
+                    <label for="task-2-3">
+                        <span class="task-title">Install nvm (Node Version Manager)</span>
+                        <span class="task-detail">For managing Node.js versions</span>
+                        <code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="2.4">
+                    <input type="checkbox" id="task-2-4">
+                    <label for="task-2-4">
+                        <span class="task-title">Install Node.js</span>
+                        <span class="task-detail">Match version from backup (v22.x recommended)</span>
+                        <code>nvm install 22 && nvm use 22 && nvm alias default 22</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="2.5">
+                    <input type="checkbox" id="task-2-5">
+                    <label for="task-2-5">
+                        <span class="task-title">Install Git</span>
+                        <span class="task-detail">Version control (may already be installed)</span>
+                        <code>brew install git</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="2.6">
+                    <input type="checkbox" id="task-2-6">
+                    <label for="task-2-6">
+                        <span class="task-title">Configure Git identity</span>
+                        <span class="task-detail">Set name and email for commits</span>
+                        <code>git config --global user.name "Tim Crouch"<br>git config --global user.email "your@email.com"</code>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Phase 3: Clawdbot Installation -->
+            <section class="phase" data-phase="3">
+                <h2>🤖 Phase 3: Clawdbot Installation</h2>
+                <p class="phase-desc">Install and configure Clawdbot on the new system.</p>
+
+                <div class="task" data-id="3.1">
+                    <input type="checkbox" id="task-3-1">
+                    <label for="task-3-1">
+                        <span class="task-title">Install Clawdbot</span>
+                        <span class="task-detail">Global npm installation</span>
+                        <code>npm install -g clawdbot</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="3.2">
+                    <input type="checkbox" id="task-3-2">
+                    <label for="task-3-2">
+                        <span class="task-title">Restore configuration</span>
+                        <span class="task-detail">Copy backed up .clawdbot folder</span>
+                        <code>cp -r ~/Desktop/clawdbot-backup/.clawdbot ~/</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="3.3">
+                    <input type="checkbox" id="task-3-3">
+                    <label for="task-3-3">
+                        <span class="task-title">Restore workspace</span>
+                        <span class="task-detail">Copy backed up clawd folder</span>
+                        <code>cp -r ~/Desktop/clawdbot-backup/clawd ~/</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="3.4">
+                    <input type="checkbox" id="task-3-4">
+                    <label for="task-3-4">
+                        <span class="task-title">Run Clawdbot doctor</span>
+                        <span class="task-detail">Diagnose any configuration issues</span>
+                        <code>clawdbot doctor</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="3.5">
+                    <input type="checkbox" id="task-3-5">
+                    <label for="task-3-5">
+                        <span class="task-title">Update workspace path in config</span>
+                        <span class="task-detail">If username differs, update the path</span>
+                        <code>clawdbot config set agents.defaults.workspace ~/clawd</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="3.6">
+                    <input type="checkbox" id="task-3-6">
+                    <label for="task-3-6">
+                        <span class="task-title">Re-install skills</span>
+                        <span class="task-detail">Install any required skills</span>
+                        <code>clawdbot skills install weather github notion</code>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Phase 4: Verification -->
+            <section class="phase" data-phase="4">
+                <h2>✅ Phase 4: Verification</h2>
+                <p class="phase-desc">Test everything works correctly.</p>
+
+                <div class="task" data-id="4.1">
+                    <input type="checkbox" id="task-4-1">
+                    <label for="task-4-1">
+                        <span class="task-title">Start Clawdbot gateway</span>
+                        <span class="task-detail">Launch the gateway service</span>
+                        <code>clawdbot gateway start</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="4.2">
+                    <input type="checkbox" id="task-4-2">
+                    <label for="task-4-2">
+                        <span class="task-title">Test webchat</span>
+                        <span class="task-detail">Open http://localhost:18789 and send a message</span>
+                    </label>
+                </div>
+
+                <div class="task" data-id="4.3">
+                    <input type="checkbox" id="task-4-3">
+                    <label for="task-4-3">
+                        <span class="task-title">Verify Slack connection</span>
+                        <span class="task-detail">Send a test message via Slack DM</span>
+                    </label>
+                </div>
+
+                <div class="task" data-id="4.4">
+                    <input type="checkbox" id="task-4-4">
+                    <label for="task-4-4">
+                        <span class="task-title">Verify memory access</span>
+                        <span class="task-detail">Ask about something from memory files</span>
+                    </label>
+                </div>
+
+                <div class="task" data-id="4.5">
+                    <input type="checkbox" id="task-4-5">
+                    <label for="task-4-5">
+                        <span class="task-title">Test web search (Perplexity)</span>
+                        <span class="task-detail">Ask a question requiring web search</span>
+                    </label>
+                </div>
+
+                <div class="task" data-id="4.6">
+                    <input type="checkbox" id="task-4-6">
+                    <label for="task-4-6">
+                        <span class="task-title">Verify cron jobs</span>
+                        <span class="task-detail">Check scheduled tasks are restored</span>
+                        <code>clawdbot cron list</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="4.7">
+                    <input type="checkbox" id="task-4-7">
+                    <label for="task-4-7">
+                        <span class="task-title">Test file operations</span>
+                        <span class="task-detail">Ask to create or edit a file in workspace</span>
+                    </label>
+                </div>
+            </section>
+
+            <!-- Phase 5: Optional Enhancements -->
+            <section class="phase" data-phase="5">
+                <h2>🚀 Phase 5: Optional Enhancements</h2>
+                <p class="phase-desc">Nice-to-haves for a dedicated Clawdbot machine.</p>
+
+                <div class="task" data-id="5.1">
+                    <input type="checkbox" id="task-5-1">
+                    <label for="task-5-1">
+                        <span class="task-title">Set up auto-start on boot</span>
+                        <span class="task-detail">Create a LaunchAgent for Clawdbot</span>
+                        <code>clawdbot service install</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="5.2">
+                    <input type="checkbox" id="task-5-2">
+                    <label for="task-5-2">
+                        <span class="task-title">Enable Remote Access (SSH)</span>
+                        <span class="task-detail">System Preferences → Sharing → Remote Login</span>
+                    </label>
+                </div>
+
+                <div class="task" data-id="5.3">
+                    <input type="checkbox" id="task-5-3">
+                    <label for="task-5-3">
+                        <span class="task-title">Configure Tailscale (optional)</span>
+                        <span class="task-detail">For secure remote access from anywhere</span>
+                        <code>brew install tailscale</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="5.4">
+                    <input type="checkbox" id="task-5-4">
+                    <label for="task-5-4">
+                        <span class="task-title">Set static IP or hostname</span>
+                        <span class="task-detail">For consistent network access</span>
+                    </label>
+                </div>
+
+                <div class="task" data-id="5.5">
+                    <input type="checkbox" id="task-5-5">
+                    <label for="task-5-5">
+                        <span class="task-title">Disable sleep</span>
+                        <span class="task-detail">Keep Mac Mini always awake</span>
+                        <code>sudo pmset -a sleep 0 disablesleep 1</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="5.6">
+                    <input type="checkbox" id="task-5-6">
+                    <label for="task-5-6">
+                        <span class="task-title">Clone workspace repos</span>
+                        <span class="task-detail">Set up code repos (tim-tools, etc.)</span>
+                        <code>mkdir ~/code && cd ~/code && git clone https://github.com/timcrouch/tim-tools.git</code>
+                    </label>
+                </div>
+
+                <div class="task" data-id="5.7">
+                    <input type="checkbox" id="task-5-7">
+                    <label for="task-5-7">
+                        <span class="task-title">🎉 Celebrate new home!</span>
+                        <span class="task-detail">Giterdone has a dedicated machine!</span>
+                    </label>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <button id="resetBtn" class="btn-reset">Reset All</button>
+            <p class="footer-text">Built by Giterdone 😉</p>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
