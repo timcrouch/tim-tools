@@ -18,6 +18,14 @@ const liveApps: App[] = [
     path: '/apps/ai-survey/',
     status: 'live',
   },
+  {
+    id: 'clawdbot-migration',
+    name: 'Clawdbot Migration Checklist',
+    description: 'Step-by-step guide for moving Clawdbot to a new Mac Mini. Progress saved locally.',
+    icon: '🚚',
+    path: '/apps/clawdbot-migration/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline
