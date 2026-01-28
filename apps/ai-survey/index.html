@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Course Pre-Assessment | Tim's Tools</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    
+    <div id="app">
+      <!-- Admin Panel (hidden by default) -->
+      <div id="admin-panel" class="admin-panel hidden">
+        <div class="admin-header">
+          <h2>📊 Survey Responses</h2>
+          <div class="admin-actions">
+            <button id="export-json" class="btn btn-secondary">Export JSON</button>
+            <button id="export-csv" class="btn btn-secondary">Export CSV</button>
+            <button id="close-admin" class="btn btn-ghost">← Back to Survey</button>
+          </div>
+        </div>
+        <div id="responses-container" class="responses-container">
+          <!-- Responses will be rendered here -->
+        </div>
+      </div>
+
+      <!-- Survey Container -->
+      <div id="survey-container">
+        <header>
+          <a href="/" class="back-link">← Tim's Tools</a>
+          <div class="logo">🤖</div>
+          <h1>AI Course Pre-Assessment</h1>
+          <p class="tagline">Help us tailor the course to your needs. This takes about 5 minutes.</p>
+        </header>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">Step 1 of 5</span>
+        </div>
+
+        <!-- Survey Form -->
+        <form id="survey-form">
+          <!-- Step 1: Personal Info -->
+          <div class="form-step active" data-step="1">
+            <h2 class="step-title">👋 Let's Start With You</h2>
+            
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required placeholder="Ada Lovelace">
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required placeholder="ada@example.com">
+            </div>
+            
+            <div class="form-group">
+              <label for="role">Current Role / Title *</label>
+              <input type="text" id="role" name="role" required placeholder="Software Engineer, Product Manager, etc.">
+            </div>
+            
+            <div class="form-group">
+              <label for="company">Company / Organization</label>
+              <input type="text" id="company" name="company" placeholder="Optional">
+            </div>
+          </div>
+
+          <!-- Step 2: AI Experience Level -->
+          <div class="form-step" data-step="2">
+            <h2 class="step-title">📊 Your AI Experience</h2>
+            
+            <div class="form-group">
+              <label>How would you describe your overall experience with AI tools? *</label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="ai_experience" value="none" required>
+                  <span class="radio-label">🌱 Complete beginner — I've heard of AI but haven't really used it</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="ai_experience" value="curious">
+                  <span class="radio-label">🔍 Curious explorer — I've tried ChatGPT or similar a few times</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="ai_experience" value="regular">
+                  <span class="radio-label">⚡ Regular user — I use AI tools weekly in my work</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="ai_experience" value="power">
+                  <span class="radio-label">🚀 Power user — AI is integrated into my daily workflow</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="ai_experience" value="builder">
+                  <span class="radio-label">🔧 Builder — I develop AI-powered applications or fine-tune models</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>How comfortable are you with prompt engineering? *</label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="prompt_skill" value="1" required>
+                  <span class="radio-label">1 — What's a prompt?</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="prompt_skill" value="2">
+                  <span class="radio-label">2 — I can ask basic questions</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="prompt_skill" value="3">
+                  <span class="radio-label">3 — I get decent results with some iteration</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="prompt_skill" value="4">
+                  <span class="radio-label">4 — I use system prompts and structured techniques</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="prompt_skill" value="5">
+                  <span class="radio-label">5 — I can architect complex prompt chains and agents</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Tools & Technologies -->
+          <div class="form-step" data-step="3">
+            <h2 class="step-title">🛠️ Tools & Technologies</h2>
+            
+            <div class="form-group">
+              <label>Which AI tools have you used? (Select all that apply)</label>
+              <div class="checkbox-group">
+                <label class="checkbox-option">
+                  <input type="checkbox" name="tools_used" value="chatgpt">
+                  <span class="checkbox-label">ChatGPT</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="tools_used" value="claude">
+                  <span class="checkbox-label">Claude</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="tools_used" value="gemini">
+                  <span class="checkbox-label">Google Gemini</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="tools_used" value="copilot">
+                  <span class="checkbox-label">GitHub Copilot</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="tools_used" value="cursor">
+                  <span class="checkbox-label">Cursor IDE</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="tools_used" value="midjourney">
+                  <span class="checkbox-label">Midjourney / DALL-E</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="tools_used" value="perplexity">
+                  <span class="checkbox-label">Perplexity AI</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="tools_used" value="local_llm">
+                  <span class="checkbox-label">Local LLMs (Ollama, LM Studio)</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="tools_used" value="api">
+                  <span class="checkbox-label">AI APIs (OpenAI, Anthropic, etc.)</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="tools_used" value="none">
+                  <span class="checkbox-label">None of the above</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="other_tools">Any other AI tools you use regularly?</label>
+              <input type="text" id="other_tools" name="other_tools" placeholder="e.g., Notion AI, Grammarly, custom tools...">
+            </div>
+
+            <div class="form-group">
+              <label>What's your programming experience level? *</label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="coding_level" value="none" required>
+                  <span class="radio-label">No programming experience</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="coding_level" value="basic">
+                  <span class="radio-label">Basic (can read/modify simple scripts)</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="coding_level" value="intermediate">
+                  <span class="radio-label">Intermediate (comfortable with at least one language)</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="coding_level" value="advanced">
+                  <span class="radio-label">Advanced (professional developer)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Goals & Interests -->
+          <div class="form-step" data-step="4">
+            <h2 class="step-title">🎯 Your Goals</h2>
+            
+            <div class="form-group">
+              <label>What do you most want to learn from this course? (Select top 3)</label>
+              <div class="checkbox-group">
+                <label class="checkbox-option">
+                  <input type="checkbox" name="goals" value="prompting" class="max-3">
+                  <span class="checkbox-label">Better prompt engineering techniques</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="goals" value="productivity" class="max-3">
+                  <span class="checkbox-label">AI for personal productivity</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="goals" value="coding" class="max-3">
+                  <span class="checkbox-label">AI-assisted coding and development</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="goals" value="business" class="max-3">
+                  <span class="checkbox-label">AI applications for business/work</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="goals" value="automation" class="max-3">
+                  <span class="checkbox-label">Building automations and agents</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="goals" value="integration" class="max-3">
+                  <span class="checkbox-label">Integrating AI into existing workflows</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="goals" value="understanding" class="max-3">
+                  <span class="checkbox-label">Understanding how AI works under the hood</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="goals" value="ethics" class="max-3">
+                  <span class="checkbox-label">AI ethics, risks, and best practices</span>
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="goals" value="latest" class="max-3">
+                  <span class="checkbox-label">Staying current with the latest AI developments</span>
+                </label>
+              </div>
+              <span class="helper-text">Select up to 3</span>
+            </div>
+
+            <div class="form-group">
+              <label for="specific_goals">What specific outcome would make this course valuable for you? *</label>
+              <textarea id="specific_goals" name="specific_goals" required rows="3" placeholder="e.g., 'I want to automate 50% of my report writing' or 'I want to build an AI-powered tool for my team'"></textarea>
+            </div>
+          </div>
+
+          <!-- Step 5: Additional Info -->
+          <div class="form-step" data-step="5">
+            <h2 class="step-title">💭 Almost Done!</h2>
+            
+            <div class="form-group">
+              <label for="challenges">What's your biggest challenge or frustration with AI tools currently?</label>
+              <textarea id="challenges" name="challenges" rows="3" placeholder="Be honest — this helps us address real pain points!"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="questions">Any specific questions you'd like addressed in the course?</label>
+              <textarea id="questions" name="questions" rows="3" placeholder="What have you always wondered about AI?"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>How did you hear about this course?</label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="referral" value="colleague">
+                  <span class="radio-label">Colleague / Word of mouth</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="referral" value="company">
+                  <span class="radio-label">Company / Organization</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="referral" value="social">
+                  <span class="radio-label">Social media</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="referral" value="search">
+                  <span class="radio-label">Search / Online</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="referral" value="other">
+                  <span class="radio-label">Other</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Buttons -->
+          <div class="form-navigation">
+            <button type="button" id="prev-btn" class="btn btn-secondary" disabled>← Previous</button>
+            <button type="button" id="next-btn" class="btn btn-primary">Next →</button>
+            <button type="submit" id="submit-btn" class="btn btn-primary hidden">Submit Survey 🚀</button>
+          </div>
+        </form>
+
+        <!-- Success Message -->
+        <div id="success-message" class="success-message hidden">
+          <div class="success-icon">🎉</div>
+          <h2>Thank You!</h2>
+          <p>Your responses have been recorded. We'll use this information to make the course as relevant as possible for you.</p>
+          <p class="success-note">See you at the course!</p>
+          <a href="/" class="btn btn-primary">Back to Tim's Tools</a>
+        </div>
+      </div>
+
+      <!-- Admin Toggle (subtle) -->
+      <button id="admin-toggle" class="admin-toggle" title="Admin Panel">⚙️</button>
+    </div>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

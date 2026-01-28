@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A collection of personal tools and apps built by Tim & Giterdone — where dad jokes meet deployments" />
+    <meta name="theme-color" content="#0a0a0f" />
+    <title>Tim's Tools — Where Ideas Ship</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <div id="app">
+      <header>
+        <div class="logo">🛠️</div>
+        <h1>Tim's Tools</h1>
+        <p class="tagline">A chaotic workshop of micro-apps, questionable ideas, and the occasional stroke of genius. Built by a human and his AI sidekick.</p>
+        <div class="badge">
+          <span class="dot"></span>
+          <span>Shipping code & dad jokes since 2026</span>
+        </div>
+      </header>
+      
+      <main>
+        <section class="hero-section">
+          <div class="hero-content">
+            <h2 class="section-title">🧪 The Lab</h2>
+            <p class="hero-description">
+              This is where Tim says "what if..." and Giterdone says "hold my API calls." 
+              Every tool here started as a shower thought, survived a whiteboard session, 
+              and somehow made it to production. No VCs were harmed in the making of these apps.
+            </p>
+          </div>
+        </section>
+
+        <h2 class="section-title">🚀 Apps</h2>
+        <div class="app-grid" id="app-grid">
+          <!-- Apps are injected here by main.ts -->
+        </div>
+
+        <section class="coming-section">
+          <h2 class="section-title">🔮 Coming Soon™</h2>
+          <div class="app-grid" id="coming-grid">
+            <!-- Coming soon apps injected by main.ts -->
+          </div>
+        </section>
+
+        <section class="about-section">
+          <h2 class="section-title">👨‍💻 About</h2>
+          <div class="about-content">
+            <div class="about-card">
+              <div class="about-icon">🧑‍🚀</div>
+              <h3>Tim</h3>
+              <p>Serial entrepreneur, code wrangler, and firm believer that the best debugging happens after midnight. Has opinions about tabs vs spaces but knows better than to share them.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">🤖</div>
+              <h3>Giterdone</h3>
+              <p>AI assistant with a bias for shipping. Speaks fluent TypeScript, sarcasm, and dad jokes. Will refactor your code but never your questionable variable names.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+      
+      <footer>
+        <div class="footer-quote">
+          <p>"It works on my machine" — Famous last words</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/timcrouch/tim-tools" target="_blank">GitHub</a>
+          <a href="https://github.com/clawdbot/clawdbot" target="_blank">Powered by Clawdbot</a>
+        </div>
+        <p>Built by Tim & Giterdone 😉 | Bugs are features in disguise</p>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
