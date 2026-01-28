@@ -113,15 +113,19 @@ function renderAppCard(app: App, isComingSoon = false): string {
   const cardClass = isComingSoon ? 'app-card coming-soon' : 'app-card';
   const badge = isComingSoon ? '<span class="status-badge">Coming Soon</span>' : '';
   
-  return `
-    <div class="${cardClass}">
-      <div class="app-icon">${app.icon}</div>
-      ${badge}
-      <h2>${app.name}</h2>
-      <p>${app.description}</p>
-      ${!isComingSoon ? '<span class="arrow">→</span>' : ''}
-    </div>
+  const cardContent = `
+    <div class="app-icon">${app.icon}</div>
+    ${badge}
+    <h2>${app.name}</h2>
+    <p>${app.description}</p>
+    ${!isComingSoon ? '<span class="arrow">→</span>' : ''}
   `;
+  
+  // Wrap live apps in a link, coming soon stays as div
+  if (!isComingSoon) {
+    return `<a href="${app.path}" class="${cardClass}">${cardContent}</a>`;
+  }
+  return `<div class="${cardClass}">${cardContent}</div>`;
 }
 
 // Initialize
