@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Comparison Guide | AI Mastery Course</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .model-card {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .model-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .model-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    .model-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .strength { color: var(--success); }
+    .weakness { color: var(--danger); }
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .task-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .task-card h4 {
+      margin: 0 0 1rem;
+    }
+    .recommendation {
+      background: var(--gray-100);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    .recommendation strong {
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        🤖 <span>AI Mastery</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../days/day-1.html">Day 1</a></li>
+        <li><a href="../days/day-2.html">Day 2</a></li>
+        <li><a href="../days/day-3.html">Day 3</a></li>
+        <li><a href="../days/day-4.html">Day 4</a></li>
+        <li><a href="index.html" class="active">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" style="padding: 4rem 0; background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);">
+    <div class="container">
+      <h1>LLM Comparison Guide</h1>
+      <p class="hero-subtitle">
+        Which model for which task? A practical guide to the AI landscape.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div class="container" style="padding: 3rem 2rem;">
+    
+    <!-- Quick Decision Matrix -->
+    <section>
+      <h2>Quick Decision Matrix</h2>
+      <p class="text-muted">TL;DR — Which model to use for what</p>
+      
+      <table class="comparison-table" style="margin-top: 2rem;">
+        <thead>
+          <tr>
+            <th>Task</th>
+            <th>Best Choice</th>
+            <th>Runner-up</th>
+            <th>Why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Complex Coding</strong></td>
+            <td class="rating-excellent">Claude Sonnet</td>
+            <td>GPT-4o</td>
+            <td>Better code quality, longer context</td>
+          </tr>
+          <tr>
+            <td><strong>Quick Code Completion</strong></td>
+            <td class="rating-excellent">Copilot</td>
+            <td>GPT-4o-mini</td>
+            <td>Speed, integration, cost</td>
+          </tr>
+          <tr>
+            <td><strong>Long Document Analysis</strong></td>
+            <td class="rating-excellent">Gemini 1.5 Pro</td>
+            <td>Claude Sonnet</td>
+            <td>1M token context window</td>
+          </tr>
+          <tr>
+            <td><strong>Professional Writing</strong></td>
+            <td class="rating-excellent">Claude Sonnet</td>
+            <td>GPT-4o</td>
+            <td>More natural, less "AI" tone</td>
+          </tr>
+          <tr>
+            <td><strong>Creative Writing</strong></td>
+            <td class="rating-excellent">Claude Opus</td>
+            <td>GPT-4o</td>
+            <td>Best creative quality</td>
+          </tr>
+          <tr>
+            <td><strong>Math & Reasoning</strong></td>
+            <td class="rating-excellent">o1 / o1-mini</td>
+            <td>Claude Sonnet</td>
+            <td>Dedicated reasoning model</td>
+          </tr>
+          <tr>
+            <td><strong>Image Understanding</strong></td>
+            <td class="rating-excellent">GPT-4o</td>
+            <td>Gemini 1.5 Pro</td>
+            <td>Best multimodal integration</td>
+          </tr>
+          <tr>
+            <td><strong>Video Analysis</strong></td>
+            <td class="rating-excellent">Gemini 1.5 Pro</td>
+            <td>—</td>
+            <td>Only option with native video</td>
+          </tr>
+          <tr>
+            <td><strong>High Volume / Budget</strong></td>
+            <td class="rating-excellent">GPT-4o-mini</td>
+            <td>Claude Haiku</td>
+            <td>Best cost/quality ratio</td>
+          </tr>
+          <tr>
+            <td><strong>Privacy-Sensitive</strong></td>
+            <td class="rating-excellent">Llama 3.1 (local)</td>
+            <td>Mixtral (local)</td>
+            <td>Self-hosted, data stays local</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Detailed Model Profiles -->
+    <section style="margin-top: 4rem;">
+      <h2>Model Profiles</h2>
+      
+      <div style="display: grid; gap: 2rem; margin-top: 2rem;">
+        
+        <!-- GPT-4o -->
+        <div class="model-card">
+          <div class="model-header">
+            <div class="model-logo" style="background: #10a37f; color: white;">◯</div>
+            <div>
+              <h3 style="margin: 0;">GPT-4o</h3>
+              <p class="text-muted" style="margin: 0; font-size: 0.9rem;">OpenAI • Flagship Model</p>
+            </div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+            <div>
+              <h4 style="color: var(--success); font-size: 0.875rem; margin-bottom: 0.5rem;">STRENGTHS</h4>
+              <ul style="margin: 0 0 0 1rem; font-size: 0.9rem;">
+                <li>Best-in-class multimodal (images, audio)</li>
+                <li>Strong structured output (JSON mode)</li>
+                <li>Excellent function calling</li>
+                <li>Fast response times</li>
+                <li>Great ecosystem (GPTs, Assistants API)</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color: var(--danger); font-size: 0.875rem; margin-bottom: 0.5rem;">WEAKNESSES</h4>
+              <ul style="margin: 0 0 0 1rem; font-size: 0.9rem;">
+                <li>More expensive than alternatives</li>
+                <li>Sometimes verbose/"AI-sounding"</li>
+                <li>128K context (smaller than competitors)</li>
+                <li>Can be overly cautious/preachy</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="model-meta">
+            <span class="badge badge-primary">128K context</span>
+            <span class="badge badge-success">$5/$15 per 1M</span>
+            <span class="badge badge-purple">Images + Audio</span>
+          </div>
+        </div>
+
+        <!-- Claude 3.5 Sonnet -->
+        <div class="model-card">
+          <div class="model-header">
+            <div class="model-logo" style="background: #d97706; color: white;">⬡</div>
+            <div>
+              <h3 style="margin: 0;">Claude 3.5 Sonnet</h3>
+              <p class="text-muted" style="margin: 0; font-size: 0.9rem;">Anthropic • Best All-Rounder</p>
+            </div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+            <div>
+              <h4 style="color: var(--success); font-size: 0.875rem; margin-bottom: 0.5rem;">STRENGTHS</h4>
+              <ul style="margin: 0 0 0 1rem; font-size: 0.9rem;">
+                <li>Excellent coding (arguably best)</li>
+                <li>Natural, human-like writing</li>
+                <li>200K context window</li>
+                <li>Great instruction following</li>
+                <li>Artifacts feature for code/docs</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color: var(--danger); font-size: 0.875rem; margin-bottom: 0.5rem;">WEAKNESSES</h4>
+              <ul style="margin: 0 0 0 1rem; font-size: 0.9rem;">
+                <li>No audio support</li>
+                <li>Limited ecosystem vs OpenAI</li>
+                <li>Can be overly apologetic</li>
+                <li>Occasional refusals on edge cases</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="model-meta">
+            <span class="badge badge-primary">200K context</span>
+            <span class="badge badge-success">$3/$15 per 1M</span>
+            <span class="badge badge-purple">Images only</span>
+          </div>
+        </div>
+
+        <!-- Gemini 1.5 Pro -->
+        <div class="model-card">
+          <div class="model-header">
+            <div class="model-logo" style="background: #4285f4; color: white;">✦</div>
+            <div>
+              <h3 style="margin: 0;">Gemini 1.5 Pro</h3>
+              <p class="text-muted" style="margin: 0; font-size: 0.9rem;">Google • Context King</p>
+            </div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+            <div>
+              <h4 style="color: var(--success); font-size: 0.875rem; margin-bottom: 0.5rem;">STRENGTHS</h4>
+              <ul style="margin: 0 0 0 1rem; font-size: 0.9rem;">
+                <li>1M token context (massive)</li>
+                <li>Native video understanding</li>
+                <li>Google Workspace integration</li>
+                <li>Competitive pricing</li>
+                <li>Strong multimodal</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color: var(--danger); font-size: 0.875rem; margin-bottom: 0.5rem;">WEAKNESSES</h4>
+              <ul style="margin: 0 0 0 1rem; font-size: 0.9rem;">
+                <li>Coding slightly behind GPT/Claude</li>
+                <li>Can be less consistent</li>
+                <li>UI experience varies</li>
+                <li>Less ecosystem maturity</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="model-meta">
+            <span class="badge badge-primary">1M context</span>
+            <span class="badge badge-success">$3.50/$10.50 per 1M</span>
+            <span class="badge badge-purple">Images + Video + Audio</span>
+          </div>
+        </div>
+
+        <!-- o1 -->
+        <div class="model-card">
+          <div class="model-header">
+            <div class="model-logo" style="background: #1a1a2e; color: white;">◎</div>
+            <div>
+              <h3 style="margin: 0;">o1 / o1-mini</h3>
+              <p class="text-muted" style="margin: 0; font-size: 0.9rem;">OpenAI • Reasoning Specialist</p>
+            </div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+            <div>
+              <h4 style="color: var(--success); font-size: 0.875rem; margin-bottom: 0.5rem;">STRENGTHS</h4>
+              <ul style="margin: 0 0 0 1rem; font-size: 0.9rem;">
+                <li>Best at complex reasoning</li>
+                <li>Excellent for math/science</li>
+                <li>Self-corrects more effectively</li>
+                <li>PhD-level accuracy on hard problems</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="color: var(--danger); font-size: 0.875rem; margin-bottom: 0.5rem;">WEAKNESSES</h4>
+              <ul style="margin: 0 0 0 1rem; font-size: 0.9rem;">
+                <li>Slow (thinks before responding)</li>
+                <li>Expensive</li>
+                <li>Overkill for simple tasks</li>
+                <li>No streaming support</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="model-meta">
+            <span class="badge badge-primary">128K context</span>
+            <span class="badge badge-warning">$15/$60 per 1M (o1)</span>
+            <span class="badge badge-purple">Text only</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Task-Based Recommendations -->
+    <section style="margin-top: 4rem;">
+      <h2>Task-Based Recommendations</h2>
+      
+      <div class="task-grid" style="margin-top: 2rem;">
+        
+        <div class="task-card">
+          <h4>💻 Software Development</h4>
+          <p class="text-muted" style="font-size: 0.9rem;">Writing, debugging, refactoring code</p>
+          <div class="recommendation">
+            <strong>Claude Sonnet</strong> for complex tasks<br>
+            <strong>Copilot/GPT-4o-mini</strong> for quick completions
+          </div>
+        </div>
+
+        <div class="task-card">
+          <h4>📝 Technical Writing</h4>
+          <p class="text-muted" style="font-size: 0.9rem;">Documentation, specs, READMEs</p>
+          <div class="recommendation">
+            <strong>Claude Sonnet</strong> — best at following format instructions and producing clean docs
+          </div>
+        </div>
+
+        <div class="task-card">
+          <h4>📊 Data Analysis</h4>
+          <p class="text-muted" style="font-size: 0.9rem;">Spreadsheets, statistics, insights</p>
+          <div class="recommendation">
+            <strong>GPT-4o + Code Interpreter</strong> — can run Python, create charts, analyze files
+          </div>
+        </div>
+
+        <div class="task-card">
+          <h4>🔬 Research & Synthesis</h4>
+          <p class="text-muted" style="font-size: 0.9rem;">Literature review, summarization</p>
+          <div class="recommendation">
+            <strong>Gemini 1.5 Pro</strong> for long docs<br>
+            <strong>Claude Sonnet</strong> for synthesis
+          </div>
+        </div>
+
+        <div class="task-card">
+          <h4>✉️ Professional Communication</h4>
+          <p class="text-muted" style="font-size: 0.9rem;">Emails, proposals, presentations</p>
+          <div class="recommendation">
+            <strong>Claude Sonnet</strong> — most natural tone, least "AI-sounding"
+          </div>
+        </div>
+
+        <div class="task-card">
+          <h4>🎨 Creative Writing</h4>
+          <p class="text-muted" style="font-size: 0.9rem;">Stories, scripts, creative content</p>
+          <div class="recommendation">
+            <strong>Claude Opus</strong> for quality<br>
+            <strong>GPT-4o</strong> as alternative
+          </div>
+        </div>
+
+        <div class="task-card">
+          <h4>🧮 Math & Science</h4>
+          <p class="text-muted" style="font-size: 0.9rem;">Calculations, proofs, scientific analysis</p>
+          <div class="recommendation">
+            <strong>o1 or o1-mini</strong> — specifically designed for step-by-step reasoning
+          </div>
+        </div>
+
+        <div class="task-card">
+          <h4>🖼️ Image Understanding</h4>
+          <p class="text-muted" style="font-size: 0.9rem;">Analyze screenshots, diagrams, photos</p>
+          <div class="recommendation">
+            <strong>GPT-4o</strong> — best vision capabilities overall
+          </div>
+        </div>
+
+        <div class="task-card">
+          <h4>🎬 Video Analysis</h4>
+          <p class="text-muted" style="font-size: 0.9rem;">Understand video content</p>
+          <div class="recommendation">
+            <strong>Gemini 1.5 Pro</strong> — only model with native video support
+          </div>
+        </div>
+
+        <div class="task-card">
+          <h4>⚡ High-Volume Tasks</h4>
+          <p class="text-muted" style="font-size: 0.9rem;">Batch processing, classification</p>
+          <div class="recommendation">
+            <strong>GPT-4o-mini</strong> or <strong>Haiku</strong> — best cost/performance for simple tasks
+          </div>
+        </div>
+
+        <div class="task-card">
+          <h4>🔒 Privacy-Critical</h4>
+          <p class="text-muted" style="font-size: 0.9rem;">Sensitive data, compliance needs</p>
+          <div class="recommendation">
+            <strong>Llama 3.1 405B</strong> locally<br>
+            Or cloud with BAA/DPA agreements
+          </div>
+        </div>
+
+        <div class="task-card">
+          <h4>🤖 Building Agents</h4>
+          <p class="text-muted" style="font-size: 0.9rem;">Autonomous AI systems</p>
+          <div class="recommendation">
+            <strong>Claude Sonnet</strong> + tool use<br>
+            <strong>GPT-4o</strong> with Assistants API
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Comparison -->
+    <section style="margin-top: 4rem;">
+      <h2>Pricing Comparison (API)</h2>
+      <p class="text-muted">Per 1 million tokens. Prices change — verify with provider.</p>
+      
+      <table class="comparison-table" style="margin-top: 2rem;">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Input</th>
+            <th>Output</th>
+            <th>Context</th>
+            <th>Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background: #f0fdf4;">
+            <td><strong>GPT-4o-mini</strong></td>
+            <td>$0.15</td>
+            <td>$0.60</td>
+            <td>128K</td>
+            <td>Budget, high volume</td>
+          </tr>
+          <tr style="background: #f0fdf4;">
+            <td><strong>Claude Haiku</strong></td>
+            <td>$0.25</td>
+            <td>$1.25</td>
+            <td>200K</td>
+            <td>Fast, simple tasks</td>
+          </tr>
+          <tr>
+            <td><strong>Claude Sonnet 3.5</strong></td>
+            <td>$3.00</td>
+            <td>$15.00</td>
+            <td>200K</td>
+            <td>Best all-rounder</td>
+          </tr>
+          <tr>
+            <td><strong>Gemini 1.5 Pro</strong></td>
+            <td>$3.50</td>
+            <td>$10.50</td>
+            <td>1M</td>
+            <td>Long context</td>
+          </tr>
+          <tr>
+            <td><strong>GPT-4o</strong></td>
+            <td>$5.00</td>
+            <td>$15.00</td>
+            <td>128K</td>
+            <td>Multimodal, ecosystem</td>
+          </tr>
+          <tr style="background: #fef2f2;">
+            <td><strong>o1-mini</strong></td>
+            <td>$3.00</td>
+            <td>$12.00</td>
+            <td>128K</td>
+            <td>Reasoning (budget)</td>
+          </tr>
+          <tr style="background: #fef2f2;">
+            <td><strong>Claude Opus</strong></td>
+            <td>$15.00</td>
+            <td>$75.00</td>
+            <td>200K</td>
+            <td>Highest quality</td>
+          </tr>
+          <tr style="background: #fef2f2;">
+            <td><strong>o1</strong></td>
+            <td>$15.00</td>
+            <td>$60.00</td>
+            <td>128K</td>
+            <td>Complex reasoning</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="card" style="margin-top: 2rem; border-left: 4px solid var(--warning);">
+        <h4 style="color: var(--warning);">💡 Cost Optimization Tip</h4>
+        <p style="margin: 0;">Use <strong>model cascading</strong>: Start with cheap models (mini/Haiku), escalate to better models only when needed. 80% of requests can often be handled by the cheapest tier.</p>
+      </div>
+    </section>
+
+    <!-- Open Source Section -->
+    <section style="margin-top: 4rem;">
+      <h2>Open Source Alternatives</h2>
+      <p class="text-muted">When to self-host vs use APIs</p>
+      
+      <div class="features-grid" style="margin-top: 2rem;">
+        <div class="card">
+          <h3>Llama 3.1 (Meta)</h3>
+          <p>Sizes: 8B, 70B, 405B parameters</p>
+          <ul style="margin: 1rem 0 0 1.5rem; font-size: 0.9rem;">
+            <li>405B rivals GPT-4 quality</li>
+            <li>Truly open (commercial use OK)</li>
+            <li>Great for self-hosting</li>
+            <li>Strong multilingual support</li>
+          </ul>
+          <p style="margin-top: 1rem;"><strong>Use:</strong> <a href="https://ollama.ai">Ollama</a>, <a href="https://together.ai">Together.ai</a>, <a href="https://groq.com">Groq</a></p>
+        </div>
+
+        <div class="card">
+          <h3>Mixtral (Mistral AI)</h3>
+          <p>MoE architecture • 8x7B, 8x22B</p>
+          <ul style="margin: 1rem 0 0 1.5rem; font-size: 0.9rem;">
+            <li>Very efficient (MoE)</li>
+            <li>Fast inference</li>
+            <li>Good code capabilities</li>
+            <li>European company (GDPR)</li>
+          </ul>
+          <p style="margin-top: 1rem;"><strong>Use:</strong> Mistral API, Ollama, Replicate</p>
+        </div>
+
+        <div class="card">
+          <h3>Qwen 2.5 (Alibaba)</h3>
+          <p>Sizes: 0.5B to 72B</p>
+          <ul style="margin: 1rem 0 0 1.5rem; font-size: 0.9rem;">
+            <li>Excellent multilingual</li>
+            <li>Strong on Asian languages</li>
+            <li>Competitive quality</li>
+            <li>Various specialized versions</li>
+          </ul>
+          <p style="margin-top: 1rem;"><strong>Use:</strong> Ollama, Hugging Face</p>
+        </div>
+
+        <div class="card">
+          <h3>DeepSeek Coder</h3>
+          <p>Code-specialized • 1.3B to 33B</p>
+          <ul style="margin: 1rem 0 0 1.5rem; font-size: 0.9rem;">
+            <li>Optimized for code</li>
+            <li>Strong on completions</li>
+            <li>Efficient for IDE use</li>
+            <li>Good cost/performance</li>
+          </ul>
+          <p style="margin-top: 1rem;"><strong>Use:</strong> Ollama, Continue.dev</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 2rem;">
+        <h4>When to Self-Host?</h4>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+          <div>
+            <h5 style="color: var(--success);">✓ Self-Host When</h5>
+            <ul style="margin: 0.5rem 0 0 1rem; font-size: 0.9rem;">
+              <li>Data can't leave your network</li>
+              <li>High volume (cost savings)</li>
+              <li>Need custom fine-tuning</li>
+              <li>Latency-critical (edge deployment)</li>
+              <li>Offline operation required</li>
+            </ul>
+          </div>
+          <div>
+            <h5 style="color: var(--danger);">✗ Use APIs When</h5>
+            <ul style="margin: 0.5rem 0 0 1rem; font-size: 0.9rem;">
+              <li>Need best-in-class quality</li>
+              <li>Low volume / sporadic use</li>
+              <li>Don't want infra overhead</li>
+              <li>Need latest models immediately</li>
+              <li>Multimodal capabilities needed</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Resources -->
+    <div style="margin-top: 4rem; text-align: center;">
+      <a href="index.html" class="btn btn-outline">← Back to Resources</a>
+      <a href="tools-landscape.html" class="btn btn-secondary" style="margin-left: 1rem;">Tools Landscape →</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>AI Mastery Course • <a href="https://globalsoftware.ai">Global Software AI</a></p>
+    </div>
+  </footer>
+</body>
+</html>

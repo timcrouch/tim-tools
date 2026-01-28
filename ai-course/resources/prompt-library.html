@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Library | AI Mastery Course</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .prompt-card {
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    .prompt-header {
+      padding: 1rem 1.5rem;
+      background: var(--gray-100);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .prompt-header h4 {
+      margin: 0;
+    }
+    .prompt-body {
+      padding: 1.5rem;
+    }
+    .prompt-text {
+      background: var(--dark);
+      color: #e2e8f0;
+      padding: 1.5rem;
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      margin: 1rem 0;
+    }
+    .copy-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .copy-btn:hover {
+      background: var(--primary-dark);
+    }
+    .category-section {
+      margin-top: 3rem;
+    }
+    .category-section:first-of-type {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        🤖 <span>AI Mastery</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../days/day-1.html">Day 1</a></li>
+        <li><a href="../days/day-2.html">Day 2</a></li>
+        <li><a href="../days/day-3.html">Day 3</a></li>
+        <li><a href="../days/day-4.html">Day 4</a></li>
+        <li><a href="index.html" class="active">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" style="padding: 4rem 0; background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);">
+    <div class="container">
+      <h1>Prompt Library</h1>
+      <p class="hero-subtitle">
+        Copy-paste ready prompts for common tasks. Customize the [PLACEHOLDERS].
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div class="container" style="padding: 3rem 2rem;">
+    
+    <!-- Coding Prompts -->
+    <section class="category-section">
+      <h2>💻 Coding</h2>
+      
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>Code Review</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Get a thorough code review with actionable feedback.</p>
+          <div class="prompt-text">Review this code for:
+1. Security vulnerabilities (injection, auth, data exposure)
+2. Performance issues (N+1 queries, memory leaks, unnecessary computation)
+3. Best practices violations
+4. Error handling gaps
+5. Test coverage gaps
+
+For each issue found, provide:
+- Severity (critical/high/medium/low)
+- Location (file and line if applicable)
+- Description of the problem
+- Suggested fix with code example
+
+Code to review:
+[PASTE YOUR CODE HERE]
+
+Context: [LANGUAGE/FRAMEWORK, e.g., "Node.js Express API"]</div>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>Debug This Error</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Get help debugging with context.</p>
+          <div class="prompt-text">I'm getting this error:
+
+```
+[PASTE ERROR MESSAGE]
+```
+
+In this code:
+
+```[LANGUAGE]
+[PASTE RELEVANT CODE]
+```
+
+What I was trying to do: [DESCRIBE INTENT]
+What I've already tried: [LIST ATTEMPTED FIXES]
+
+Please:
+1. Explain what's causing this error
+2. Show me the fix
+3. Explain why the fix works</div>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>Write Tests</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Generate comprehensive test suite for your code.</p>
+          <div class="prompt-text">Write comprehensive tests for this code:
+
+```[LANGUAGE]
+[PASTE CODE]
+```
+
+Use [TESTING FRAMEWORK, e.g., "Jest", "Pytest", "Vitest"].
+
+Include:
+- Happy path tests
+- Edge cases (empty inputs, nulls, boundaries)
+- Error cases (invalid inputs, failures)
+- Mocking for external dependencies
+
+Follow AAA pattern (Arrange, Act, Assert).
+Include descriptive test names that explain the expected behavior.</div>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>Refactor Code</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Improve code quality while maintaining behavior.</p>
+          <div class="prompt-text">Refactor this code to improve:
+- Readability
+- Maintainability  
+- Performance (where applicable)
+- Following [LANGUAGE] best practices
+
+Constraints:
+- Maintain the same external interface/API
+- Keep existing functionality intact
+- Add comments for complex logic
+
+```[LANGUAGE]
+[PASTE CODE]
+```
+
+Show me the refactored code and explain the key changes made.</div>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>Explain Code</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Get a clear explanation of how code works.</p>
+          <div class="prompt-text">Explain this code to me as if I'm a [LEVEL: "junior developer" / "senior developer new to this codebase" / "non-technical stakeholder"]:
+
+```[LANGUAGE]
+[PASTE CODE]
+```
+
+Include:
+1. High-level summary (what does it do?)
+2. Step-by-step walkthrough
+3. Any potential issues or gotchas
+4. How it could be improved (optional)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documentation Prompts -->
+    <section class="category-section">
+      <h2>📚 Documentation</h2>
+      
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>README Generator</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Generate a professional README for your project.</p>
+          <div class="prompt-text">Generate a comprehensive README.md for this project.
+
+Project info:
+- Name: [PROJECT NAME]
+- Description: [ONE SENTENCE DESCRIPTION]
+- Main language/framework: [TECH STACK]
+- Package.json or equivalent: [PASTE IF AVAILABLE]
+
+Include these sections:
+1. Title with badges (build status placeholder, version, license)
+2. One-paragraph description
+3. Features (bullet points, 5-8 items)
+4. Quick Start (install + run in 3 commands max)
+5. Configuration (environment variables, config files)
+6. Usage examples (2-3 common use cases with code)
+7. API reference (if applicable)
+8. Contributing guidelines
+9. License
+
+Tone: Professional but approachable. Assume reader found this via search.</div>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>API Documentation</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Generate API docs from your route definitions.</p>
+          <div class="prompt-text">Generate OpenAPI 3.0 specification for these API routes:
+
+```[LANGUAGE]
+[PASTE ROUTE DEFINITIONS]
+```
+
+For each endpoint include:
+- HTTP method and path
+- Summary and description
+- Request parameters (path, query, body)
+- Request body schema with examples
+- All response schemas (200, 400, 401, 404, 500)
+- Example request/response pairs
+
+Output as valid YAML.
+Use realistic example values, not "string" or "example".</div>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>Architecture Decision Record (ADR)</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Document architectural decisions properly.</p>
+          <div class="prompt-text">Write an Architecture Decision Record for this decision:
+
+Context: [DESCRIBE THE SITUATION/PROBLEM]
+Decision: [WHAT WE DECIDED]
+Alternatives considered: [OTHER OPTIONS WE REJECTED]
+
+Use this format:
+
+# ADR-[NUMBER]: [TITLE]
+
+## Status
+[Proposed/Accepted/Deprecated/Superseded]
+
+## Context
+[Detailed description of the situation requiring a decision]
+
+## Decision
+[The decision we're making and why]
+
+## Alternatives Considered
+[Each alternative with pros/cons]
+
+## Consequences
+### Positive
+[Good outcomes]
+
+### Negative
+[Tradeoffs and downsides]
+
+### Risks
+[Potential issues to monitor]
+
+## Related Decisions
+[Links to related ADRs if any]</div>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>JSDoc/Docstrings</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Add documentation comments to code.</p>
+          <div class="prompt-text">Add comprehensive documentation comments to this code.
+
+Use [FORMAT: "JSDoc" / "Python docstrings" / "XML docs" / etc.]
+
+```[LANGUAGE]
+[PASTE CODE]
+```
+
+For each function/method include:
+- Brief description of purpose
+- @param / Args with types and descriptions
+- @returns / Returns with type and description  
+- @throws / Raises for error conditions
+- @example with usage code
+
+Keep descriptions concise but informative.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Writing Prompts -->
+    <section class="category-section">
+      <h2>✍️ Writing & Communication</h2>
+      
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>Professional Email</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Draft professional emails quickly.</p>
+          <div class="prompt-text">Write a professional email for this situation:
+
+Context: [DESCRIBE SITUATION]
+Recipient: [THEIR ROLE/RELATIONSHIP]
+Goal: [WHAT YOU WANT TO ACHIEVE]
+Tone: [formal/friendly professional/casual]
+
+Key points to include:
+- [POINT 1]
+- [POINT 2]
+- [POINT 3]
+
+Constraints:
+- Maximum [NUMBER] paragraphs
+- Include clear call-to-action
+- [ANY OTHER REQUIREMENTS]</div>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>Meeting Summary</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Convert meeting notes into actionable summary.</p>
+          <div class="prompt-text">Convert these meeting notes into a structured summary:
+
+[PASTE RAW NOTES OR TRANSCRIPT]
+
+Create a summary with these sections:
+
+## Meeting Summary
+**Date:** [DATE]
+**Attendees:** [LIST]
+**Duration:** [TIME]
+
+## Key Discussion Points
+[Bullet points of main topics discussed]
+
+## Decisions Made
+[Clear list of decisions with owners]
+
+## Action Items
+| Task | Owner | Due Date |
+[Table format with specific, actionable items]
+
+## Open Questions
+[Items needing follow-up]
+
+## Next Steps
+[What happens next, next meeting if scheduled]</div>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>Technical Explanation for Non-Technical Audience</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Explain technical concepts to stakeholders.</p>
+          <div class="prompt-text">Explain this technical concept to a non-technical audience:
+
+Concept: [TECHNICAL TOPIC]
+Audience: [CEO/Manager/Client/etc.]
+Context: [WHY THEY NEED TO UNDERSTAND THIS]
+
+Requirements:
+- No jargon (or explain any necessary terms)
+- Use analogies to familiar concepts
+- Focus on business impact, not implementation details
+- Include 1-2 simple examples
+- Keep to [NUMBER] paragraphs max
+
+If relevant, address:
+- Why this matters for the business
+- What the tradeoffs are
+- What decision we need from them</div>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>PR/Commit Message</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Generate clear commit messages and PR descriptions.</p>
+          <div class="prompt-text">Generate a [commit message / PR description] for these changes:
+
+[DESCRIBE CHANGES OR PASTE DIFF]
+
+For commit message, use conventional commits format:
+type(scope): brief description
+
+For PR description, include:
+## Summary
+[What this PR does]
+
+## Changes
+- [List of changes]
+
+## Why
+[Motivation for the change]
+
+## Testing
+[How to test / what was tested]
+
+## Screenshots
+[If UI changes - note where they'd go]
+
+## Checklist
+- [ ] Tests added/updated
+- [ ] Documentation updated
+- [ ] No breaking changes (or documented)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Analysis Prompts -->
+    <section class="category-section">
+      <h2>🔍 Analysis & Research</h2>
+      
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>Summarize Document</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Get structured summaries of long documents.</p>
+          <div class="prompt-text">Summarize this document:
+
+[PASTE DOCUMENT]
+
+Provide:
+
+1. **TL;DR** (2-3 sentences max)
+
+2. **Key Points** (5-7 bullet points)
+
+3. **Main Arguments/Findings**
+   - [Organized by theme or section]
+
+4. **Important Data/Statistics** (if any)
+
+5. **Implications/Recommendations** (if any)
+
+6. **Questions/Gaps** (what's not addressed?)
+
+Keep the summary to approximately [LENGTH: "1 page" / "500 words" / etc.]</div>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>Compare Options</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Get structured comparison of alternatives.</p>
+          <div class="prompt-text">Compare these options for [DECISION/PROBLEM]:
+
+Options:
+1. [OPTION 1]
+2. [OPTION 2]  
+3. [OPTION 3]
+
+Evaluation criteria (in order of importance):
+1. [CRITERION 1]
+2. [CRITERION 2]
+3. [CRITERION 3]
+4. [CRITERION 4]
+
+For each option provide:
+- Overview/description
+- Pros (specific to my criteria)
+- Cons (specific to my criteria)
+- Cost/effort estimate
+- Risk assessment
+
+Then provide:
+- Comparison table/matrix
+- Clear recommendation with reasoning
+- Conditions where recommendation would change</div>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>SWOT Analysis</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Generate SWOT analysis for business decisions.</p>
+          <div class="prompt-text">Create a SWOT analysis for:
+
+Subject: [COMPANY/PRODUCT/PROJECT/DECISION]
+Context: [RELEVANT BACKGROUND]
+Market/Industry: [IF APPLICABLE]
+
+Provide detailed analysis:
+
+## Strengths (Internal, Positive)
+[5-7 specific strengths with brief explanation]
+
+## Weaknesses (Internal, Negative)
+[5-7 specific weaknesses with brief explanation]
+
+## Opportunities (External, Positive)
+[5-7 market/external opportunities]
+
+## Threats (External, Negative)
+[5-7 external threats/risks]
+
+## Strategic Implications
+[How to leverage strengths + opportunities]
+[How to address weaknesses + threats]
+[Key strategic priorities based on this analysis]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Assistant Building -->
+    <section class="category-section">
+      <h2>🤖 Building AI Assistants</h2>
+      
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>System Prompt Template</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Create a personality for custom GPTs or Claude Projects.</p>
+          <div class="prompt-text"># [ASSISTANT NAME]
+
+## Identity
+You are [NAME], a [ROLE/DESCRIPTION].
+Your purpose is to [PRIMARY FUNCTION].
+
+## Personality
+- [TRAIT 1 with specific behavior example]
+- [TRAIT 2 with specific behavior example]
+- [TRAIT 3 with specific behavior example]
+
+## Communication Style
+- Tone: [formal/casual/professional/friendly/etc.]
+- Length: [concise/detailed/varies by context]
+- Format preferences: [bullets, paragraphs, code blocks, etc.]
+- Quirks: [any distinctive patterns, emoji usage, catchphrases]
+
+## Capabilities
+You can help with:
+- [CAPABILITY 1]
+- [CAPABILITY 2]
+- [CAPABILITY 3]
+
+## Constraints
+You do NOT:
+- [LIMITATION 1]
+- [LIMITATION 2]
+- [LIMITATION 3]
+
+## Context
+You work with [USER DESCRIPTION/CONTEXT].
+You have access to [TOOLS/KNOWLEDGE/FILES].
+
+## Response Guidelines
+When responding:
+1. [GUIDELINE 1]
+2. [GUIDELINE 2]
+3. [GUIDELINE 3]</div>
+        </div>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <h4>User Context Document</h4>
+          <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+        </div>
+        <div class="prompt-body">
+          <p>Create USER.md for personalized AI assistance.</p>
+          <div class="prompt-text"># USER.md - About [NAME]
+
+## Basic Info
+- Name: [FULL NAME]
+- Role: [JOB TITLE/ROLE]
+- Company: [COMPANY/ORG]
+- Timezone: [TIMEZONE]
+
+## Professional Background
+[2-3 paragraphs about professional experience, expertise areas, career focus]
+
+## Current Projects
+- [PROJECT 1]: [Brief description]
+- [PROJECT 2]: [Brief description]
+
+## Working Style
+- Prefers: [communication style, output format, level of detail]
+- Dislikes: [things to avoid]
+- Decision-making: [how they like to receive information for decisions]
+
+## Technical Context
+- Primary languages/tools: [LIST]
+- Infrastructure: [cloud providers, key tools]
+- Constraints: [compliance, security, etc.]
+
+## Communication Preferences
+- Tone: [formal/casual/direct/etc.]
+- Response length: [concise/detailed]
+- Formatting: [bullets vs prose, use of emoji, etc.]
+
+## Important Context
+[Any other relevant information the AI should know]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips -->
+    <section style="margin-top: 4rem;">
+      <h2>💡 Prompting Tips</h2>
+      <div class="card">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+          <div>
+            <h4>Be Specific</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">Vague prompts get vague results. Include context, constraints, and desired format.</p>
+          </div>
+          <div>
+            <h4>Use Examples</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">Show don't tell. One example is worth 100 words of description.</p>
+          </div>
+          <div>
+            <h4>Define Output Format</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">Want JSON? Say so. Want bullets? Specify. AI follows explicit format requests.</p>
+          </div>
+          <div>
+            <h4>Iterate</h4>
+            <p class="text-muted" style="font-size: 0.9rem;">First response not perfect? Refine. "Make it shorter" or "Focus more on X".</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Resources -->
+    <div style="margin-top: 4rem; text-align: center;">
+      <a href="index.html" class="btn btn-outline">← Back to Resources</a>
+      <a href="cheat-sheet.html" class="btn btn-secondary" style="margin-left: 1rem;">Cheat Sheet →</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>AI Mastery Course • <a href="https://globalsoftware.ai">Global Software AI</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function copyPrompt(button) {
+      const promptCard = button.closest('.prompt-card');
+      const promptText = promptCard.querySelector('.prompt-text').textContent;
+      navigator.clipboard.writeText(promptText).then(() => {
+        button.textContent = 'Copied!';
+        setTimeout(() => {
+          button.textContent = 'Copy';
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

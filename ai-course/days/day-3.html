@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3: The AI Landscape | AI Mastery Course</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header class="day-header day-3-header">
+        <div class="container">
+            <p><a href="../index.html" style="color: white; text-decoration: none;">← Back to Course</a></p>
+            <h1>Day 3: The AI Landscape</h1>
+            <p class="tagline">Comparing LLMs, mastering the tools ecosystem, and documentation workflows</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2>Learning Objectives</h2>
+            <div class="card">
+                <ul>
+                    <li>Understand the strengths and weaknesses of major LLM providers</li>
+                    <li>Make informed decisions about which model to use for which task</li>
+                    <li>Navigate the AI tools ecosystem across categories</li>
+                    <li>Build effective documentation workflows with AI</li>
+                    <li>Evaluate new AI tools quickly and effectively</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Morning Sessions</h2>
+
+            <div class="session">
+                <h3><span class="session-time">09:00 - 10:30</span> LLM Deep Dive: The Major Players</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Understand the key differences between OpenAI, Anthropic, Google, and open-source models</li>
+                        <li>Know the current model landscape and pricing considerations</li>
+                        <li>Identify each provider's sweet spots</li>
+                    </ul>
+                </div>
+
+                <h4>The Big Three (+ Open Source)</h4>
+                
+                <h5>🔵 OpenAI (GPT-4o, o1, o3)</h5>
+                <ul>
+                    <li><strong>Strengths:</strong> Broad knowledge, good at following instructions, strong ecosystem</li>
+                    <li><strong>Best for:</strong> General tasks, code generation, ChatGPT plugins/GPTs, function calling</li>
+                    <li><strong>Weaknesses:</strong> Can be verbose, safety refusals, context window smaller than Claude</li>
+                    <li><strong>Reasoning models (o1, o3):</strong> Exceptional at math, logic, complex reasoning; slower and more expensive</li>
+                </ul>
+
+                <h5>🟣 Anthropic (Claude 3.5 Sonnet, Claude Opus)</h5>
+                <ul>
+                    <li><strong>Strengths:</strong> Nuanced writing, 200K context, better at nuanced requests, strong coding</li>
+                    <li><strong>Best for:</strong> Long documents, complex analysis, writing, coding, fewer refusals</li>
+                    <li><strong>Weaknesses:</strong> No image generation, no web browsing (in consumer product)</li>
+                    <li><strong>Sweet spot:</strong> Technical writing, code review, document analysis</li>
+                </ul>
+
+                <h5>🔴 Google (Gemini Pro, Gemini Ultra)</h5>
+                <ul>
+                    <li><strong>Strengths:</strong> Multimodal (text + image + video + audio), Google integration, 1M+ context window</li>
+                    <li><strong>Best for:</strong> Multimodal tasks, YouTube analysis, Google Workspace integration</li>
+                    <li><strong>Weaknesses:</strong> Sometimes less coherent than GPT-4/Claude, fewer third-party integrations</li>
+                    <li><strong>Unique:</strong> Can analyze videos directly, Deep Research feature</li>
+                </ul>
+
+                <h5>🟢 Open Source (Llama 3, Mistral, Qwen, DeepSeek)</h5>
+                <ul>
+                    <li><strong>Strengths:</strong> Free, self-hostable, customizable, no data sharing</li>
+                    <li><strong>Best for:</strong> Privacy-sensitive work, custom fine-tuning, cost optimization at scale</li>
+                    <li><strong>Weaknesses:</strong> Require infrastructure, generally less capable than frontier models</li>
+                    <li><strong>Rising stars:</strong> DeepSeek V3, Qwen 2.5 (competitive with GPT-4 on many tasks)</li>
+                </ul>
+
+                <h4>Model Selection Quick Reference</h4>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Best Choice</th>
+                            <th>Runner-up</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Complex reasoning/math</td>
+                            <td>o1 / o3</td>
+                            <td>Claude Opus</td>
+                        </tr>
+                        <tr>
+                            <td>Coding (general)</td>
+                            <td>Claude 3.5 Sonnet</td>
+                            <td>GPT-4o</td>
+                        </tr>
+                        <tr>
+                            <td>Long document analysis</td>
+                            <td>Claude (200K)</td>
+                            <td>Gemini (1M)</td>
+                        </tr>
+                        <tr>
+                            <td>Creative writing</td>
+                            <td>Claude</td>
+                            <td>GPT-4o</td>
+                        </tr>
+                        <tr>
+                            <td>Quick answers</td>
+                            <td>GPT-4o mini</td>
+                            <td>Claude Haiku</td>
+                        </tr>
+                        <tr>
+                            <td>Image + text analysis</td>
+                            <td>GPT-4o</td>
+                            <td>Gemini Pro</td>
+                        </tr>
+                        <tr>
+                            <td>Video understanding</td>
+                            <td>Gemini</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Privacy-critical</td>
+                            <td>Self-hosted Llama/Qwen</td>
+                            <td>DeepSeek (China-based)</td>
+                        </tr>
+                        <tr>
+                            <td>Cost-sensitive, high volume</td>
+                            <td>GPT-4o mini / Claude Haiku</td>
+                            <td>Open source</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="session">
+                <h3><span class="session-time">10:45 - 12:15</span> Model Comparison Lab</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Have hands-on experience comparing models</li>
+                        <li>Develop intuition for model behavior differences</li>
+                        <li>Know how to benchmark models for your use cases</li>
+                    </ul>
+                </div>
+
+                <h4>Comparison Dimensions</h4>
+                <ol>
+                    <li><strong>Accuracy</strong> - Does it get the right answer?</li>
+                    <li><strong>Instruction following</strong> - Does it do what you asked?</li>
+                    <li><strong>Output quality</strong> - Is the format/style what you wanted?</li>
+                    <li><strong>Speed</strong> - Time to first token, total generation time</li>
+                    <li><strong>Cost</strong> - Input/output token pricing</li>
+                    <li><strong>Consistency</strong> - Same input → similar output across runs?</li>
+                </ol>
+
+                <div class="exercise-box">
+                    <h4>🔨 Lab Exercise: Head-to-Head Comparison</h4>
+                    <p>Test each prompt across GPT-4o, Claude 3.5 Sonnet, and Gemini Pro. Score each on accuracy, quality, and speed.</p>
+                    
+                    <h5>Test Prompts:</h5>
+                    <ol>
+                        <li><strong>Coding:</strong> "Write a Python function that finds the longest palindromic substring in a string. Include time complexity analysis."</li>
+                        <li><strong>Analysis:</strong> "Compare microservices vs monolithic architecture for a B2B SaaS product with 100K users. Include tradeoffs table."</li>
+                        <li><strong>Writing:</strong> "Explain blockchain to a smart 12-year-old in exactly 150 words."</li>
+                        <li><strong>Reasoning:</strong> "A farmer has 17 sheep. All but 9 die. How many are left? Explain your reasoning step by step."</li>
+                        <li><strong>Instruction following:</strong> "List 5 European capitals. Format: numbered list, each with population in parentheses, sorted by population descending."</li>
+                    </ol>
+                    
+                    <p><strong>Record results in a comparison matrix.</strong></p>
+                </div>
+
+                <h4>Cost Comparison (as of 2025)</h4>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Input ($/1M tokens)</th>
+                            <th>Output ($/1M tokens)</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GPT-4o</td>
+                            <td>$2.50</td>
+                            <td>$10.00</td>
+                            <td>Good all-rounder</td>
+                        </tr>
+                        <tr>
+                            <td>GPT-4o mini</td>
+                            <td>$0.15</td>
+                            <td>$0.60</td>
+                            <td>Best value for simple tasks</td>
+                        </tr>
+                        <tr>
+                            <td>Claude 3.5 Sonnet</td>
+                            <td>$3.00</td>
+                            <td>$15.00</td>
+                            <td>Best coding model</td>
+                        </tr>
+                        <tr>
+                            <td>Claude Haiku</td>
+                            <td>$0.25</td>
+                            <td>$1.25</td>
+                            <td>Fast and cheap</td>
+                        </tr>
+                        <tr>
+                            <td>o1</td>
+                            <td>$15.00</td>
+                            <td>$60.00</td>
+                            <td>Reasoning tasks only</td>
+                        </tr>
+                        <tr>
+                            <td>Gemini Pro</td>
+                            <td>$1.25</td>
+                            <td>$5.00</td>
+                            <td>Free tier available</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><em>Prices change frequently—always check current rates.</em></p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Afternoon Sessions</h2>
+
+            <div class="session">
+                <h3><span class="session-time">13:15 - 14:45</span> The AI Tools Ecosystem</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Know the major tool categories and leading products</li>
+                        <li>Identify tools relevant to your workflow</li>
+                        <li>Evaluate new AI tools quickly</li>
+                    </ul>
+                </div>
+
+                <h4>Tool Categories Overview</h4>
+
+                <h5>💻 Development</h5>
+                <ul>
+                    <li><strong>Cursor</strong> - AI-native IDE (VSCode fork)</li>
+                    <li><strong>GitHub Copilot</strong> - Code completion in any editor</li>
+                    <li><strong>Claude Code</strong> - Terminal-based AI development</li>
+                    <li><strong>Aider</strong> - Git-aware AI pair programming</li>
+                    <li><strong>Codeium</strong> - Free Copilot alternative</li>
+                    <li><strong>Replit Agent</strong> - Full-stack app generation</li>
+                </ul>
+
+                <h5>✍️ Writing & Content</h5>
+                <ul>
+                    <li><strong>Claude/ChatGPT</strong> - General writing assistance</li>
+                    <li><strong>Jasper</strong> - Marketing content at scale</li>
+                    <li><strong>Copy.ai</strong> - Sales and marketing copy</li>
+                    <li><strong>Grammarly</strong> - AI-powered editing</li>
+                    <li><strong>Notion AI</strong> - Writing within Notion</li>
+                    <li><strong>Lex</strong> - AI-native writing app</li>
+                </ul>
+
+                <h5>🔍 Research & Search</h5>
+                <ul>
+                    <li><strong>Perplexity</strong> - AI-powered search with citations</li>
+                    <li><strong>Elicit</strong> - Academic research assistant</li>
+                    <li><strong>Consensus</strong> - Science-backed answers</li>
+                    <li><strong>ChatGPT + web</strong> - Conversational search</li>
+                    <li><strong>Google Gemini Deep Research</strong> - Multi-step research</li>
+                </ul>
+
+                <h5>🎨 Visual & Creative</h5>
+                <ul>
+                    <li><strong>Midjourney</strong> - Best image quality</li>
+                    <li><strong>DALL-E 3</strong> - Integrated in ChatGPT</li>
+                    <li><strong>Stable Diffusion</strong> - Open source, self-hostable</li>
+                    <li><strong>Runway</strong> - Video generation and editing</li>
+                    <li><strong>ElevenLabs</strong> - Voice synthesis and cloning</li>
+                    <li><strong>Figma AI</strong> - Design assistance</li>
+                </ul>
+
+                <h5>⚡ Automation & Workflow</h5>
+                <ul>
+                    <li><strong>Zapier AI</strong> - Natural language automation</li>
+                    <li><strong>n8n</strong> - Self-hosted workflow automation</li>
+                    <li><strong>Make (Integromat)</strong> - Complex integrations</li>
+                    <li><strong>Clawdbot</strong> - AI assistant framework (Day 4!)</li>
+                    <li><strong>Activepieces</strong> - Open source automation</li>
+                </ul>
+
+                <h5>📊 Data & Analysis</h5>
+                <ul>
+                    <li><strong>ChatGPT Code Interpreter</strong> - Data analysis in chat</li>
+                    <li><strong>Julius AI</strong> - Data analysis assistant</li>
+                    <li><strong>Hex</strong> - AI-powered notebooks</li>
+                    <li><strong>Domo AI</strong> - Business intelligence</li>
+                </ul>
+
+                <h4>Tool Evaluation Framework</h4>
+                <div class="card">
+                    <p>When evaluating a new AI tool, ask:</p>
+                    <ol>
+                        <li><strong>Core capability:</strong> What does it do that I can't do with ChatGPT/Claude?</li>
+                        <li><strong>Integration:</strong> Does it fit my existing workflow?</li>
+                        <li><strong>Cost:</strong> Subscription? Usage-based? Free tier?</li>
+                        <li><strong>Data handling:</strong> Where does my data go? Privacy policy?</li>
+                        <li><strong>Lock-in:</strong> Can I export my work? Migrate away?</li>
+                        <li><strong>Maturity:</strong> Startup or established? Will it exist in a year?</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="session">
+                <h3><span class="session-time">15:00 - 16:30</span> Documentation with AI</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Generate technical documentation from code</li>
+                        <li>Create user-facing documentation efficiently</li>
+                        <li>Build documentation automation pipelines</li>
+                        <li>Maintain docs with AI assistance</li>
+                    </ul>
+                </div>
+
+                <h4>Documentation Types</h4>
+                <ol>
+                    <li><strong>Code documentation</strong> - Comments, docstrings, JSDoc</li>
+                    <li><strong>API documentation</strong> - OpenAPI/Swagger, endpoint docs</li>
+                    <li><strong>User documentation</strong> - Guides, tutorials, FAQs</li>
+                    <li><strong>Architecture documentation</strong> - ADRs, system design docs</li>
+                    <li><strong>Process documentation</strong> - Runbooks, SOPs</li>
+                </ol>
+
+                <h4>AI Documentation Workflow</h4>
+                <div class="code-block">
+<pre># Step 1: Generate code docs
+"Add comprehensive JSDoc/docstrings to all functions in this file.
+Include: description, @param, @returns, @throws, @example"
+
+# Step 2: Generate API docs
+"Create OpenAPI 3.0 documentation for these Express routes: [paste]
+Include descriptions, request/response schemas, and examples"
+
+# Step 3: Generate user guide
+"Create a user guide for this feature based on the code.
+Write for a non-technical user. Include step-by-step instructions with screenshots placeholders."
+
+# Step 4: Generate README
+"Create a comprehensive README.md including:
+- Project overview
+- Quick start
+- Installation
+- Configuration
+- API reference summary
+- Contributing guidelines"</pre>
+                </div>
+
+                <h4>Documentation Automation Pipeline</h4>
+                <ol>
+                    <li><strong>Pre-commit hook:</strong> AI generates/updates docstrings for changed functions</li>
+                    <li><strong>PR check:</strong> AI reviews if documentation matches code changes</li>
+                    <li><strong>Release:</strong> AI generates changelog from commits</li>
+                    <li><strong>Weekly:</strong> AI audits docs for staleness, suggests updates</li>
+                </ol>
+
+                <div class="tip">
+                    <strong>💡 Pro Tip:</strong> Create a "docs-bot" prompt template that understands your documentation style, terminology, and standards. Use it consistently.
+                </div>
+
+                <div class="exercise-box">
+                    <h4>🔨 Quick Exercise: Doc Generation</h4>
+                    <ol>
+                        <li>Take a function from Day 2's exercise (or any code you have)</li>
+                        <li>Generate: JSDoc, unit test descriptions, user-facing explanation</li>
+                        <li>Generate a mini-tutorial for using that function</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Day 3 Exercise</h2>
+            
+            <div class="exercise-box" style="background: #cffafe; border-color: var(--accent);">
+                <h4>🔨 Build a Documentation Pipeline (16:45 - 18:00)</h4>
+                
+                <h5>Objective</h5>
+                <p>Create an automated documentation workflow for the Task Manager API from Day 2.</p>
+                
+                <h5>Tasks</h5>
+                <ol>
+                    <li><strong>Code Documentation (20 min)</strong>
+                        <ul>
+                            <li>Add JSDoc/docstrings to all functions</li>
+                            <li>Include types, params, returns, examples</li>
+                        </ul>
+                    </li>
+                    <li><strong>API Documentation (20 min)</strong>
+                        <ul>
+                            <li>Generate OpenAPI/Swagger spec</li>
+                            <li>Set up Swagger UI (or similar)</li>
+                        </ul>
+                    </li>
+                    <li><strong>User Guide (15 min)</strong>
+                        <ul>
+                            <li>Create a getting-started guide</li>
+                            <li>Include example requests with curl/fetch</li>
+                        </ul>
+                    </li>
+                    <li><strong>Automation Script (15 min)</strong>
+                        <ul>
+                            <li>Write a script that uses AI to check if docs match code</li>
+                            <li>Flag functions missing documentation</li>
+                        </ul>
+                    </li>
+                    <li><strong>Demo (5 min)</strong>
+                        <ul>
+                            <li>Show your documentation site/setup</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <h5>Deliverables</h5>
+                <ul>
+                    <li>✅ All functions have comprehensive docstrings</li>
+                    <li>✅ OpenAPI spec generated</li>
+                    <li>✅ User guide markdown file</li>
+                    <li>✅ Documentation audit script</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Key Takeaways</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Remember</h3>
+                    <ul>
+                        <li>No single model is best at everything—know the landscape</li>
+                        <li>Cost vs. capability is a real tradeoff</li>
+                        <li>Tools are proliferating fast—focus on categories, not products</li>
+                        <li>Documentation can be automated, but still needs human review</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Decision Framework</h3>
+                    <ul>
+                        <li>Complex reasoning? → o1/o3 or Claude Opus</li>
+                        <li>Coding? → Claude Sonnet or GPT-4o</li>
+                        <li>Long context? → Claude or Gemini</li>
+                        <li>High volume/low cost? → GPT-4o mini or Haiku</li>
+                        <li>Privacy critical? → Self-hosted open source</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div style="text-align: center; padding: 2rem;">
+            <a href="day2.html" class="btn btn-outline" style="margin-right: 1rem;">← Day 2</a>
+            <a href="day4.html" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Continue to Day 4: Build Your AI Assistant →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>AI Mastery Course | Day 3 of 4</p>
+        </div>
+    </footer>
+</body>
+</html>

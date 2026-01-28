@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 2: AI-Powered Development | AI Mastery Course</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header class="day-header day-2-header">
+        <div class="container">
+            <p><a href="../index.html" style="color: white; text-decoration: none;">← Back to Course</a></p>
+            <h1>Day 2: AI-Powered Development</h1>
+            <p class="tagline">Vibe coding, traditional AI assistance, and building real software</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2>Learning Objectives</h2>
+            <div class="card">
+                <ul>
+                    <li>Understand the "vibe coding" philosophy and when to use it</li>
+                    <li>Master Cursor IDE for AI-native development</li>
+                    <li>Use GitHub Copilot effectively for code completion</li>
+                    <li>Leverage Claude Code and Aider for terminal-based development</li>
+                    <li>Apply AI to testing, code review, and refactoring</li>
+                    <li>Build a complete application using AI assistance</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Morning Sessions</h2>
+
+            <div class="session">
+                <h3><span class="session-time">09:00 - 10:30</span> The Vibe Coding Philosophy</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Understand what "vibe coding" means and its tradeoffs</li>
+                        <li>Know when vibe coding is appropriate vs. traditional approaches</li>
+                        <li>Develop a mental model for AI-human collaboration in code</li>
+                    </ul>
+                </div>
+
+                <h4>What is Vibe Coding?</h4>
+                <p>Coined by Andrej Karpathy, vibe coding is:</p>
+                <blockquote style="border-left: 4px solid var(--secondary); padding-left: 1rem; margin: 1rem 0; font-style: italic;">
+                    "You fully give in to the vibes, embrace exponentials, and forget that the code even exists... It's not really coding – I just see stuff, say stuff, run stuff, and copy paste stuff, and it mostly works."
+                </blockquote>
+
+                <h4>The Spectrum of AI-Assisted Development</h4>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Level</th>
+                            <th>Description</th>
+                            <th>Tools</th>
+                            <th>When to Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pure Vibe</strong></td>
+                            <td>AI writes everything, you describe intent</td>
+                            <td>Cursor Agent, Claude artifacts</td>
+                            <td>Prototypes, throwaway code, learning</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AI-Heavy</strong></td>
+                            <td>AI generates, you review and guide</td>
+                            <td>Cursor, Copilot, Claude Code</td>
+                            <td>Internal tools, MVPs, scripts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AI-Assisted</strong></td>
+                            <td>You write, AI completes and suggests</td>
+                            <td>Copilot, Codeium, TabNine</td>
+                            <td>Production code, team projects</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AI-Enhanced</strong></td>
+                            <td>You write, AI reviews and explains</td>
+                            <td>Code review tools, docs generators</td>
+                            <td>Critical systems, regulated industries</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>The Vibe Coding Mindset</h4>
+                <ol>
+                    <li><strong>Start with intent, not implementation</strong> - Describe what you want, not how to build it</li>
+                    <li><strong>Iterate rapidly</strong> - Generate, test, refine, repeat</li>
+                    <li><strong>Trust but verify</strong> - AI code works ~80% of the time; catch the 20%</li>
+                    <li><strong>Learn the patterns</strong> - Understand what AI generates so you can debug it</li>
+                    <li><strong>Know when to take over</strong> - Complex logic, security, performance = human oversight</li>
+                </ol>
+
+                <div class="tip">
+                    <strong>💡 Key Insight:</strong> Vibe coding isn't about being lazy—it's about operating at a higher level of abstraction. You're the architect, AI is the contractor.
+                </div>
+            </div>
+
+            <div class="session">
+                <h3><span class="session-time">10:45 - 12:15</span> Cursor IDE Mastery</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Navigate Cursor's AI features fluently</li>
+                        <li>Use Chat, Composer, and Agent modes effectively</li>
+                        <li>Master keyboard shortcuts for AI interactions</li>
+                        <li>Configure Cursor for your workflow</li>
+                    </ul>
+                </div>
+
+                <h4>Cursor Core Features</h4>
+                <ul>
+                    <li><strong>⌘K (Cmd+K)</strong> - Inline edit: select code, describe change</li>
+                    <li><strong>⌘L (Cmd+L)</strong> - Chat: ask questions, get explanations</li>
+                    <li><strong>⌘I (Cmd+I)</strong> - Composer: multi-file generation and editing</li>
+                    <li><strong>Tab</strong> - Accept AI suggestions (like Copilot)</li>
+                    <li><strong>@ References</strong> - Include files, docs, or web in context</li>
+                </ul>
+
+                <h4>Cursor Workflow Patterns</h4>
+                <div class="code-block">
+<pre># Pattern 1: Describe → Generate → Refine
+1. Open Composer (⌘I)
+2. Describe: "Create a REST API endpoint for user registration 
+   with email verification using Express and PostgreSQL"
+3. Review generated files
+4. Refine: "Add rate limiting and input validation"
+
+# Pattern 2: Select → Transform
+1. Select existing code
+2. Press ⌘K
+3. Describe change: "Refactor to use async/await instead of callbacks"
+4. Review diff, accept or modify
+
+# Pattern 3: Chat → Understand → Apply
+1. Open Chat (⌘L)
+2. Ask: "Explain this function and suggest optimizations" + paste code
+3. Apply suggestions via Composer</pre>
+                </div>
+
+                <h4>@ References Power Features</h4>
+                <ul>
+                    <li><code>@filename</code> - Include specific file in context</li>
+                    <li><code>@folder</code> - Include entire folder</li>
+                    <li><code>@web</code> - Search and include web results</li>
+                    <li><code>@docs</code> - Reference official documentation</li>
+                    <li><code>@codebase</code> - Search your entire codebase</li>
+                </ul>
+
+                <div class="exercise-box">
+                    <h4>🔨 Quick Exercise: Cursor Warm-Up</h4>
+                    <ol>
+                        <li>Create a new file, type a comment describing a function, press Tab</li>
+                        <li>Select the function, ⌘K → "Add error handling"</li>
+                        <li>⌘L → "Explain what this function does and suggest tests"</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Afternoon Sessions</h2>
+
+            <div class="session">
+                <h3><span class="session-time">13:15 - 14:45</span> Copilot, Claude Code & Aider</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Use GitHub Copilot for intelligent code completion</li>
+                        <li>Run Claude Code for terminal-based AI development</li>
+                        <li>Understand Aider's architecture and diff-based approach</li>
+                        <li>Choose the right tool for different scenarios</li>
+                    </ul>
+                </div>
+
+                <h4>GitHub Copilot</h4>
+                <p>Best for: Real-time code completion, boilerplate, patterns</p>
+                <ul>
+                    <li><strong>Tab</strong> - Accept suggestion</li>
+                    <li><strong>Alt+]</strong> / <strong>Alt+[</strong> - Cycle through suggestions</li>
+                    <li><strong>Ctrl+Enter</strong> - Open Copilot completions panel</li>
+                    <li><strong>Comments drive suggestions</strong> - Write intent, get implementation</li>
+                </ul>
+
+                <div class="code-block">
+<pre>// Copilot tip: Write descriptive comments
+// Function that validates email format, checks for disposable domains,
+// and returns { valid: boolean, reason?: string }
+function validateEmail(email) {
+  // Copilot will generate the implementation...
+}</pre>
+                </div>
+
+                <h4>Claude Code (Terminal AI)</h4>
+                <p>Best for: Complex multi-file changes, reasoning about architecture</p>
+                <div class="code-block">
+<pre># Install
+npm install -g @anthropic-ai/claude-code
+
+# Usage
+claude-code
+
+# Example prompts:
+> "Refactor the authentication module to use JWT instead of sessions"
+> "Add comprehensive error handling to all API endpoints"
+> "Create unit tests for the user service"</pre>
+                </div>
+
+                <h4>Aider</h4>
+                <p>Best for: Git-aware editing, pair programming with AI</p>
+                <div class="code-block">
+<pre># Install
+pip install aider-chat
+
+# Usage (in a git repo)
+aider
+
+# Features
+- Automatically creates git commits
+- Shows diffs before applying
+- Supports multiple files
+- Voice input available
+
+# Example
+> /add src/api/*.js
+> "Add input validation to all POST endpoints"</pre>
+                </div>
+
+                <h4>Tool Selection Guide</h4>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Best Tool</th>
+                            <th>Why</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Writing new code line-by-line</td>
+                            <td>Copilot</td>
+                            <td>Fastest inline completion</td>
+                        </tr>
+                        <tr>
+                            <td>Multi-file feature implementation</td>
+                            <td>Cursor Composer</td>
+                            <td>Visual, handles file creation</td>
+                        </tr>
+                        <tr>
+                            <td>Large refactoring</td>
+                            <td>Claude Code / Aider</td>
+                            <td>Better reasoning, git-aware</td>
+                        </tr>
+                        <tr>
+                            <td>Quick code transformation</td>
+                            <td>Cursor ⌘K</td>
+                            <td>Select → describe → done</td>
+                        </tr>
+                        <tr>
+                            <td>Understanding existing code</td>
+                            <td>Cursor Chat / Claude</td>
+                            <td>Conversational explanation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="session">
+                <h3><span class="session-time">15:00 - 16:30</span> Testing, Review & Documentation with AI</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Generate comprehensive test suites with AI</li>
+                        <li>Use AI for code review and security analysis</li>
+                        <li>Create documentation automatically</li>
+                        <li>Establish AI-enhanced development workflows</li>
+                    </ul>
+                </div>
+
+                <h4>AI-Generated Testing</h4>
+                <div class="code-block">
+<pre># Prompt pattern for test generation:
+
+"Generate comprehensive tests for this function:
+[paste function]
+
+Include:
+- Happy path tests
+- Edge cases (empty input, null, boundaries)
+- Error cases
+- Use [Jest/pytest/your framework]
+- Mock external dependencies
+- Add descriptive test names"</pre>
+                </div>
+
+                <h4>AI Code Review Checklist</h4>
+                <ol>
+                    <li><strong>Security scan</strong> - "Review for security vulnerabilities: SQL injection, XSS, auth bypass"</li>
+                    <li><strong>Performance</strong> - "Identify performance issues and suggest optimizations"</li>
+                    <li><strong>Best practices</strong> - "Review against [language] best practices and clean code principles"</li>
+                    <li><strong>Edge cases</strong> - "What edge cases might this code fail on?"</li>
+                </ol>
+
+                <h4>Documentation Generation</h4>
+                <div class="code-block">
+<pre># Generate README
+"Create a README.md for this project that includes:
+- Project description
+- Installation instructions  
+- Usage examples
+- API documentation
+- Contributing guidelines"
+
+# Generate API docs
+"Generate OpenAPI/Swagger documentation for these endpoints: [paste routes]"
+
+# Generate JSDoc/docstrings
+"Add comprehensive JSDoc comments to all functions in this file"</pre>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Workflow Tip:</strong> Set up a pre-commit hook that uses AI to review changes before they're committed. Catch issues before they hit the repo.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Day 2 Exercise</h2>
+            
+            <div class="exercise-box" style="background: #ede9fe; border-color: var(--secondary);">
+                <h4>🔨 Build an App: Task Manager API (16:45 - 18:00)</h4>
+                
+                <h5>Objective</h5>
+                <p>Build a complete REST API for a task manager using AI-assisted development.</p>
+                
+                <h5>Requirements</h5>
+                <ul>
+                    <li>CRUD operations for tasks (create, read, update, delete)</li>
+                    <li>Task fields: id, title, description, status, due_date, created_at</li>
+                    <li>Status values: todo, in_progress, done</li>
+                    <li>Filter tasks by status</li>
+                    <li>Basic input validation</li>
+                    <li>Use any language/framework (Node/Express, Python/FastAPI, etc.)</li>
+                </ul>
+                
+                <h5>Process (Use AI Throughout!)</h5>
+                <ol>
+                    <li><strong>Scaffold (15 min)</strong> - Use Cursor Composer to generate project structure</li>
+                    <li><strong>Implement (30 min)</strong> - Build endpoints with Copilot/Cursor assistance</li>
+                    <li><strong>Test (15 min)</strong> - Generate and run tests with AI</li>
+                    <li><strong>Document (10 min)</strong> - Auto-generate API documentation</li>
+                    <li><strong>Review (5 min)</strong> - AI security/quality review</li>
+                </ol>
+                
+                <h5>Starter Prompt (Cursor Composer)</h5>
+                <div class="code-block">
+<pre>Create a REST API for a task manager with:
+- Express.js with TypeScript
+- In-memory storage (array)
+- Endpoints: GET /tasks, POST /tasks, GET /tasks/:id, PUT /tasks/:id, DELETE /tasks/:id
+- Query param: ?status=todo|in_progress|done
+- Input validation with express-validator
+- Error handling middleware
+- CORS enabled
+
+Create: src/index.ts, src/routes/tasks.ts, src/types.ts, package.json, tsconfig.json</pre>
+                </div>
+                
+                <h5>Deliverables</h5>
+                <ul>
+                    <li>✅ Working API with all CRUD operations</li>
+                    <li>✅ At least 5 passing tests</li>
+                    <li>✅ Generated API documentation</li>
+                    <li>✅ AI code review completed</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Key Takeaways</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Remember</h3>
+                    <ul>
+                        <li>Vibe coding = operating at a higher abstraction level</li>
+                        <li>Different tools for different tasks (Copilot ≠ Cursor ≠ Claude Code)</li>
+                        <li>AI excels at boilerplate, patterns, and first drafts</li>
+                        <li>Always review security-critical and business-logic code</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Action Items</h3>
+                    <ul>
+                        <li>Install Cursor and/or Claude Code</li>
+                        <li>Set up Copilot if you haven't</li>
+                        <li>Practice: Rebuild something you've built before, but with AI</li>
+                        <li>Time yourself: How much faster are you?</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div style="text-align: center; padding: 2rem;">
+            <a href="day1.html" class="btn btn-outline" style="margin-right: 1rem;">← Day 1</a>
+            <a href="day3.html" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Continue to Day 3: The AI Landscape →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>AI Mastery Course | Day 2 of 4</p>
+        </div>
+    </footer>
+</body>
+</html>

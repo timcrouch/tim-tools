@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools Cheat Sheet | AI Mastery Course</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    @media print {
+      .nav, .hero, .no-print { display: none !important; }
+      body { font-size: 11px; }
+      .container { max-width: 100%; padding: 0; }
+      .cheat-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .cheat-card { page-break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
+    }
+    .cheat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+    .cheat-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .cheat-card h3 {
+      margin: 0 0 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .shortcut {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 0.9rem;
+    }
+    .shortcut:last-child {
+      border-bottom: none;
+    }
+    .shortcut-key {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--gray-100);
+      padding: 0.125rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+    .tip-box {
+      background: #fffbeb;
+      border-left: 4px solid var(--warning);
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.9rem;
+    }
+    .quick-ref {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    .quick-ref dt {
+      font-weight: 600;
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        🤖 <span>AI Mastery</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../days/day-1.html">Day 1</a></li>
+        <li><a href="../days/day-2.html">Day 2</a></li>
+        <li><a href="../days/day-3.html">Day 3</a></li>
+        <li><a href="../days/day-4.html">Day 4</a></li>
+        <li><a href="index.html" class="active">Resources</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" style="padding: 4rem 0; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+    <div class="container">
+      <h1>AI Tools Cheat Sheet</h1>
+      <p class="hero-subtitle">
+        Quick reference for keyboard shortcuts, commands, and tips
+      </p>
+      <button onclick="window.print()" class="btn btn-primary" style="margin-top: 1rem;">🖨️ Print This Page</button>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div class="container" style="padding: 3rem 2rem;">
+    
+    <div class="cheat-grid">
+      
+      <!-- Cursor -->
+      <div class="cheat-card">
+        <h3>⚡ Cursor</h3>
+        
+        <div class="shortcut">
+          <span>Inline Edit (select + prompt)</span>
+          <span class="shortcut-key">⌘K / Ctrl+K</span>
+        </div>
+        <div class="shortcut">
+          <span>Open Composer</span>
+          <span class="shortcut-key">⌘I / Ctrl+I</span>
+        </div>
+        <div class="shortcut">
+          <span>Toggle Chat Panel</span>
+          <span class="shortcut-key">⌘L / Ctrl+L</span>
+        </div>
+        <div class="shortcut">
+          <span>Accept Suggestion</span>
+          <span class="shortcut-key">Tab</span>
+        </div>
+        <div class="shortcut">
+          <span>Reject Suggestion</span>
+          <span class="shortcut-key">Esc</span>
+        </div>
+        <div class="shortcut">
+          <span>Next Suggestion</span>
+          <span class="shortcut-key">⌥] / Alt+]</span>
+        </div>
+        
+        <div class="tip-box">
+          <strong>💡 Tip:</strong> Use <code>@file</code>, <code>@folder</code>, <code>@web</code> in prompts to give context.
+        </div>
+      </div>
+
+      <!-- GitHub Copilot -->
+      <div class="cheat-card">
+        <h3>🤖 GitHub Copilot</h3>
+        
+        <div class="shortcut">
+          <span>Accept Suggestion</span>
+          <span class="shortcut-key">Tab</span>
+        </div>
+        <div class="shortcut">
+          <span>Dismiss Suggestion</span>
+          <span class="shortcut-key">Esc</span>
+        </div>
+        <div class="shortcut">
+          <span>Next Suggestion</span>
+          <span class="shortcut-key">⌥] / Alt+]</span>
+        </div>
+        <div class="shortcut">
+          <span>Previous Suggestion</span>
+          <span class="shortcut-key">⌥[ / Alt+[</span>
+        </div>
+        <div class="shortcut">
+          <span>Open Copilot Chat</span>
+          <span class="shortcut-key">⌘⇧I / Ctrl+Shift+I</span>
+        </div>
+        <div class="shortcut">
+          <span>Inline Chat</span>
+          <span class="shortcut-key">⌘I / Ctrl+I</span>
+        </div>
+        
+        <div class="tip-box">
+          <strong>💡 Chat Commands:</strong><br>
+          <code>/explain</code> · <code>/fix</code> · <code>/tests</code> · <code>/doc</code> · <code>@workspace</code>
+        </div>
+      </div>
+
+      <!-- Claude Code -->
+      <div class="cheat-card">
+        <h3>🔮 Claude Code</h3>
+        
+        <dl class="quick-ref">
+          <dt>Start session</dt>
+          <dd><code>claude</code></dd>
+          
+          <dt>Quick task</dt>
+          <dd><code>claude "task description"</code></dd>
+          
+          <dt>Continue last</dt>
+          <dd><code>claude --continue</code></dd>
+          
+          <dt>With thinking</dt>
+          <dd><code>claude --think</code></dd>
+        </dl>
+        
+        <h4 style="margin: 1rem 0 0.5rem; font-size: 0.875rem;">In-Session Commands</h4>
+        <div class="shortcut">
+          <span>Add file to context</span>
+          <span class="shortcut-key">/add path/to/file</span>
+        </div>
+        <div class="shortcut">
+          <span>Run shell command</span>
+          <span class="shortcut-key">/run command</span>
+        </div>
+        <div class="shortcut">
+          <span>Clear context</span>
+          <span class="shortcut-key">/clear</span>
+        </div>
+        <div class="shortcut">
+          <span>Exit session</span>
+          <span class="shortcut-key">/exit or Ctrl+D</span>
+        </div>
+      </div>
+
+      <!-- ChatGPT -->
+      <div class="cheat-card">
+        <h3>💬 ChatGPT Shortcuts</h3>
+        
+        <div class="shortcut">
+          <span>New Chat</span>
+          <span class="shortcut-key">⌘⇧O / Ctrl+Shift+O</span>
+        </div>
+        <div class="shortcut">
+          <span>Focus Input</span>
+          <span class="shortcut-key">⇧Esc / Shift+Esc</span>
+        </div>
+        <div class="shortcut">
+          <span>Copy Last Response</span>
+          <span class="shortcut-key">⌘⇧C / Ctrl+Shift+C</span>
+        </div>
+        <div class="shortcut">
+          <span>Delete Chat</span>
+          <span class="shortcut-key">⌘⇧⌫ / Ctrl+Shift+Backspace</span>
+        </div>
+        <div class="shortcut">
+          <span>Toggle Sidebar</span>
+          <span class="shortcut-key">⌘⇧S / Ctrl+Shift+S</span>
+        </div>
+        
+        <div class="tip-box">
+          <strong>💡 Pro tip:</strong> Start prompt with "Output as JSON" or "Format as table" for structured output.
+        </div>
+      </div>
+
+      <!-- Claude -->
+      <div class="cheat-card">
+        <h3>🧠 Claude Tips</h3>
+        
+        <h4 style="margin: 0 0 0.75rem; font-size: 0.875rem;">Context Tricks</h4>
+        <ul style="margin: 0 0 1rem 1rem; font-size: 0.9rem;">
+          <li>Use Projects for persistent context</li>
+          <li>Add files directly to Projects</li>
+          <li>200K context = ~150K words</li>
+        </ul>
+        
+        <h4 style="margin: 0 0 0.75rem; font-size: 0.875rem;">Artifacts</h4>
+        <ul style="margin: 0 0 1rem 1rem; font-size: 0.9rem;">
+          <li>Ask for "code artifact" for editable code</li>
+          <li>Artifacts can be downloaded directly</li>
+          <li>Great for docs, diagrams, code</li>
+        </ul>
+        
+        <div class="tip-box">
+          <strong>💡 Model Selection:</strong><br>
+          Haiku = fast/cheap · Sonnet = balanced · Opus = best quality
+        </div>
+      </div>
+
+      <!-- Prompt Patterns -->
+      <div class="cheat-card">
+        <h3>📝 Prompt Patterns</h3>
+        
+        <h4 style="margin: 0 0 0.5rem; font-size: 0.875rem;">Role + Context + Task + Format</h4>
+        <pre style="background: var(--gray-100); padding: 0.75rem; border-radius: 6px; font-size: 0.8rem; overflow-x: auto;">You are a [ROLE].
+Context: [SITUATION]
+Task: [WHAT TO DO]
+Format: [HOW TO OUTPUT]</pre>
+
+        <h4 style="margin: 1rem 0 0.5rem; font-size: 0.875rem;">Chain of Thought</h4>
+        <pre style="background: var(--gray-100); padding: 0.75rem; border-radius: 6px; font-size: 0.8rem; overflow-x: auto;">Think step by step:
+1. First, [step 1]
+2. Then, [step 2]
+3. Finally, [step 3]</pre>
+
+        <h4 style="margin: 1rem 0 0.5rem; font-size: 0.875rem;">Few-Shot Example</h4>
+        <pre style="background: var(--gray-100); padding: 0.75rem; border-radius: 6px; font-size: 0.8rem; overflow-x: auto;">Example input: X
+Example output: Y
+
+Now do: [NEW INPUT]</pre>
+      </div>
+
+      <!-- Model Quick Reference -->
+      <div class="cheat-card">
+        <h3>🎯 Model Quick Ref</h3>
+        
+        <h4 style="margin: 0 0 0.5rem; font-size: 0.875rem;">Use This Model For...</h4>
+        
+        <dl class="quick-ref">
+          <dt>GPT-4o</dt>
+          <dd>Multimodal, general, function calling</dd>
+          
+          <dt>Claude Sonnet</dt>
+          <dd>Coding, writing, long docs</dd>
+          
+          <dt>Gemini 1.5</dt>
+          <dd>Huge context, video, Google integration</dd>
+          
+          <dt>o1/o1-mini</dt>
+          <dd>Complex reasoning, math, science</dd>
+          
+          <dt>GPT-4o-mini</dt>
+          <dd>High volume, budget tasks</dd>
+          
+          <dt>Haiku</dt>
+          <dd>Fast classification, simple tasks</dd>
+        </dl>
+      </div>
+
+      <!-- Common Fixes -->
+      <div class="cheat-card">
+        <h3>🔧 Common Fixes</h3>
+        
+        <h4 style="margin: 0 0 0.5rem; font-size: 0.875rem;">AI Being Too Verbose?</h4>
+        <p style="font-size: 0.85rem; margin: 0 0 1rem;">Add: "Be concise. Maximum 3 paragraphs."</p>
+        
+        <h4 style="margin: 0 0 0.5rem; font-size: 0.875rem;">AI Being Too Cautious?</h4>
+        <p style="font-size: 0.85rem; margin: 0 0 1rem;">Add: "I'm a professional. Give me the direct answer."</p>
+        
+        <h4 style="margin: 0 0 0.5rem; font-size: 0.875rem;">Output Not Right Format?</h4>
+        <p style="font-size: 0.85rem; margin: 0 0 1rem;">Add: "Output ONLY the [JSON/code/etc]. No explanation."</p>
+        
+        <h4 style="margin: 0 0 0.5rem; font-size: 0.875rem;">AI Hallucinating?</h4>
+        <p style="font-size: 0.85rem; margin: 0;">Add: "If you're not certain, say so. Don't make things up."</p>
+      </div>
+
+      <!-- Cost Optimization -->
+      <div class="cheat-card">
+        <h3>💰 Cost Tips</h3>
+        
+        <ul style="margin: 0 0 0 1rem; font-size: 0.9rem;">
+          <li><strong>Start cheap</strong> — Try mini/Haiku first</li>
+          <li><strong>Shorter prompts</strong> — Remove unnecessary context</li>
+          <li><strong>Cache responses</strong> — Don't re-ask same questions</li>
+          <li><strong>Batch requests</strong> — One call beats many</li>
+          <li><strong>Use streaming</strong> — Cancel early if off-track</li>
+        </ul>
+        
+        <h4 style="margin: 1rem 0 0.5rem; font-size: 0.875rem;">Budget Tiers (API)</h4>
+        <div class="shortcut">
+          <span>$$ Budget</span>
+          <span>GPT-4o-mini, Haiku</span>
+        </div>
+        <div class="shortcut">
+          <span>$$$ Standard</span>
+          <span>Sonnet, GPT-4o</span>
+        </div>
+        <div class="shortcut">
+          <span>$$$$ Premium</span>
+          <span>Opus, o1</span>
+        </div>
+      </div>
+
+      <!-- Cursor Rules Template -->
+      <div class="cheat-card">
+        <h3>📋 .cursorrules Template</h3>
+        
+        <pre style="background: var(--gray-100); padding: 1rem; border-radius: 6px; font-size: 0.75rem; overflow-x: auto;">You are working on a [FRAMEWORK] project.
+
+Tech stack:
+- Language: [LANGUAGE]
+- Framework: [FRAMEWORK]
+- Database: [DATABASE]
+- Testing: [TEST FRAMEWORK]
+
+Conventions:
+- [CODING CONVENTION 1]
+- [CODING CONVENTION 2]
+- [CODING CONVENTION 3]
+
+When writing code:
+- Always include error handling
+- Add TypeScript types
+- Write tests for new functions
+- Use async/await over callbacks</pre>
+      </div>
+
+      <!-- SOUL.md Quick Template -->
+      <div class="cheat-card">
+        <h3>👤 SOUL.md Quick Template</h3>
+        
+        <pre style="background: var(--gray-100); padding: 1rem; border-radius: 6px; font-size: 0.75rem; overflow-x: auto;"># [ASSISTANT NAME]
+
+## Identity
+I am [NAME], a [DESCRIPTION].
+
+## Personality
+- [TRAIT 1]
+- [TRAIT 2]
+- [TRAIT 3]
+
+## Style
+Tone: [TONE]
+Length: [PREFERENCE]
+
+## I Can Help With
+- [CAPABILITY 1]
+- [CAPABILITY 2]
+
+## I Don't
+- [CONSTRAINT 1]
+- [CONSTRAINT 2]</pre>
+      </div>
+
+      <!-- Emergency Prompts -->
+      <div class="cheat-card">
+        <h3>🚨 Emergency Prompts</h3>
+        
+        <h4 style="margin: 0 0 0.5rem; font-size: 0.875rem;">Reset AI Behavior</h4>
+        <p style="font-size: 0.85rem; margin: 0 0 1rem; background: var(--gray-100); padding: 0.5rem; border-radius: 4px;">
+          "Let's start fresh. Ignore our previous conversation."
+        </p>
+        
+        <h4 style="margin: 0 0 0.5rem; font-size: 0.875rem;">Get Direct Answer</h4>
+        <p style="font-size: 0.85rem; margin: 0 0 1rem; background: var(--gray-100); padding: 0.5rem; border-radius: 4px;">
+          "Give me just the answer. No caveats, no explanation."
+        </p>
+        
+        <h4 style="margin: 0 0 0.5rem; font-size: 0.875rem;">Force Format</h4>
+        <p style="font-size: 0.85rem; margin: 0; background: var(--gray-100); padding: 0.5rem; border-radius: 4px;">
+          "Output ONLY valid JSON. Nothing else. Start with {"
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Back to Resources -->
+    <div class="no-print" style="margin-top: 4rem; text-align: center;">
+      <a href="index.html" class="btn btn-outline">← Back to Resources</a>
+      <a href="prompt-library.html" class="btn btn-secondary" style="margin-left: 1rem;">Prompt Library →</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer no-print">
+    <div class="container">
+      <p>AI Mastery Course • <a href="https://globalsoftware.ai">Global Software AI</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 4: Build Your AI Assistant | AI Mastery Course</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header class="day-header day-4-header">
+        <div class="container">
+            <p><a href="../index.html" style="color: white; text-decoration: none;">← Back to Course</a></p>
+            <h1>Day 4: Build Your AI Assistant</h1>
+            <p class="tagline">Deploy Clawdbot and create your personalized AI assistant</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2>Learning Objectives</h2>
+            <div class="card">
+                <ul>
+                    <li>Understand the Clawdbot architecture and philosophy</li>
+                    <li>Install and configure Clawdbot from scratch</li>
+                    <li>Create personalized AI assistants with SOUL.md, USER.md, and AGENTS.md</li>
+                    <li>Configure memory and context for persistent intelligence</li>
+                    <li>Add skills and connect to messaging channels (Slack, Telegram, etc.)</li>
+                    <li>Deploy a production-ready AI assistant</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Morning Sessions</h2>
+
+            <div class="session">
+                <h3><span class="session-time">09:00 - 10:30</span> Clawdbot Architecture & Philosophy</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Understand what makes Clawdbot different from ChatGPT/Claude</li>
+                        <li>Know the key architectural components</li>
+                        <li>Understand the workspace-based approach to AI assistants</li>
+                    </ul>
+                </div>
+
+                <h4>What is Clawdbot?</h4>
+                <p>Clawdbot is an <strong>AI assistant framework</strong> that lets you create personalized, persistent, tool-using AI assistants that connect to your existing tools and workflows.</p>
+
+                <h4>Key Differences from ChatGPT/Claude</h4>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>ChatGPT/Claude</th>
+                            <th>Clawdbot</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Personality</td>
+                            <td>Generic assistant</td>
+                            <td>Fully customizable (SOUL.md)</td>
+                        </tr>
+                        <tr>
+                            <td>Context</td>
+                            <td>Session-based</td>
+                            <td>Persistent workspace files</td>
+                        </tr>
+                        <tr>
+                            <td>Tools</td>
+                            <td>Limited plugins</td>
+                            <td>Full system access, exec, browser, etc.</td>
+                        </tr>
+                        <tr>
+                            <td>Memory</td>
+                            <td>Basic memory feature</td>
+                            <td>Vector search + file-based memory</td>
+                        </tr>
+                        <tr>
+                            <td>Channels</td>
+                            <td>Web/app only</td>
+                            <td>Slack, Telegram, Discord, Signal, etc.</td>
+                        </tr>
+                        <tr>
+                            <td>Automation</td>
+                            <td>Manual interaction</td>
+                            <td>Heartbeats, cron, webhooks</td>
+                        </tr>
+                        <tr>
+                            <td>Self-hosted</td>
+                            <td>No</td>
+                            <td>Yes (your machine, your data)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Core Architecture</h4>
+                <div class="code-block">
+<pre>┌─────────────────────────────────────────────────────────────┐
+│                      CLAWDBOT GATEWAY                        │
+├─────────────────────────────────────────────────────────────┤
+│  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐        │
+│  │ Slack   │  │Telegram │  │ Discord │  │ Webchat │  ...   │
+│  └────┬────┘  └────┬────┘  └────┬────┘  └────┬────┘        │
+│       └────────────┴────────────┴────────────┘              │
+│                           │                                  │
+│                    ┌──────▼──────┐                          │
+│                    │   AGENTS    │                          │
+│                    └──────┬──────┘                          │
+│       ┌───────────────────┼───────────────────┐             │
+│  ┌────▼────┐  ┌───────────▼───────────┐  ┌────▼────┐       │
+│  │ SOUL.md │  │    WORKSPACE FILES    │  │ TOOLS   │       │
+│  │ USER.md │  │  memory/, MEMORY.md   │  │ exec    │       │
+│  │AGENTS.md│  │  context files        │  │ browser │       │
+│  └─────────┘  └───────────────────────┘  │ message │       │
+│                                           │ skills  │       │
+│                                           └─────────┘       │
+└─────────────────────────────────────────────────────────────┘</pre>
+                </div>
+
+                <h4>The Workspace Philosophy</h4>
+                <p>Your AI assistant lives in a <strong>workspace</strong> — a directory on your machine. Key files:</p>
+                <ul>
+                    <li><strong>SOUL.md</strong> - Who is this AI? Personality, values, communication style</li>
+                    <li><strong>USER.md</strong> - Who are you? Background, preferences, context</li>
+                    <li><strong>AGENTS.md</strong> - Operating instructions and behaviors</li>
+                    <li><strong>MEMORY.md</strong> - Long-term curated memories</li>
+                    <li><strong>memory/*.md</strong> - Daily logs and notes</li>
+                    <li><strong>TOOLS.md</strong> - Local tool configuration (API keys, paths, etc.)</li>
+                </ul>
+
+                <div class="tip">
+                    <strong>💡 Philosophy:</strong> Your AI wakes up fresh each session. These files ARE its memory and personality. Write them well, and you get a capable, personalized assistant.
+                </div>
+            </div>
+
+            <div class="session">
+                <h3><span class="session-time">10:45 - 12:15</span> Installation & Configuration</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Have Clawdbot installed and running</li>
+                        <li>Configure authentication with Anthropic</li>
+                        <li>Create your workspace and core files</li>
+                        <li>Test basic interaction via webchat</li>
+                    </ul>
+                </div>
+
+                <h4>Prerequisites</h4>
+                <ul>
+                    <li>Node.js 18+ installed</li>
+                    <li>Anthropic API key (get one at <a href="https://console.anthropic.com">console.anthropic.com</a>)</li>
+                    <li>macOS, Linux, or Windows with WSL</li>
+                </ul>
+
+                <h4>Installation</h4>
+                <div class="code-block">
+<pre># Install Clawdbot globally
+npm install -g clawdbot
+
+# Verify installation
+clawdbot --version
+
+# Run the setup wizard
+clawdbot wizard
+
+# Start the gateway
+clawdbot gateway start
+
+# Open webchat (default: http://localhost:18789)</pre>
+                </div>
+
+                <h4>Configuration Wizard</h4>
+                <p>The wizard will guide you through:</p>
+                <ol>
+                    <li><strong>Authentication</strong> - Connect your Anthropic API key</li>
+                    <li><strong>Workspace</strong> - Set your working directory</li>
+                    <li><strong>Model</strong> - Choose your default model (Claude Sonnet recommended)</li>
+                    <li><strong>Optional channels</strong> - Telegram, Slack, etc.</li>
+                </ol>
+
+                <h4>Create Your Workspace</h4>
+                <div class="code-block">
+<pre># Create a workspace directory
+mkdir ~/ai-assistant
+cd ~/ai-assistant
+
+# Initialize with core files
+cat > SOUL.md << 'EOF'
+# SOUL.md - Who I Am
+
+I am [YOUR ASSISTANT NAME], a professional AI assistant.
+
+## Core Identity
+- [Describe personality]
+- [Communication style]
+- [Key values]
+
+## Operating Principles
+- Be helpful and efficient
+- Ask clarifying questions when needed
+- Produce actionable outputs
+EOF
+
+cat > USER.md << 'EOF'
+# USER.md - About My Human
+
+- **Name:** [Your name]
+- **Role:** [Your job/role]
+- **Expertise:** [Your background]
+- **Preferences:** [How you like to work]
+EOF
+
+cat > AGENTS.md << 'EOF'
+# AGENTS.md - Operating Instructions
+
+## Every Session
+1. Read SOUL.md - this is who you are
+2. Read USER.md - this is who you're helping
+3. Check memory/ for recent context
+
+## Memory
+- Write to memory/YYYY-MM-DD.md for daily logs
+- Update MEMORY.md for long-term memories
+
+## Boundaries
+- Ask before external actions (emails, posts)
+- Keep private information private
+EOF</pre>
+                </div>
+
+                <div class="exercise-box">
+                    <h4>🔨 Hands-On: Install & First Chat</h4>
+                    <ol>
+                        <li>Install Clawdbot with npm</li>
+                        <li>Run the setup wizard</li>
+                        <li>Create your workspace with SOUL.md, USER.md, AGENTS.md</li>
+                        <li>Start the gateway and open webchat</li>
+                        <li>Have a conversation—does it feel personalized?</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Afternoon Sessions</h2>
+
+            <div class="session">
+                <h3><span class="session-time">13:15 - 14:45</span> Memory, Skills & Sub-agents</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Configure vector-based memory search</li>
+                        <li>Install and use skills for extended capabilities</li>
+                        <li>Use sub-agents for background tasks</li>
+                        <li>Set up heartbeats for proactive behavior</li>
+                    </ul>
+                </div>
+
+                <h4>Memory System</h4>
+                <p>Clawdbot has a two-tier memory system:</p>
+                <ol>
+                    <li><strong>File-based memory</strong> - MEMORY.md and memory/*.md files loaded into context</li>
+                    <li><strong>Vector search</strong> - Semantic search across memory files for relevant context</li>
+                </ol>
+
+                <div class="code-block">
+<pre># Enable memory search in config
+clawdbot config set agents.defaults.memorySearch.enabled true
+clawdbot config set agents.defaults.memorySearch.provider openai
+
+# Memory is now searchable
+# Your assistant will use memory_search tool to find relevant context</pre>
+                </div>
+
+                <h4>Skills</h4>
+                <p>Skills extend your assistant's capabilities:</p>
+                <div class="code-block">
+<pre># List available skills
+clawdbot skills list
+
+# Install a skill
+clawdbot skills install weather
+clawdbot skills install github
+
+# Skills provide new tools and instructions
+# The assistant automatically loads SKILL.md when relevant</pre>
+                </div>
+
+                <h4>Popular Skills</h4>
+                <ul>
+                    <li><strong>weather</strong> - Get weather forecasts</li>
+                    <li><strong>github</strong> - Interact with GitHub (issues, PRs, etc.)</li>
+                    <li><strong>notion</strong> - Manage Notion pages and databases</li>
+                    <li><strong>slack</strong> - Extended Slack operations</li>
+                    <li><strong>bird</strong> - Read X/Twitter via CLI</li>
+                </ul>
+
+                <h4>Sub-agents</h4>
+                <p>Spawn background agents for long-running tasks:</p>
+                <div class="code-block">
+<pre># In conversation, your assistant can spawn sub-agents:
+"I'll spawn a sub-agent to research this and ping you when done."
+
+# The sub-agent runs in the background
+# Notifies you via message when complete
+# Useful for: research, building things, monitoring</pre>
+                </div>
+
+                <h4>Heartbeats</h4>
+                <p>Make your assistant proactive:</p>
+                <div class="code-block">
+<pre># Configure heartbeat in config
+clawdbot config set agents.defaults.heartbeat.every "1h"
+
+# Create HEARTBEAT.md with periodic tasks
+cat > HEARTBEAT.md << 'EOF'
+# Heartbeat Tasks
+- Check for unread important emails
+- Review calendar for upcoming events
+- Summarize recent Slack activity
+EOF
+
+# Your assistant wakes up hourly to check on things</pre>
+                </div>
+
+                <h4>Cron Jobs</h4>
+                <div class="code-block">
+<pre># Schedule one-time or recurring tasks
+clawdbot cron add --schedule "0 9 * * 1" --text "Generate weekly summary report"
+
+# Reminders
+clawdbot cron add --in "30m" --text "Remind Tim about the meeting"</pre>
+                </div>
+            </div>
+
+            <div class="session">
+                <h3><span class="session-time">15:00 - 16:30</span> Channel Integrations</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Connect Clawdbot to Slack and/or Telegram</li>
+                        <li>Configure channel-specific behaviors</li>
+                        <li>Understand access controls and security</li>
+                        <li>Set up multi-channel workflows</li>
+                    </ul>
+                </div>
+
+                <h4>Available Channels</h4>
+                <ul>
+                    <li><strong>Webchat</strong> - Built-in, always available</li>
+                    <li><strong>Slack</strong> - Socket Mode (easy) or HTTP</li>
+                    <li><strong>Telegram</strong> - Bot API integration</li>
+                    <li><strong>Discord</strong> - Bot integration</li>
+                    <li><strong>Signal</strong> - Via signal-cli</li>
+                    <li><strong>iMessage</strong> - macOS only</li>
+                    <li><strong>WhatsApp</strong> - Via Baileys</li>
+                </ul>
+
+                <h4>Slack Setup</h4>
+                <div class="code-block">
+<pre># 1. Create a Slack App at api.slack.com/apps
+# 2. Enable Socket Mode
+# 3. Add Bot Token Scopes: chat:write, app_mentions:read, im:history, etc.
+# 4. Install to workspace
+
+# Configure Clawdbot
+clawdbot channels configure slack
+
+# Add tokens when prompted:
+# - Bot Token (xoxb-...)
+# - App Token (xapp-...)
+
+# Start gateway with Slack enabled
+clawdbot gateway restart</pre>
+                </div>
+
+                <h4>Telegram Setup</h4>
+                <div class="code-block">
+<pre># 1. Create a bot with @BotFather on Telegram
+# 2. Get the bot token
+
+# Configure
+clawdbot channels configure telegram
+
+# Enter bot token when prompted
+
+# Restart gateway
+clawdbot gateway restart
+
+# Message your bot on Telegram to pair</pre>
+                </div>
+
+                <h4>Access Controls</h4>
+                <div class="code-block">
+<pre># Control who can talk to your bot
+
+# DM Policy: pairing (invite code), allowlist, or open
+clawdbot config set channels.telegram.dmPolicy pairing
+
+# Group Policy: allowlist specific groups
+clawdbot config set channels.slack.groupPolicy allowlist
+clawdbot config set channels.slack.channels.C123456.enabled true
+
+# Require mentions in group chats
+clawdbot config set channels.slack.requireMention true</pre>
+                </div>
+
+                <h4>Multi-Channel Workflows</h4>
+                <p>Your assistant can:</p>
+                <ul>
+                    <li>Receive a message on Slack, respond there</li>
+                    <li>Proactively notify you on Telegram about something it found</li>
+                    <li>Cross-reference conversations across channels</li>
+                    <li>Route different tasks to different channels</li>
+                </ul>
+
+                <div class="exercise-box">
+                    <h4>🔨 Hands-On: Connect a Channel</h4>
+                    <p>Choose either Slack OR Telegram (or both if time permits):</p>
+                    <ol>
+                        <li>Create the bot/app on the platform</li>
+                        <li>Configure Clawdbot with the tokens</li>
+                        <li>Restart the gateway</li>
+                        <li>Send a message to your bot</li>
+                        <li>Verify it responds with your SOUL.md personality</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Day 4 Capstone Exercise</h2>
+            
+            <div class="exercise-box" style="background: #d1fae5; border-color: var(--success);">
+                <h4>🔨 Deploy Your AI Assistant (16:45 - 18:00)</h4>
+                
+                <h5>Objective</h5>
+                <p>Create and deploy a fully personalized AI assistant that you'll continue using after this course.</p>
+                
+                <h5>Requirements</h5>
+                <ul>
+                    <li>Custom SOUL.md reflecting a personality that works for you</li>
+                    <li>Detailed USER.md with your background and preferences</li>
+                    <li>At least one messaging channel connected (Slack, Telegram, etc.)</li>
+                    <li>Memory system configured</li>
+                    <li>At least one skill installed</li>
+                    <li>Heartbeat or cron job for proactive behavior</li>
+                </ul>
+                
+                <h5>Process</h5>
+                <ol>
+                    <li><strong>Personalize (20 min)</strong>
+                        <ul>
+                            <li>Refine SOUL.md - give your assistant a real personality</li>
+                            <li>Complete USER.md with details about you</li>
+                            <li>Set up AGENTS.md with your operating preferences</li>
+                        </ul>
+                    </li>
+                    <li><strong>Extend (15 min)</strong>
+                        <ul>
+                            <li>Install relevant skills (github, weather, notion, etc.)</li>
+                            <li>Configure memory search</li>
+                            <li>Add any custom TOOLS.md settings</li>
+                        </ul>
+                    </li>
+                    <li><strong>Connect (15 min)</strong>
+                        <ul>
+                            <li>Set up at least one channel (Slack/Telegram recommended)</li>
+                            <li>Configure access controls</li>
+                            <li>Test the integration</li>
+                        </ul>
+                    </li>
+                    <li><strong>Automate (10 min)</strong>
+                        <ul>
+                            <li>Create HEARTBEAT.md with periodic checks</li>
+                            <li>Or set up a cron job for a recurring task</li>
+                        </ul>
+                    </li>
+                    <li><strong>Demo (15 min)</strong>
+                        <ul>
+                            <li>Show your assistant to the group</li>
+                            <li>Demonstrate: personality, channel, skill, automation</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <h5>Deliverables</h5>
+                <ul>
+                    <li>✅ Personalized SOUL.md, USER.md, AGENTS.md</li>
+                    <li>✅ Working channel integration (test message + response)</li>
+                    <li>✅ At least one skill installed and functional</li>
+                    <li>✅ Memory or heartbeat configured</li>
+                    <li>✅ Live demo to the group</li>
+                </ul>
+                
+                <h5>Example SOUL.md Template</h5>
+                <div class="code-block">
+<pre># SOUL.md - Who I Am
+
+*I'm [NAME]. [One-liner about purpose/personality].*
+
+## Core Identity
+**[Trait 1].** [Explanation]
+**[Trait 2].** [Explanation]
+**[Trait 3].** [Explanation]
+
+## Operating Principles
+### [Principle 1]
+- [Detail]
+- [Detail]
+
+### [Principle 2]
+- [Detail]
+- [Detail]
+
+## Boundaries
+- [What you will/won't do]
+- [Privacy rules]
+- [External action rules]
+
+## The Voice
+[How you speak, any quirks, signature elements]
+
+---
+*[Tagline or closing statement]*</pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Course Wrap-Up</h2>
+            <div class="card">
+                <h3>🎓 What You've Learned</h3>
+                <ul>
+                    <li><strong>Day 1:</strong> How LLMs work, prompt engineering, personal AI productivity</li>
+                    <li><strong>Day 2:</strong> Vibe coding, Cursor/Copilot/Claude Code, AI-assisted development</li>
+                    <li><strong>Day 3:</strong> LLM comparison, tools ecosystem, documentation workflows</li>
+                    <li><strong>Day 4:</strong> Clawdbot architecture, personalized AI assistants, channel integrations</li>
+                </ul>
+            </div>
+            
+            <div class="grid-2" style="margin-top: 2rem;">
+                <div class="card">
+                    <h3>🚀 Next Steps</h3>
+                    <ul>
+                        <li>Use your AI assistant daily for at least 2 weeks</li>
+                        <li>Iterate on your SOUL.md and MEMORY.md</li>
+                        <li>Explore more skills and integrations</li>
+                        <li>Join the Clawdbot Discord community</li>
+                        <li>Share what you build!</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>📚 Resources</h3>
+                    <ul>
+                        <li><a href="https://docs.clawd.bot">Clawdbot Documentation</a></li>
+                        <li><a href="https://discord.com/invite/clawd">Clawdbot Discord</a></li>
+                        <li><a href="https://clawdhub.com">ClawdHub (Community Skills)</a></li>
+                        <li><a href="https://github.com/clawdbot/clawdbot">GitHub Repository</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div style="text-align: center; padding: 2rem;">
+            <a href="day3.html" class="btn btn-outline" style="margin-right: 1rem;">← Day 3</a>
+            <a href="../resources/index.html" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">View All Resources →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>AI Mastery Course | Day 4 of 4 | 🎓 Congratulations, AI Guru!</p>
+        </div>
+    </footer>
+</body>
+</html>

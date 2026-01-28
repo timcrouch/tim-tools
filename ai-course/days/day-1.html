@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 1: Foundations & Personal AI | AI Mastery Course</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header class="day-header day-1-header">
+        <div class="container">
+            <p><a href="../index.html" style="color: white; text-decoration: none;">← Back to Course</a></p>
+            <h1>Day 1: Foundations & Personal AI</h1>
+            <p class="tagline">Understanding AI from the ground up and transforming your productivity</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2>Learning Objectives</h2>
+            <div class="card">
+                <ul>
+                    <li>Understand how Large Language Models (LLMs) actually work</li>
+                    <li>Master the fundamentals of prompt engineering</li>
+                    <li>Configure ChatGPT and Claude for maximum productivity</li>
+                    <li>Build your first AI-powered personal workflows</li>
+                    <li>Develop intuition for when and how to use AI effectively</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Morning Sessions</h2>
+
+            <div class="session">
+                <h3><span class="session-time">09:00 - 10:30</span> How LLMs Actually Work</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Understand transformers, attention mechanisms, and token prediction</li>
+                        <li>Know what tokens are and why context windows matter</li>
+                        <li>Grasp temperature, top-p, and other parameters</li>
+                        <li>Understand why LLMs "hallucinate" and how to mitigate it</li>
+                    </ul>
+                </div>
+
+                <h4>Key Concepts</h4>
+                <ul>
+                    <li><strong>Tokens</strong> - The atomic units of LLM processing (≈4 chars per token in English)</li>
+                    <li><strong>Context Window</strong> - How much the model can "see" at once (8K → 200K+ tokens)</li>
+                    <li><strong>Temperature</strong> - Creativity vs. determinism (0.0 = focused, 1.0 = creative)</li>
+                    <li><strong>Attention</strong> - How models weigh relevance across the context</li>
+                </ul>
+
+                <div class="tip">
+                    <strong>💡 Pro Tip:</strong> Think of LLMs as incredibly sophisticated autocomplete that has read most of the internet. They predict the next token based on everything before it.
+                </div>
+
+                <h4>Mental Models to Adopt</h4>
+                <ol>
+                    <li><strong>LLMs are stochastic, not deterministic</strong> - Same input can yield different outputs</li>
+                    <li><strong>They don't "know" things</strong> - They recognize patterns and predict likely continuations</li>
+                    <li><strong>Context is king</strong> - Better context = better outputs</li>
+                    <li><strong>They're trained on human text</strong> - They inherit human biases and errors</li>
+                </ol>
+            </div>
+
+            <div class="session">
+                <h3><span class="session-time">10:45 - 12:15</span> Prompt Engineering Fundamentals</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Structure prompts for consistent, high-quality outputs</li>
+                        <li>Use system prompts, personas, and role-playing effectively</li>
+                        <li>Apply few-shot learning with examples</li>
+                        <li>Debug and iterate on prompts systematically</li>
+                    </ul>
+                </div>
+
+                <h4>The Prompt Engineering Framework</h4>
+                <ol>
+                    <li><strong>Role</strong> - Who is the AI? (e.g., "You are a senior Python developer...")</li>
+                    <li><strong>Context</strong> - What background does it need?</li>
+                    <li><strong>Task</strong> - What specifically should it do?</li>
+                    <li><strong>Format</strong> - How should the output be structured?</li>
+                    <li><strong>Constraints</strong> - What should it avoid?</li>
+                </ol>
+
+                <div class="code-block">
+<pre># Example: Well-Structured Prompt
+
+## Role
+You are a senior technical writer specializing in API documentation.
+
+## Context  
+I'm documenting a REST API for a payment processing system.
+The audience is developers with 2-5 years of experience.
+
+## Task
+Write documentation for the following endpoint:
+POST /api/v1/payments
+
+## Format
+- Use markdown
+- Include: description, parameters table, example request/response, error codes
+- Keep language concise and technical
+
+## Constraints
+- No marketing language
+- Assume the reader knows HTTP basics</pre>
+                </div>
+
+                <h4>Prompt Patterns</h4>
+                <ul>
+                    <li><strong>Chain of Thought</strong> - "Think step by step before answering"</li>
+                    <li><strong>Few-Shot Learning</strong> - Provide examples of desired input/output</li>
+                    <li><strong>Self-Consistency</strong> - "Generate 3 solutions, then pick the best"</li>
+                    <li><strong>Metacognition</strong> - "Rate your confidence 1-10 and explain why"</li>
+                </ul>
+
+                <div class="exercise-box">
+                    <h4>🔨 Quick Exercise: Prompt Refinement</h4>
+                    <p>Take this weak prompt and improve it using the framework:</p>
+                    <p><em>Weak:</em> "Write me some code for a login form"</p>
+                    <p>Apply: Role, Context, Task, Format, Constraints</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Afternoon Sessions</h2>
+
+            <div class="session">
+                <h3><span class="session-time">13:15 - 14:45</span> Mastering ChatGPT & Claude</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Configure custom instructions for persistent context</li>
+                        <li>Understand the strengths of each platform</li>
+                        <li>Use features like memory, artifacts, and projects</li>
+                        <li>Know when to use which tool</li>
+                    </ul>
+                </div>
+
+                <h4>ChatGPT Deep Dive</h4>
+                <ul>
+                    <li><strong>Custom Instructions</strong> - Set your preferences and context globally</li>
+                    <li><strong>Memory</strong> - Let ChatGPT remember facts about you</li>
+                    <li><strong>GPTs</strong> - Pre-configured assistants for specific tasks</li>
+                    <li><strong>Code Interpreter</strong> - Execute Python, analyze data, create visualizations</li>
+                    <li><strong>DALL-E</strong> - Image generation integrated</li>
+                    <li><strong>Web Browsing</strong> - Real-time information access</li>
+                </ul>
+
+                <h4>Claude Deep Dive</h4>
+                <ul>
+                    <li><strong>Projects</strong> - Organized workspaces with persistent context</li>
+                    <li><strong>Artifacts</strong> - Interactive code, documents, and visualizations</li>
+                    <li><strong>Longer Context</strong> - 200K tokens (entire codebases)</li>
+                    <li><strong>Document Analysis</strong> - Upload and analyze PDFs, code files</li>
+                    <li><strong>Claude's Character</strong> - More nuanced, tends to refuse less</li>
+                </ul>
+
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Use Case</th>
+                            <th>ChatGPT</th>
+                            <th>Claude</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Quick questions</td>
+                            <td>✅ Great</td>
+                            <td>✅ Great</td>
+                        </tr>
+                        <tr>
+                            <td>Long document analysis</td>
+                            <td>⚠️ Limited context</td>
+                            <td>✅ 200K tokens</td>
+                        </tr>
+                        <tr>
+                            <td>Data analysis</td>
+                            <td>✅ Code Interpreter</td>
+                            <td>⚠️ Artifacts only</td>
+                        </tr>
+                        <tr>
+                            <td>Image generation</td>
+                            <td>✅ DALL-E built-in</td>
+                            <td>❌ Not available</td>
+                        </tr>
+                        <tr>
+                            <td>Nuanced writing</td>
+                            <td>⚠️ Can be generic</td>
+                            <td>✅ More natural</td>
+                        </tr>
+                        <tr>
+                            <td>Current events</td>
+                            <td>✅ Web browsing</td>
+                            <td>⚠️ Knowledge cutoff</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="exercise-box">
+                    <h4>🔨 Hands-On: Configure Your AI</h4>
+                    <ol>
+                        <li>Set up ChatGPT custom instructions with your role, preferences, and common tasks</li>
+                        <li>Create a Claude Project for your work/team context</li>
+                        <li>Test the same prompt in both and compare outputs</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="session">
+                <h3><span class="session-time">15:00 - 16:30</span> AI-Powered Productivity Workflows</h3>
+                
+                <div class="learning-objectives">
+                    <h4>🎯 By the end of this session, you will:</h4>
+                    <ul>
+                        <li>Identify high-value automation opportunities</li>
+                        <li>Build reusable prompt templates</li>
+                        <li>Create multi-step workflows</li>
+                        <li>Integrate AI into your daily tools</li>
+                    </ul>
+                </div>
+
+                <h4>High-Value AI Use Cases</h4>
+                <ul>
+                    <li><strong>Email drafting</strong> - Context + tone = professional responses in seconds</li>
+                    <li><strong>Meeting summaries</strong> - Paste transcript, get action items</li>
+                    <li><strong>Research synthesis</strong> - Analyze multiple sources, extract insights</li>
+                    <li><strong>Learning acceleration</strong> - Explain concepts, generate exercises</li>
+                    <li><strong>Decision analysis</strong> - Pros/cons, risk assessment, alternatives</li>
+                    <li><strong>Content creation</strong> - First drafts, outlines, variations</li>
+                </ul>
+
+                <h4>Building Prompt Templates</h4>
+                <div class="code-block">
+<pre># Email Response Template
+
+## Context
+I'm a [YOUR ROLE] at [COMPANY]. My communication style is [professional/casual/technical].
+
+## The email I received:
+"""
+[PASTE EMAIL]
+"""
+
+## Task
+Draft a response that:
+- Addresses all points raised
+- Maintains [TONE]
+- Is concise (under 150 words)
+- Suggests next steps if appropriate
+
+## Format
+- Start with a brief acknowledgment
+- Address each point
+- End with clear next action</pre>
+                </div>
+
+                <div class="tip">
+                    <strong>💡 Workflow Pattern:</strong> Build a library of templates for your repetitive tasks. Store them in a notes app or text file for quick access.
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Day 1 Exercise</h2>
+            
+            <div class="exercise-box" style="background: #dbeafe; border-color: var(--primary);">
+                <h4>🔨 Personal AI Toolkit Setup (16:45 - 18:00)</h4>
+                
+                <h5>Objective</h5>
+                <p>Set up and configure your AI tools for maximum productivity.</p>
+                
+                <h5>Tasks</h5>
+                <ol>
+                    <li><strong>ChatGPT Configuration (20 min)</strong>
+                        <ul>
+                            <li>Set custom instructions with your role, expertise, and preferences</li>
+                            <li>Configure memory with key facts about your work</li>
+                            <li>Explore and save 2-3 useful GPTs</li>
+                        </ul>
+                    </li>
+                    <li><strong>Claude Setup (20 min)</strong>
+                        <ul>
+                            <li>Create a Project for your primary work domain</li>
+                            <li>Upload relevant context documents</li>
+                            <li>Set project instructions</li>
+                        </ul>
+                    </li>
+                    <li><strong>Prompt Library (25 min)</strong>
+                        <ul>
+                            <li>Create 5 reusable prompt templates for your common tasks</li>
+                            <li>Test each template and refine</li>
+                            <li>Store in an accessible location</li>
+                        </ul>
+                    </li>
+                    <li><strong>Demo (10 min)</strong>
+                        <ul>
+                            <li>Share one of your templates with the group</li>
+                            <li>Explain the use case and why it works</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <h5>Deliverables</h5>
+                <ul>
+                    <li>✅ Configured ChatGPT with custom instructions</li>
+                    <li>✅ Claude Project with context loaded</li>
+                    <li>✅ 5 prompt templates documented</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Key Takeaways</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Remember</h3>
+                    <ul>
+                        <li>LLMs predict tokens, they don't "know" things</li>
+                        <li>Context quality determines output quality</li>
+                        <li>Structure your prompts: Role, Context, Task, Format, Constraints</li>
+                        <li>Different tools excel at different tasks</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Action Items</h3>
+                    <ul>
+                        <li>Spend 15 min/day this week with your AI tools</li>
+                        <li>Expand your prompt template library</li>
+                        <li>Notice when you could have used AI but didn't</li>
+                        <li>Come to Day 2 ready to code!</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div style="text-align: center; padding: 2rem;">
+            <a href="day2.html" class="btn" style="font-size: 1.2rem; padding: 1rem 2rem;">Continue to Day 2: AI-Powered Development →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>AI Mastery Course | Day 1 of 4</p>
+        </div>
+    </footer>
+</body>
+</html>
