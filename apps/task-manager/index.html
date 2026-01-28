@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager | Tim's Tools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Back to Tools</a>
+            <h1>✅ Task Manager</h1>
+            <p class="subtitle">Get things done. Locally.</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="progress-text"><span id="completed">0</span> / <span id="total">0</span> tasks complete</p>
+        </header>
+
+        <main>
+            <!-- Add Task Form -->
+            <section class="add-task-section">
+                <form id="taskForm">
+                    <div class="form-row">
+                        <input type="text" id="taskTitle" placeholder="What needs to be done?" required>
+                        <button type="submit" class="btn-add">Add Task</button>
+                    </div>
+                    <div class="form-row secondary">
+                        <input type="date" id="taskDue" title="Due date">
+                        <select id="taskPriority" title="Priority">
+                            <option value="low">🟢 Low</option>
+                            <option value="medium" selected>🟡 Medium</option>
+                            <option value="high">🔴 High</option>
+                        </select>
+                        <select id="taskCategory" title="Category">
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="project">Project</option>
+                            <option value="errand">Errand</option>
+                        </select>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Filters -->
+            <section class="filters">
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+                <div class="filter-group">
+                    <select id="sortBy" class="sort-select">
+                        <option value="created">Sort: Created</option>
+                        <option value="due">Sort: Due Date</option>
+                        <option value="priority">Sort: Priority</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Task List -->
+            <section class="task-list" id="taskList">
+                <!-- Tasks rendered here -->
+            </section>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState">
+                <div class="icon">📝</div>
+                <h3>No tasks yet</h3>
+                <p>Add your first task above to get started!</p>
+            </div>
+        </main>
+
+        <footer>
+            <button id="clearCompleted" class="btn-clear">Clear Completed</button>
+            <button id="exportBtn" class="btn-export">Export JSON</button>
+            <button id="importBtn" class="btn-import">Import JSON</button>
+            <input type="file" id="importFile" accept=".json" style="display: none;">
+            <p class="footer-text">Built by Giterdone 😉 | Data stored locally</p>
+        </footer>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <h2>Edit Task</h2>
+            <form id="editForm">
+                <input type="hidden" id="editId">
+                <div class="form-group">
+                    <label for="editTitle">Task</label>
+                    <input type="text" id="editTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="editDue">Due Date</label>
+                    <input type="date" id="editDue">
+                </div>
+                <div class="form-group">
+                    <label for="editPriority">Priority</label>
+                    <select id="editPriority">
+                        <option value="low">🟢 Low</option>
+                        <option value="medium">🟡 Medium</option>
+                        <option value="high">🔴 High</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editCategory">Category</label>
+                    <select id="editCategory">
+                        <option value="personal">Personal</option>
+                        <option value="work">Work</option>
+                        <option value="project">Project</option>
+                        <option value="errand">Errand</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="cancelEdit">Cancel</button>
+                    <button type="submit" class="btn-save">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

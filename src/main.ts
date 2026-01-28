@@ -26,6 +26,14 @@ const liveApps: App[] = [
     path: '/apps/clawdbot-migration/',
     status: 'live',
   },
+  {
+    id: 'task-manager',
+    name: 'Task Manager',
+    description: 'Simple task tracking with priorities, due dates, and categories. All data stored locally.',
+    icon: '✅',
+    path: '/apps/task-manager/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline
