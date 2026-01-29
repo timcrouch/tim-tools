@@ -34,6 +34,14 @@ const liveApps: App[] = [
     path: '/apps/task-manager/',
     status: 'live',
   },
+  {
+    id: 'caffeine-tracker',
+    name: 'Caffeine Half-Life',
+    description: "Track your coffee intake and find out why you can't sleep. Spoiler: it's the 4pm espresso.",
+    icon: '☕',
+    path: '/apps/caffeine-tracker/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline
@@ -59,14 +67,6 @@ const comingApps: App[] = [
     name: 'Meeting Bingo',
     description: '"Let\'s circle back," "synergy," "low-hanging fruit" — corporate buzzword bingo that makes standups bearable.',
     icon: '📋',
-    path: '#',
-    status: 'coming-soon',
-  },
-  {
-    id: 'caffeine-tracker',
-    name: 'Caffeine Half-Life',
-    description: "Track your coffee intake and find out why you can't sleep. Spoiler: it's the 4pm espresso.",
-    icon: '☕',
     path: '#',
     status: 'coming-soon',
   },

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caffeine Half-Life | Tim's Tools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Back to Tools</a>
+            <h1>☕ Caffeine Half-Life</h1>
+            <p class="subtitle">Find out why you can't sleep. Spoiler: it's the 4pm espresso.</p>
+        </header>
+
+        <main>
+            <!-- Current Status -->
+            <section class="status-section">
+                <div class="caffeine-meter">
+                    <div class="meter-label">Caffeine in System</div>
+                    <div class="meter-value"><span id="currentCaffeine">0</span> mg</div>
+                    <div class="meter-bar-container">
+                        <div class="meter-bar" id="caffeineBar"></div>
+                        <div class="meter-zones">
+                            <span class="zone zone-safe">Chill</span>
+                            <span class="zone zone-alert">Alert</span>
+                            <span class="zone zone-wired">Wired</span>
+                            <span class="zone zone-danger">☠️</span>
+                        </div>
+                    </div>
+                    <p class="meter-status" id="caffeineStatus">No caffeine tracked yet</p>
+                </div>
+                <div class="sleep-forecast">
+                    <div class="forecast-icon" id="sleepIcon">😴</div>
+                    <div class="forecast-text">
+                        <span class="forecast-label">Sleep Forecast</span>
+                        <span class="forecast-value" id="sleepForecast">Add some caffeine to find out</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Add -->
+            <section class="quick-add-section">
+                <h2>Quick Add</h2>
+                <div class="drink-grid">
+                    <button class="drink-btn" data-mg="95" data-name="Coffee">
+                        <span class="drink-icon">☕</span>
+                        <span class="drink-name">Coffee</span>
+                        <span class="drink-mg">95 mg</span>
+                    </button>
+                    <button class="drink-btn" data-mg="63" data-name="Espresso">
+                        <span class="drink-icon">🫖</span>
+                        <span class="drink-name">Espresso</span>
+                        <span class="drink-mg">63 mg</span>
+                    </button>
+                    <button class="drink-btn" data-mg="47" data-name="Black Tea">
+                        <span class="drink-icon">🍵</span>
+                        <span class="drink-name">Black Tea</span>
+                        <span class="drink-mg">47 mg</span>
+                    </button>
+                    <button class="drink-btn" data-mg="28" data-name="Green Tea">
+                        <span class="drink-icon">🍃</span>
+                        <span class="drink-name">Green Tea</span>
+                        <span class="drink-mg">28 mg</span>
+                    </button>
+                    <button class="drink-btn" data-mg="34" data-name="Cola">
+                        <span class="drink-icon">🥤</span>
+                        <span class="drink-name">Cola</span>
+                        <span class="drink-mg">34 mg</span>
+                    </button>
+                    <button class="drink-btn" data-mg="80" data-name="Energy Drink">
+                        <span class="drink-icon">⚡</span>
+                        <span class="drink-name">Energy Drink</span>
+                        <span class="drink-mg">80 mg</span>
+                    </button>
+                    <button class="drink-btn" data-mg="150" data-name="Double Shot">
+                        <span class="drink-icon">💪</span>
+                        <span class="drink-name">Double Shot</span>
+                        <span class="drink-mg">150 mg</span>
+                    </button>
+                    <button class="drink-btn custom" id="customBtn">
+                        <span class="drink-icon">✏️</span>
+                        <span class="drink-name">Custom</span>
+                        <span class="drink-mg">? mg</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Today's Log -->
+            <section class="log-section">
+                <div class="log-header">
+                    <h2>Today's Intake</h2>
+                    <span class="daily-total">Total: <span id="dailyTotal">0</span> mg</span>
+                </div>
+                <div class="log-list" id="logList">
+                    <!-- Entries rendered here -->
+                </div>
+                <div class="empty-state" id="emptyState">
+                    <div class="icon">☕</div>
+                    <h3>No caffeine logged today</h3>
+                    <p>Add your first drink above!</p>
+                </div>
+            </section>
+
+            <!-- Decay Chart -->
+            <section class="chart-section">
+                <h2>Caffeine Decay (Next 24h)</h2>
+                <div class="chart-container">
+                    <canvas id="decayChart"></canvas>
+                </div>
+                <p class="chart-note">Half-life: ~5 hours (varies by individual)</p>
+            </section>
+        </main>
+
+        <footer>
+            <button id="clearToday" class="btn-clear">Clear Today</button>
+            <button id="settingsBtn" class="btn-settings">⚙️ Settings</button>
+            <p class="footer-text">Built by Giterdone 😉 | Data stored locally</p>
+        </footer>
+    </div>
+
+    <!-- Custom Drink Modal -->
+    <div class="modal" id="customModal">
+        <div class="modal-content">
+            <h2>Custom Caffeine</h2>
+            <form id="customForm">
+                <div class="form-group">
+                    <label for="customName">Drink Name</label>
+                    <input type="text" id="customName" placeholder="Mystery Brew" required>
+                </div>
+                <div class="form-group">
+                    <label for="customMg">Caffeine (mg)</label>
+                    <input type="number" id="customMg" min="1" max="1000" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="cancelCustom">Cancel</button>
+                    <button type="submit" class="btn-save">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <h2>Settings</h2>
+            <form id="settingsForm">
+                <div class="form-group">
+                    <label for="halfLife">Caffeine Half-Life (hours)</label>
+                    <input type="number" id="halfLife" min="3" max="10" step="0.5" value="5">
+                    <p class="form-hint">Average is 5 hours. Slower if you're sensitive, faster if you're a coffee veteran.</p>
+                </div>
+                <div class="form-group">
+                    <label for="bedtime">Target Bedtime</label>
+                    <input type="time" id="bedtime" value="23:00">
+                </div>
+                <div class="form-group">
+                    <label for="maxDaily">Daily Limit Warning (mg)</label>
+                    <input type="number" id="maxDaily" min="100" max="1000" step="50" value="400">
+                    <p class="form-hint">FDA recommends max 400mg/day for healthy adults.</p>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="cancelSettings">Cancel</button>
+                    <button type="submit" class="btn-save">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
