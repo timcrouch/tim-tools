@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 7: Risk, Governance & Responsible Use | AI for Executives</title>
+  <meta name="description" content="Understand data privacy risks, IP implications, and build internal AI use policies for your organization.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        🎯 <span>AI for Executives</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#modules">All Modules</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Module Hero -->
+  <section class="module-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>→</span>
+        <span>Module 7</span>
+      </div>
+      <h1>Risk, Governance, and Responsible Use</h1>
+      <p style="opacity: 0.9; max-width: 600px; margin-top: 1rem;">
+        Navigate data privacy, intellectual property, and build policies that enable AI adoption while protecting your organization.
+      </p>
+      <div class="hero-meta" style="margin-top: 1.5rem;">
+        <div class="hero-meta-item">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          60-75 minutes
+        </div>
+        <div class="hero-meta-item">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Policy Gap Analysis Exercise
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module Content -->
+  <section class="module-body">
+    <div class="container">
+      <div class="module-layout">
+        <!-- Sidebar -->
+        <aside class="module-sidebar">
+          <nav class="sidebar-nav">
+            <h4>Contents</h4>
+            <ul>
+              <li><a href="#objectives">Learning Objectives</a></li>
+              <li><a href="#data-privacy">Data Privacy</a></li>
+              <li><a href="#sharing">What Can Be Shared</a></li>
+              <li><a href="#ip">Intellectual Property</a></li>
+              <li><a href="#client-data">Client Data Policies</a></li>
+              <li><a href="#human-review">Human Review Requirements</a></li>
+              <li><a href="#exercise">Hands-On Exercise</a></li>
+              <li><a href="#takeaways">Key Takeaways</a></li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+          <!-- Learning Objectives -->
+          <div id="objectives" class="objectives-box">
+            <h3>🎯 Learning Objectives</h3>
+            <p>By the end of this module, you will be able to:</p>
+            <ul>
+              <li>Identify data privacy and confidentiality risks when using AI tools</li>
+              <li>Distinguish between appropriate and inappropriate data sharing with AI systems</li>
+              <li>Understand intellectual property implications of AI-generated content</li>
+              <li>Develop client data handling policies for AI use</li>
+              <li>Recognize when AI output requires mandatory human review</li>
+              <li>Create foundational internal AI use policies for your organization</li>
+            </ul>
+          </div>
+
+          <!-- Section 1: Data Privacy -->
+          <h2 id="data-privacy">Data Privacy and Confidentiality</h2>
+          
+          <h3>The Core Challenge</h3>
+          <p>When you use AI tools, you're potentially sharing data with third-party systems. Understanding what happens to that data is critical.</p>
+
+          <h3>How AI Tools Handle Data</h3>
+          
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Provider</th>
+                  <th>Consumer Products</th>
+                  <th>Business/Enterprise Tiers</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Anthropic (Claude)</td><td>May use for training (opt-out available)</td><td>Never used for training</td></tr>
+                <tr><td>OpenAI (ChatGPT)</td><td>May use for training (opt-out available)</td><td>Never used for training</td></tr>
+                <tr><td>Microsoft Copilot</td><td>Varies by product</td><td>Enterprise data protected</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="info-box important">
+            <h4>💡 Key Insight</h4>
+            <p>Business and Enterprise tiers typically offer stronger data protection guarantees. This is a primary reason to invest in paid tiers beyond just feature access.</p>
+          </div>
+
+          <h3>Practical Risk Assessment Matrix</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Data Type</th>
+                  <th>Risk Level</th>
+                  <th>Guidance</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Public information</td><td>Low</td><td>Generally safe for any AI tool</td></tr>
+                <tr><td>Internal procedures (non-sensitive)</td><td>Low-Medium</td><td>Safe with business-tier tools</td></tr>
+                <tr><td>Client names/basic info</td><td>Medium</td><td>Enterprise tools with caution</td></tr>
+                <tr><td>Financial projections</td><td>Medium-High</td><td>Enterprise tools only, sanitize when possible</td></tr>
+                <tr><td>Client confidential data</td><td>High</td><td>Generally avoid cloud AI</td></tr>
+                <tr><td>PII (SSN, health data)</td><td>Critical</td><td>Do not use with cloud AI</td></tr>
+                <tr><td>Trade secrets</td><td>Critical</td><td>Do not use with cloud AI</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Section 2: What Can Be Shared -->
+          <h2 id="sharing">What Can (and Cannot) Be Shared with AI Tools</h2>
+          
+          <h3>Safe to Share ✅</h3>
+          <ul>
+            <li>Publicly available information</li>
+            <li>Generic templates and frameworks</li>
+            <li>Anonymized or synthetic data</li>
+            <li>Internal process documentation (non-confidential)</li>
+            <li>General industry questions</li>
+            <li>Coding problems with sanitized examples</li>
+          </ul>
+
+          <h3>Proceed with Caution ⚠️</h3>
+          <ul>
+            <li>Client project descriptions (anonymize first)</li>
+            <li>Internal meeting notes (remove names/specifics)</li>
+            <li>Financial models (use dummy data)</li>
+            <li>Strategic plans (generalize details)</li>
+          </ul>
+
+          <h3>Never Share ❌</h3>
+          <ul>
+            <li>Client confidential information (without explicit permission)</li>
+            <li>Personally Identifiable Information (PII)</li>
+            <li>Protected Health Information (PHI)</li>
+            <li>Financial account numbers</li>
+            <li>Passwords or access credentials</li>
+            <li>Trade secrets or proprietary algorithms</li>
+            <li>Information under NDA without permission</li>
+          </ul>
+
+          <h3>The Sanitization Approach</h3>
+          <div class="info-box warning">
+            <h4>❌ Don't Share This:</h4>
+            <p>"Acme Corp is acquiring Beta Inc for $50M. Draft the due diligence checklist focusing on their Seattle office with 200 employees."</p>
+          </div>
+
+          <div class="info-box tip">
+            <h4>✅ Safe to Share:</h4>
+            <p>"A mid-size company is acquiring a smaller competitor for an undisclosed amount. Draft a due diligence checklist for an acquisition involving a regional office with approximately 200 employees."</p>
+          </div>
+
+          <!-- Section 3: IP -->
+          <h2 id="ip">Intellectual Property Implications</h2>
+          
+          <h3>Who Owns AI-Generated Content?</h3>
+          <p>The legal framework is evolving. Current understanding:</p>
+          <ul>
+            <li>You own the output when you provide substantial creative input/direction</li>
+            <li>Pure AI generation with minimal human input has unclear ownership</li>
+            <li>Most commercial AI terms of service grant you rights to outputs</li>
+          </ul>
+
+          <h3>Code-Specific IP Concerns</h3>
+          <p><strong>GitHub Copilot Considerations:</strong></p>
+          <ul>
+            <li>Trained on public repositories (including copyleft-licensed code)</li>
+            <li>Potential for generating code similar to training data</li>
+            <li>Risk of inadvertent license violations</li>
+          </ul>
+
+          <h4>Mitigation Strategies</h4>
+          <ol>
+            <li>Enable duplicate detection features</li>
+            <li>Review generated code for suspicious similarities</li>
+            <li>Maintain clear documentation of AI assistance</li>
+            <li>Consider code scanning tools for license compliance</li>
+          </ol>
+
+          <h3>Recommended Contract Language</h3>
+          <div class="card" style="background: var(--gray-100);">
+            <p><em>"Contractor may utilize AI-assisted tools in the performance of services. All deliverables, regardless of tools used in their creation, shall be owned by Client pursuant to the work-for-hire provisions of this agreement. Contractor warrants that all deliverables represent original work and do not infringe third-party rights."</em></p>
+          </div>
+
+          <!-- Section 4: Client Data Policies -->
+          <h2 id="client-data">Client Data Handling Policies</h2>
+          
+          <h3>Policy Framework Components</h3>
+
+          <h4>1. Data Classification</h4>
+          <p>Define categories: Public, Internal, Confidential, Restricted</p>
+
+          <h4>2. Tool Authorization</h4>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>Public</th>
+                  <th>Internal</th>
+                  <th>Confidential</th>
+                  <th>Restricted</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Claude Team/Enterprise</td><td>✅</td><td>✅</td><td>⚠️ Limited</td><td>❌</td></tr>
+                <tr><td>ChatGPT Enterprise</td><td>✅</td><td>✅</td><td>⚠️ Limited</td><td>❌</td></tr>
+                <tr><td>Consumer AI tools</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4>3. Client Consent Requirements</h4>
+          <ul>
+            <li>When is client notification required?</li>
+            <li>When is explicit consent needed?</li>
+            <li>How should consent be documented?</li>
+          </ul>
+
+          <h3>Sample Policy Statement</h3>
+          <div class="card" style="background: var(--gray-100);">
+            <p><strong>AI Tool Usage Policy for Client Data</strong></p>
+            <ol>
+              <li>Only enterprise-grade AI tools with data protection guarantees may be used</li>
+              <li>Client confidential information must be anonymized before AI processing</li>
+              <li>AI tools shall not be used with restricted data categories</li>
+              <li>All AI-assisted work products undergo human review before delivery</li>
+              <li>Clients will be informed of AI tool usage upon request</li>
+            </ol>
+          </div>
+
+          <!-- Section 5: Human Review -->
+          <h2 id="human-review">When AI Output Requires Human Review</h2>
+          
+          <h3>Mandatory Review Scenarios</h3>
+          
+          <h4>1. Legal or Compliance Content</h4>
+          <p>Contract language, regulatory filings, legal opinions, compliance documentation</p>
+
+          <h4>2. Financial Outputs</h4>
+          <p>Financial statements, audit workpapers, tax calculations, investment recommendations</p>
+
+          <h4>3. Client-Facing Deliverables</h4>
+          <p>Reports, presentations, recommendations, any document bearing firm name</p>
+
+          <h4>4. Technical Decisions</h4>
+          <p>Architecture recommendations, security configurations, production code</p>
+
+          <h4>5. Personnel Matters</h4>
+          <p>Performance evaluations, hiring decisions, compensation recommendations</p>
+
+          <h3>Review Depth Framework</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Output Type</th>
+                  <th>Review Level</th>
+                  <th>Reviewer</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Internal drafts</td><td>Light review</td><td>Any team member</td></tr>
+                <tr><td>Client communications</td><td>Standard review</td><td>Project lead</td></tr>
+                <tr><td>Deliverables</td><td>Thorough review</td><td>Senior manager</td></tr>
+                <tr><td>Legal/financial</td><td>Expert review</td><td>Subject matter expert</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Common AI Errors to Watch For</h3>
+          <ul>
+            <li><strong>Factual errors:</strong> "Hallucinated" citations, incorrect statistics, non-existent case law</li>
+            <li><strong>Logical errors:</strong> Circular reasoning, false equivalencies, missing edge cases</li>
+            <li><strong>Context errors:</strong> Wrong jurisdiction, outdated information, cultural misunderstandings</li>
+            <li><strong>Quality issues:</strong> Inconsistent tone, repetitive phrasing, generic content</li>
+          </ul>
+
+          <!-- Exercise -->
+          <div id="exercise" class="exercise-box">
+            <h3>🏋️ Hands-On Exercise: Policy Gap Analysis</h3>
+            <p><strong>Duration:</strong> 20 minutes</p>
+            
+            <h4>Part 1: Current State Assessment (10 min)</h4>
+            <p>Answer these questions about your organization:</p>
+            <ul>
+              <li>What AI tools are currently in use?</li>
+              <li>Is there any existing policy or guidance?</li>
+              <li>Have there been any AI-related incidents or concerns?</li>
+              <li>What client contracts mention AI or data handling?</li>
+            </ul>
+
+            <h4>Part 2: Gap Identification (5 min)</h4>
+            <p>Based on this module, identify your top 3 policy gaps:</p>
+            <ol>
+              <li>Gap 1: _______________</li>
+              <li>Gap 2: _______________</li>
+              <li>Gap 3: _______________</li>
+            </ol>
+
+            <h4>Part 3: Priority Action (5 min)</h4>
+            <p>What is the single most important policy action you should take in the next 30 days?</p>
+          </div>
+
+          <!-- Key Takeaways -->
+          <h2 id="takeaways">Key Takeaways</h2>
+          
+          <div class="card" style="background: var(--gray-100);">
+            <ol>
+              <li><strong>Data privacy is non-negotiable</strong> — Understand exactly what happens to data you share with AI tools</li>
+              <li><strong>Business tiers matter</strong> — Enterprise AI products offer meaningful data protection that consumer products don't</li>
+              <li><strong>When in doubt, sanitize</strong> — Remove identifying details before sharing context with AI</li>
+              <li><strong>IP ownership is evolving</strong> — Document AI usage and maintain clear ownership records</li>
+              <li><strong>Human review is mandatory</strong> — AI outputs, especially for client work, require qualified human review</li>
+              <li><strong>Policies enable adoption</strong> — Clear guidelines help staff use AI confidently and appropriately</li>
+              <li><strong>Start somewhere</strong> — A basic policy today is better than a perfect policy never</li>
+            </ol>
+          </div>
+
+          <!-- Module Navigation -->
+          <div class="module-nav">
+            <a href="module-06.html">← Previous: Costs & Budgeting</a>
+            <a href="module-08.html">Next: Measuring ROI →</a>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>AI for Development Firm Executives</strong> | <a href="https://globalsoftware.ai">Global Software AI</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 6: AI Costs, Licensing & Budget | AI for Executives</title>
+  <meta name="description" content="Understand AI pricing models, manage licenses effectively, and build realistic budgets for AI adoption.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        🎯 <span>AI for Executives</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#modules">All Modules</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Module Hero -->
+  <section class="module-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>→</span>
+        <span>Module 6</span>
+      </div>
+      <h1>AI Costs, Licensing, and Budget Management</h1>
+      <p style="opacity: 0.9; max-width: 600px; margin-top: 1rem;">
+        Master AI pricing models, license management, and build realistic budgets that scale with your adoption.
+      </p>
+      <div class="hero-meta" style="margin-top: 1.5rem;">
+        <div class="hero-meta-item">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          60-75 minutes
+        </div>
+        <div class="hero-meta-item">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Budget Planning Exercise
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module Content -->
+  <section class="module-body">
+    <div class="container">
+      <div class="module-layout">
+        <!-- Sidebar -->
+        <aside class="module-sidebar">
+          <nav class="sidebar-nav">
+            <h4>Contents</h4>
+            <ul>
+              <li><a href="#objectives">Learning Objectives</a></li>
+              <li><a href="#pricing-models">Pricing Models</a></li>
+              <li><a href="#current-pricing">Current Pricing Reference</a></li>
+              <li><a href="#license-management">License Management</a></li>
+              <li><a href="#budgeting">Budgeting for AI</a></li>
+              <li><a href="#hidden-costs">Hidden Costs</a></li>
+              <li><a href="#exercise">Hands-On Exercise</a></li>
+              <li><a href="#takeaways">Key Takeaways</a></li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+          <!-- Learning Objectives -->
+          <div id="objectives" class="objectives-box">
+            <h3>🎯 Learning Objectives</h3>
+            <p>By the end of this module, you will be able to:</p>
+            <ul>
+              <li>Understand the different pricing models for AI tools (per-seat, usage-based, tiered)</li>
+              <li>Reference current pricing for major AI tools used by development firms</li>
+              <li>Manage licenses effectively as AI adoption scales</li>
+              <li>Build realistic budgets for AI tools across different team sizes</li>
+              <li>Identify and account for hidden costs in AI adoption</li>
+              <li>Make informed decisions about which pricing tiers to select</li>
+            </ul>
+          </div>
+
+          <!-- Section 1: Pricing Models -->
+          <h2 id="pricing-models">Understanding AI Pricing Models</h2>
+          
+          <h3>Per-Seat (Per-User) Pricing</h3>
+          <p><strong>How it works:</strong> Fixed monthly or annual cost per user. Predictable costs, easy to budget.</p>
+          <p><strong>Examples:</strong> GitHub Copilot ($19/user/mo), Claude Team ($25/user/mo)</p>
+          <ul>
+            <li><strong>Pros:</strong> Predictable, easy to budget, unlimited usage per user</li>
+            <li><strong>Cons:</strong> Paying for inactive users ("shelfware")</li>
+            <li><strong>Best when:</strong> Tools used daily by most assigned users</li>
+          </ul>
+
+          <h3>Usage-Based (Consumption) Pricing</h3>
+          <p><strong>How it works:</strong> Pay per API call, token, or unit of work. Cost varies with usage.</p>
+          <p><strong>Examples:</strong> OpenAI API ($5-15 per million tokens), Claude API ($3-15 per million tokens)</p>
+          <ul>
+            <li><strong>Pros:</strong> Pay only for what you use, low barrier to start</li>
+            <li><strong>Cons:</strong> Unpredictable costs, can spike unexpectedly</li>
+            <li><strong>Best when:</strong> Building AI into products, variable usage patterns</li>
+          </ul>
+
+          <h3>Tiered Pricing</h3>
+          <p><strong>How it works:</strong> Different feature sets at different price points (Free → Pro → Team → Enterprise).</p>
+          
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tier</th>
+                  <th>Typical Features</th>
+                  <th>Typical Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Free</td><td>Basic features, rate limits</td><td>$0</td></tr>
+                <tr><td>Pro/Plus</td><td>Full features, individual use</td><td>$20/month</td></tr>
+                <tr><td>Team/Business</td><td>Collaboration, admin controls</td><td>$25-40/user/mo</td></tr>
+                <tr><td>Enterprise</td><td>SSO, security, SLAs</td><td>Custom</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Section 2: Current Pricing -->
+          <h2 id="current-pricing">Current Pricing Reference (2025)</h2>
+          
+          <h3>Coding Assistants</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>Individual</th>
+                  <th>Business</th>
+                  <th>Enterprise</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>GitHub Copilot</td><td>$10/mo</td><td>$19/user/mo</td><td>$39/user/mo</td></tr>
+                <tr><td>Cursor</td><td>Free/$20</td><td>$40/user/mo</td><td>—</td></tr>
+                <tr><td>Amazon Q Developer</td><td>Free</td><td>$19/user/mo</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>General-Purpose AI</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>Free</th>
+                  <th>Pro/Plus</th>
+                  <th>Team</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Claude</td><td>Limited</td><td>$20/mo</td><td>$25/user/mo</td></tr>
+                <tr><td>ChatGPT</td><td>GPT-3.5</td><td>$20/mo</td><td>$25/user/mo</td></tr>
+                <tr><td>Microsoft 365 Copilot</td><td>Basic</td><td>$20/mo</td><td>$30/user/mo*</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><small>*Requires M365 Business/Enterprise subscription</small></p>
+
+          <div class="info-box warning">
+            <h4>⚠️ Pricing Changes Frequently</h4>
+            <p>AI tool pricing is volatile. Always verify current prices before budgeting. These figures are as of early 2025.</p>
+          </div>
+
+          <!-- Section 3: License Management -->
+          <h2 id="license-management">License Management Considerations</h2>
+          
+          <h3>Common Challenges</h3>
+
+          <h4>1. Shelfware (Unused Licenses)</h4>
+          <p><strong>Problem:</strong> Paying for seats that aren't being used.</p>
+          <p><strong>Solutions:</strong></p>
+          <ul>
+            <li>Regular usage audits (quarterly)</li>
+            <li>Right-size licenses to actual users</li>
+            <li>Set up alerts for inactive accounts</li>
+          </ul>
+
+          <h4>2. Shadow AI (Ungoverned Tools)</h4>
+          <p><strong>Problem:</strong> Employees use personal subscriptions or unapproved tools.</p>
+          <p><strong>Solutions:</strong></p>
+          <ul>
+            <li>Make approved tools easy to access</li>
+            <li>Respond quickly to new tool requests</li>
+            <li>Audit periodically for unauthorized usage</li>
+          </ul>
+
+          <h4>3. Scaling Costs</h4>
+          <p><strong>Problem:</strong> Costs grow faster than expected as adoption increases.</p>
+          <p><strong>Solutions:</strong></p>
+          <ul>
+            <li>Plan for success scenarios in budgets</li>
+            <li>Negotiate volume discounts early</li>
+            <li>Set usage alerts on API access</li>
+          </ul>
+
+          <h3>Right-Sizing by Role</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Role</th>
+                  <th>Coding Assistant</th>
+                  <th>General AI</th>
+                  <th>Meeting Tools</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Developer</td><td>✓ Full</td><td>Pro/Team</td><td>As needed</td></tr>
+                <tr><td>PM</td><td>Maybe</td><td>✓ Team</td><td>✓</td></tr>
+                <tr><td>Executive</td><td>No</td><td>✓ Pro/Team</td><td>✓</td></tr>
+                <tr><td>Sales</td><td>No</td><td>✓ Pro/Team</td><td>✓</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Section 4: Budgeting -->
+          <h2 id="budgeting">Budgeting for AI as Adoption Scales</h2>
+          
+          <h3>Phased Budgeting Approach</h3>
+          <ul>
+            <li><strong>Phase 1: Pilot (3-6 months)</strong> — Small group, multiple tools for evaluation. Budget: $500-2,000/month</li>
+            <li><strong>Phase 2: Controlled Expansion (6-12 months)</strong> — Expand to interested teams. Budget: $2,000-5,000/month</li>
+            <li><strong>Phase 3: Broad Adoption (12+ months)</strong> — Organization-wide rollout. Budget: $5,000-15,000+/month</li>
+          </ul>
+
+          <h3>Budget Example: 50-Person Firm</h3>
+          
+          <h4>Conservative Scenario</h4>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>Users</th>
+                  <th>Monthly</th>
+                  <th>Annual</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>GitHub Copilot Business</td><td>20 devs</td><td>$380</td><td>$4,560</td></tr>
+                <tr><td>Claude Team</td><td>15 users</td><td>$375</td><td>$4,500</td></tr>
+                <tr><td>Otter.ai Pro</td><td>10 users</td><td>$170</td><td>$2,040</td></tr>
+                <tr><td><strong>Total</strong></td><td></td><td><strong>$925</strong></td><td><strong>$11,100</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4>Aggressive Scenario</h4>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>Users</th>
+                  <th>Monthly</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>GitHub Copilot Enterprise</td><td>40 devs</td><td>$1,560</td></tr>
+                <tr><td>Claude Enterprise</td><td>50 users</td><td>~$1,500</td></tr>
+                <tr><td>M365 Copilot</td><td>50 users</td><td>$1,500</td></tr>
+                <tr><td>Otter.ai Business</td><td>50 users</td><td>$1,500</td></tr>
+                <tr><td><strong>Total</strong></td><td></td><td><strong>~$6,000/mo ($72K/yr)</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>ROI Justification</h3>
+          <div class="card" style="background: var(--gray-100);">
+            <p><strong>Example calculation:</strong></p>
+            <ul>
+              <li>30 users saving 2 hours/week × 52 weeks × $75/hour = <strong>$234,000</strong> in productivity value</li>
+              <li>Annual AI tool cost: <strong>$36,000</strong></li>
+              <li><strong>ROI: 550%</strong></li>
+              <li>Payback period: ~2 months</li>
+            </ul>
+            <p><em>Even conservatively assuming only 1 hour/week savings, ROI exceeds 200%.</em></p>
+          </div>
+
+          <!-- Section 5: Hidden Costs -->
+          <h2 id="hidden-costs">Hidden Costs of AI Adoption</h2>
+          
+          <h3>Training and Onboarding</h3>
+          <ul>
+            <li>Initial training time: 2-4 hours/employee</li>
+            <li>External training: $200-500/person if using courses</li>
+            <li>Ongoing learning: 1-2 hours/month keeping up with updates</li>
+          </ul>
+          <p><strong>Best practice:</strong> Factor 5-10 hours of onboarding time per employee in first month.</p>
+
+          <h3>Integration and Setup</h3>
+          <ul>
+            <li>IT configuration: 4-16 hours (SSO, security settings)</li>
+            <li>Policy development: 8-20 hours</li>
+            <li>Security review: 8-40 hours</li>
+          </ul>
+
+          <h3>The Productivity Dip</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Phase</th>
+                  <th>Duration</th>
+                  <th>Productivity Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Initial Learning</td><td>Weeks 1-2</td><td>-20% to -10%</td></tr>
+                <tr><td>Basic Competency</td><td>Weeks 3-6</td><td>0% to +15%</td></tr>
+                <tr><td>Proficiency</td><td>Weeks 7-12</td><td>+15% to +30%</td></tr>
+                <tr><td>Mastery</td><td>3+ months</td><td>+25% to +50%</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="info-box tip">
+            <h4>💡 Rule of Thumb</h4>
+            <p>Add 10-15% to direct tool costs for governance overhead (security, compliance, management).</p>
+          </div>
+
+          <!-- Exercise -->
+          <div id="exercise" class="exercise-box">
+            <h3>🏋️ Hands-On Exercise: Build Your AI Budget</h3>
+            <p><strong>Duration:</strong> 15 minutes</p>
+            
+            <h4>Instructions</h4>
+            <p>Create a 12-month AI tool budget for your organization:</p>
+
+            <ol>
+              <li><strong>Inventory current state</strong> (3 min)
+                <ul>
+                  <li>What AI tools are you using now?</li>
+                  <li>What are you paying?</li>
+                  <li>What's working/not working?</li>
+                </ul>
+              </li>
+              
+              <li><strong>Plan Phase 1</strong> (4 min)
+                <ul>
+                  <li>What tools for which users?</li>
+                  <li>What's the monthly cost?</li>
+                  <li>What's the expected benefit?</li>
+                </ul>
+              </li>
+              
+              <li><strong>Project Phase 2</strong> (4 min)
+                <ul>
+                  <li>If Phase 1 succeeds, what expands?</li>
+                  <li>What's the scaled cost?</li>
+                </ul>
+              </li>
+              
+              <li><strong>Calculate ROI</strong> (4 min)
+                <ul>
+                  <li>Estimated hours saved per week</li>
+                  <li>Value of those hours</li>
+                  <li>Payback period</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Key Takeaways -->
+          <h2 id="takeaways">Key Takeaways</h2>
+          
+          <div class="card" style="background: var(--gray-100);">
+            <ol>
+              <li><strong>Understand your pricing model</strong> — Per-seat vs. usage-based have different dynamics; choose based on your usage patterns</li>
+              <li><strong>Start small, scale thoughtfully</strong> — Pilot before committing to large deployments; measure actual usage and value</li>
+              <li><strong>Hidden costs are real</strong> — Training, integration, management overhead add 15-25% to direct costs</li>
+              <li><strong>Right-size actively</strong> — Quarterly reviews prevent shelfware; don't pay for what you don't use</li>
+              <li><strong>Negotiate everything</strong> — Volume discounts, annual commitments, and bundles are almost always available</li>
+              <li><strong>Budget for success</strong> — Plan for what happens when pilots succeed; scaling costs should be expected, not surprises</li>
+            </ol>
+          </div>
+
+          <!-- Module Navigation -->
+          <div class="module-nav">
+            <a href="module-05.html">← Previous: AI Tool Landscape</a>
+            <a href="module-07.html">Next: Risk & Governance →</a>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>AI for Development Firm Executives</strong> | <a href="https://globalsoftware.ai">Global Software AI</a></p>
+    </div>
+  </footer>
+</body>
+</html>

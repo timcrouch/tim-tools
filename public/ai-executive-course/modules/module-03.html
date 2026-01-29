@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 3: Understanding AI-Assisted Development | AI for Executives</title>
+  <meta name="description" content="Understand what AI-assisted coding actually looks like and set realistic expectations for developer productivity.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        🎯 <span>AI for Executives</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#modules">All Modules</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Module Hero -->
+  <section class="module-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>→</span>
+        <span>Module 3</span>
+      </div>
+      <h1>Understanding AI-Assisted Development</h1>
+      <p style="opacity: 0.9; max-width: 600px; margin-top: 1rem;">
+        Get a realistic view of how AI changes developer workflows and learn to set appropriate expectations for productivity gains.
+      </p>
+      <div class="hero-meta" style="margin-top: 1.5rem;">
+        <div class="hero-meta-item">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          60-75 minutes
+        </div>
+        <div class="hero-meta-item">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Discussion Scenarios
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module Content -->
+  <section class="module-body">
+    <div class="container">
+      <div class="module-layout">
+        <!-- Sidebar -->
+        <aside class="module-sidebar">
+          <nav class="sidebar-nav">
+            <h4>Contents</h4>
+            <ul>
+              <li><a href="#objectives">Learning Objectives</a></li>
+              <li><a href="#reality">The Reality of AI Coding</a></li>
+              <li><a href="#use-cases">Key Use Cases</a></li>
+              <li><a href="#velocity">Workflows & Velocity</a></li>
+              <li><a href="#expectations">Setting Expectations</a></li>
+              <li><a href="#questions">Questions for Dev Leads</a></li>
+              <li><a href="#takeaways">Key Takeaways</a></li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+          <!-- Learning Objectives -->
+          <div id="objectives" class="objectives-box">
+            <h3>🎯 Learning Objectives</h3>
+            <p>By the end of this module, you will be able to:</p>
+            <ul>
+              <li>Understand what AI-assisted coding actually looks like in daily developer workflows</li>
+              <li>Explain the key use cases: code generation, debugging, refactoring, and documentation</li>
+              <li>Set realistic expectations for AI's impact on developer productivity</li>
+              <li>Articulate what AI can and cannot do in software development</li>
+              <li>Ask informed questions to development leads about AI tool adoption</li>
+              <li>Evaluate claims about AI-augmented team productivity</li>
+            </ul>
+          </div>
+
+          <!-- Section 1: Reality -->
+          <h2 id="reality">What AI-Assisted Coding Actually Looks Like</h2>
+          
+          <h3>The Reality vs. The Hype</h3>
+          
+          <div class="info-box warning">
+            <h4>What Executives Often Imagine</h4>
+            <p>"AI writes the code, developers review it, projects finish in half the time"</p>
+          </div>
+
+          <div class="info-box tip">
+            <h4>What Actually Happens</h4>
+            <p>"AI is a powerful collaborator that handles routine tasks, suggests approaches, and accelerates specific activities—but developers still drive decisions, architecture, and quality"</p>
+          </div>
+
+          <h3>A Day in the Life: AI-Augmented Developer</h3>
+
+          <h4>Morning: Starting a New Feature</h4>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th>Without AI</th>
+                  <th>With AI</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Read spec, plan approach</td>
+                  <td>30 min</td>
+                  <td>20 min</td>
+                </tr>
+                <tr>
+                  <td>Look up API documentation</td>
+                  <td>15 min</td>
+                  <td>5 min</td>
+                </tr>
+                <tr>
+                  <td>Write boilerplate code</td>
+                  <td>20 min</td>
+                  <td>8 min</td>
+                </tr>
+                <tr>
+                  <td><strong>Total</strong></td>
+                  <td><strong>65 min</strong></td>
+                  <td><strong>33 min</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="info-box important">
+            <h4>💡 Key Insight</h4>
+            <p>"AI doesn't replace the thinking—it reduces the friction between thinking and doing. The developer still needs to know what good code looks like, but they spend less time typing it."</p>
+          </div>
+
+          <!-- Section 2: Use Cases -->
+          <h2 id="use-cases">Code Generation, Debugging, Refactoring & Documentation</h2>
+          
+          <h3>Code Generation</h3>
+
+          <h4>What AI Does Well</h4>
+          <ul>
+            <li>Boilerplate code (setup, configuration, standard patterns)</li>
+            <li>CRUD operations (create, read, update, delete)</li>
+            <li>Common algorithms and data structures</li>
+            <li>API integrations using well-documented APIs</li>
+            <li>Converting descriptions into working code</li>
+          </ul>
+
+          <h4>What AI Struggles With</h4>
+          <ul>
+            <li>Novel algorithms or unique business logic</li>
+            <li>Complex system architecture decisions</li>
+            <li>Code requiring deep domain knowledge</li>
+            <li>Performance-critical optimization</li>
+            <li>Security-sensitive implementations</li>
+          </ul>
+
+          <h4>Realistic Productivity Impact</h4>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Task Type</th>
+                  <th>Time Reduction</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Boilerplate/routine code</td><td>50-70%</td></tr>
+                <tr><td>Standard features</td><td>30-40%</td></tr>
+                <tr><td>Complex/novel features</td><td>10-20%</td></tr>
+                <tr><td>Architecture decisions</td><td>Minimal</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Debugging</h3>
+          <p>Developers use AI for:</p>
+          <ul>
+            <li><strong>Error explanation</strong> — "What does this error mean and how do I fix it?"</li>
+            <li><strong>Rubber duck debugging</strong> — AI as a thinking partner to trace through logic</li>
+            <li><strong>Suggesting debugging approaches</strong> — Systematic strategies for intermittent issues</li>
+          </ul>
+
+          <div class="info-box warning">
+            <h4>⚠️ Important Limitation</h4>
+            <p>AI can't run code or observe actual runtime behavior. It analyzes code statically and makes inferences based on patterns.</p>
+          </div>
+
+          <h3>Documentation</h3>
+          <p><strong>AI is exceptionally good at documentation</strong> — generating code comments, README files, technical specifications, and user documentation.</p>
+          <p><strong>Productivity impact: 60-80% time reduction</strong></p>
+          <p>This matters because documentation is often neglected. AI makes it practical to maintain good documentation, improving knowledge transfer and maintainability.</p>
+
+          <!-- Section 3: Velocity -->
+          <h2 id="velocity">How AI Changes Developer Workflows and Velocity</h2>
+          
+          <h3>The Workflow Shift</h3>
+          <p><strong>Traditional:</strong> Think → Search → Type → Debug → Repeat</p>
+          <p><strong>AI-augmented:</strong> Think → Describe → Review → Refine → Verify</p>
+          <p>Developers move from "writing code" to "directing code generation and ensuring quality."</p>
+
+          <h3>Velocity Impacts by Activity</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Activity</th>
+                  <th>Productivity Gain</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Writing new features</td><td>30-40% faster</td></tr>
+                <tr><td>Bug fixes</td><td>25-35% faster</td></tr>
+                <tr><td>Code reviews</td><td>20-30% faster</td></tr>
+                <tr><td>Documentation</td><td>60-75% faster</td></tr>
+                <tr><td>Learning new tech</td><td>40-50% faster</td></tr>
+                <tr><td>Testing/test writing</td><td>30-40% faster</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>Overall expected improvement: 25-40%</strong></p>
+
+          <h3>What Doesn't Change</h3>
+          <p>AI doesn't speed up:</p>
+          <ul>
+            <li>Requirement gathering and clarification</li>
+            <li>Architecture and design decisions</li>
+            <li>Stakeholder communication</li>
+            <li>Meetings and coordination</li>
+            <li>Security reviews and compliance verification</li>
+          </ul>
+
+          <div class="info-box important">
+            <h4>💡 Critical Insight</h4>
+            <p>If your projects are delayed by unclear requirements, scope changes, or communication issues, AI won't fix that. AI accelerates the coding part, which is often only 30-40% of total project time.</p>
+          </div>
+
+          <!-- Section 4: Expectations -->
+          <h2 id="expectations">Setting Realistic Expectations</h2>
+          
+          <h3>What to Expect from AI-Augmented Teams</h3>
+          
+          <h4>Reasonable Expectations</h4>
+          <ul>
+            <li><strong>First week:</strong> Learning curve, possible slowdown</li>
+            <li><strong>First month:</strong> Modest gains (10-20%)</li>
+            <li><strong>3 months:</strong> Significant gains (25-35%)</li>
+            <li><strong>6 months:</strong> Full potential (30-40%)</li>
+          </ul>
+
+          <h4>Unreasonable Expectations</h4>
+          <ul>
+            <li>❌ "We can do the same work with half the team"</li>
+            <li>❌ "Projects will be done in half the time"</li>
+            <li>❌ "We don't need senior developers anymore"</li>
+            <li>❌ "We can skip code reviews because AI wrote it"</li>
+            <li>❌ "AI will eliminate bugs"</li>
+          </ul>
+
+          <h3>Quality Considerations</h3>
+          <p>AI-generated code requires review because:</p>
+          <ol>
+            <li><strong>AI can introduce subtle bugs</strong> — Logic errors, unhandled edge cases</li>
+            <li><strong>AI doesn't know your codebase context</strong> — May suggest inconsistent patterns</li>
+            <li><strong>Security vulnerabilities</strong> — May use insecure patterns from training data</li>
+            <li><strong>AI hallucinates</strong> — May use APIs that don't exist</li>
+          </ol>
+
+          <div class="info-box tip">
+            <h4>💡 Think of It This Way</h4>
+            <p>"AI-generated code is like a first draft from a junior developer who has read a lot but doesn't know your specific system. It's a great starting point, but it needs experienced review."</p>
+          </div>
+
+          <!-- Section 5: Questions -->
+          <h2 id="questions">Questions to Ask Your Development Leads</h2>
+          
+          <h3>Understanding Current State</h3>
+          <ul>
+            <li>"What AI coding tools are our developers currently using, if any?"</li>
+            <li>"What's blocking us from using AI tools more extensively?"</li>
+            <li>"What concerns do developers have about AI assistance?"</li>
+            <li>"Where do developers spend most of their time that AI could help with?"</li>
+          </ul>
+
+          <h3>Planning for Adoption</h3>
+          <ul>
+            <li>"What's a reasonable pilot project to test AI tools?"</li>
+            <li>"How should we measure the impact of AI tools?"</li>
+            <li>"What security and compliance considerations do we need to address?"</li>
+            <li>"How will code review processes need to change?"</li>
+          </ul>
+
+          <h3>Evaluating Claims</h3>
+          <p>If a team claims significant AI productivity gains, ask:</p>
+          <ul>
+            <li>"How are you measuring this? What's the baseline?"</li>
+            <li>"What tasks specifically are faster?"</li>
+            <li>"How is quality? Are we seeing more bugs?"</li>
+            <li>"What's not in these numbers?"</li>
+          </ul>
+
+          <!-- Key Takeaways -->
+          <h2 id="takeaways">Key Takeaways</h2>
+          
+          <div class="card" style="background: var(--gray-100);">
+            <ol>
+              <li><strong>AI is a power tool, not a replacement</strong> — Developers use AI to work faster, but still need expertise to direct it and evaluate output</li>
+              <li><strong>Expect 25-40% productivity gains</strong> — Not 2x or 3x. Gains are real but moderate, and take time to materialize</li>
+              <li><strong>Quality requires vigilance</strong> — AI-generated code needs the same review as human-written code, maybe more scrutiny initially</li>
+              <li><strong>The biggest gains aren't in coding</strong> — Documentation, learning, and routine tasks see the largest improvements</li>
+              <li><strong>AI amplifies capability, not replaces it</strong> — Senior developers benefit most because they can better direct and evaluate AI</li>
+              <li><strong>Measure outcomes, not AI usage</strong> — Track delivery speed, quality, and satisfaction—not how much AI was used</li>
+            </ol>
+          </div>
+
+          <!-- Module Navigation -->
+          <div class="module-nav">
+            <a href="module-02.html">← Previous: Business Operations</a>
+            <a href="module-04.html">Next: Rapid Prototyping →</a>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>AI for Development Firm Executives</strong> | <a href="https://globalsoftware.ai">Global Software AI</a></p>
+    </div>
+  </footer>
+</body>
+</html>

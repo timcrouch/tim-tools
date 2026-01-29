@@ -19,6 +19,14 @@ const liveApps: App[] = [
     status: 'live',
   },
   {
+    id: 'ai-executive-course',
+    name: 'AI Executive Course',
+    description: 'AI training for development firm executives. Covers productivity, operations, tool selection, budgeting, and governance.',
+    icon: '🎯',
+    path: '/ai-executive-course/',
+    status: 'live',
+  },
+  {
     id: 'ai-survey',
     name: 'AI Course Pre-Assessment',
     description: 'Survey for gauging participant AI knowledge and goals before training sessions.',

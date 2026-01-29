@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 5: The AI Tool Landscape | AI for Executives</title>
+  <meta name="description" content="Navigate the landscape of AI tools: coding assistants, general-purpose AI, and specialized tools for development firms.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        🎯 <span>AI for Executives</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#modules">All Modules</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Module Hero -->
+  <section class="module-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>→</span>
+        <span>Module 5</span>
+      </div>
+      <h1>The AI Tool Landscape</h1>
+      <p style="opacity: 0.9; max-width: 600px; margin-top: 1rem;">
+        Navigate the ecosystem of AI tools—from coding assistants to general-purpose AI—and learn how to build your tool stack.
+      </p>
+      <div class="hero-meta" style="margin-top: 1.5rem;">
+        <div class="hero-meta-item">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          60-75 minutes
+        </div>
+        <div class="hero-meta-item">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Tool Evaluation Exercise
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module Content -->
+  <section class="module-body">
+    <div class="container">
+      <div class="module-layout">
+        <!-- Sidebar -->
+        <aside class="module-sidebar">
+          <nav class="sidebar-nav">
+            <h4>Contents</h4>
+            <ul>
+              <li><a href="#objectives">Learning Objectives</a></li>
+              <li><a href="#coding">Coding Assistants</a></li>
+              <li><a href="#general">General-Purpose AI</a></li>
+              <li><a href="#specialized">Specialized Tools</a></li>
+              <li><a href="#build-buy">Build vs. Buy</a></li>
+              <li><a href="#stack">Building Your Stack</a></li>
+              <li><a href="#exercise">Hands-On Exercise</a></li>
+              <li><a href="#takeaways">Key Takeaways</a></li>
+            </ul>
+          </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+          <!-- Learning Objectives -->
+          <div id="objectives" class="objectives-box">
+            <h3>🎯 Learning Objectives</h3>
+            <p>By the end of this module, you will be able to:</p>
+            <ul>
+              <li>Understand the major categories of AI tools relevant to development firms</li>
+              <li>Differentiate between coding assistants, general-purpose AI, and specialized tools</li>
+              <li>Know what each major tool does and who benefits most from it</li>
+              <li>Make informed build vs. buy decisions for AI capabilities</li>
+              <li>Create a shortlist of tools to evaluate for your organization</li>
+            </ul>
+          </div>
+
+          <!-- Section 1: Coding Assistants -->
+          <h2 id="coding">Coding Assistants</h2>
+          
+          <p>Coding assistants integrate directly into developer workflows to suggest, generate, and refine code. They're the most directly impactful AI tools for development teams.</p>
+
+          <h3>GitHub Copilot</h3>
+          <p><strong>What it is:</strong> AI pair programmer that suggests code completions and entire functions in real-time.</p>
+          <ul>
+            <li><strong>Best for:</strong> Developers writing code daily, reducing boilerplate, learning new frameworks</li>
+            <li><strong>Pricing:</strong> Individual $10/mo | Business $19/user/mo | Enterprise $39/user/mo</li>
+            <li><strong>Strengths:</strong> Deeply integrated into popular editors, excellent autocomplete</li>
+            <li><strong>Limitations:</strong> Suggestions based on patterns, can suggest deprecated patterns</li>
+          </ul>
+
+          <h3>Cursor</h3>
+          <p><strong>What it is:</strong> AI-first code editor built from the ground up around AI assistance.</p>
+          <ul>
+            <li><strong>Best for:</strong> Developers wanting AI-centric workflow, complex multi-file refactoring</li>
+            <li><strong>Pricing:</strong> Free tier | Pro $20/mo | Business $40/user/mo</li>
+            <li><strong>Strengths:</strong> Purpose-built for AI, excellent multi-file understanding, "Composer" feature</li>
+            <li><strong>Limitations:</strong> Must switch from familiar editor, newer product</li>
+          </ul>
+
+          <h3>Claude Code (Anthropic)</h3>
+          <p><strong>What it is:</strong> Claude integrated into terminal/CLI for AI-assisted development.</p>
+          <ul>
+            <li><strong>Best for:</strong> Terminal-comfortable developers, complex multi-step tasks</li>
+            <li><strong>Pricing:</strong> Requires Claude Pro ($20/mo) or API usage</li>
+            <li><strong>Strengths:</strong> Strong reasoning, can take autonomous actions</li>
+            <li><strong>Limitations:</strong> Terminal-based (no GUI editor integration)</li>
+          </ul>
+
+          <h3>Amazon Q Developer</h3>
+          <p><strong>What it is:</strong> AWS's coding assistant, especially strong for AWS services.</p>
+          <ul>
+            <li><strong>Best for:</strong> Teams heavily invested in AWS</li>
+            <li><strong>Pricing:</strong> Free tier | Pro $19/user/mo</li>
+            <li><strong>Strengths:</strong> Excellent AWS knowledge, built-in security scanning</li>
+            <li><strong>Limitations:</strong> AWS-centric, smaller market share</li>
+          </ul>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tool</th>
+                  <th>Best For</th>
+                  <th>Price Range</th>
+                  <th>Key Differentiator</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>GitHub Copilot</td><td>General coding</td><td>$10-39/user/mo</td><td>Largest ecosystem</td></tr>
+                <tr><td>Cursor</td><td>AI-centric workflow</td><td>$0-40/user/mo</td><td>Purpose-built editor</td></tr>
+                <tr><td>Claude Code</td><td>Terminal users</td><td>$20/mo + usage</td><td>Best reasoning</td></tr>
+                <tr><td>Amazon Q</td><td>AWS projects</td><td>$0-19/user/mo</td><td>AWS integration</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Section 2: General-Purpose AI -->
+          <h2 id="general">General-Purpose AI Assistants</h2>
+          
+          <h3>Claude (Anthropic)</h3>
+          <ul>
+            <li><strong>Strengths:</strong> Excellent at complex instructions, strong reasoning, 200K token context</li>
+            <li><strong>Best for:</strong> Document review, writing proposals, complex analysis, technical writing</li>
+            <li><strong>Pricing:</strong> Free | Pro $20/mo | Team $25/user/mo | Enterprise custom</li>
+          </ul>
+
+          <h3>ChatGPT (OpenAI)</h3>
+          <ul>
+            <li><strong>Strengths:</strong> Largest ecosystem, web browsing, DALL-E image generation, voice mode</li>
+            <li><strong>Best for:</strong> Quick research, brainstorming, general writing, image generation</li>
+            <li><strong>Pricing:</strong> Free | Plus $20/mo | Team $25/user/mo | Enterprise custom</li>
+          </ul>
+
+          <h3>Microsoft Copilot</h3>
+          <ul>
+            <li><strong>Strengths:</strong> Deep Microsoft 365 integration, works with existing enterprise data</li>
+            <li><strong>Best for:</strong> Teams using Microsoft 365 heavily, Excel/Word/PowerPoint automation</li>
+            <li><strong>Pricing:</strong> Free | Pro $20/mo | M365 Copilot $30/user/mo*</li>
+          </ul>
+          <p><small>*Requires Microsoft 365 Business/Enterprise subscription</small></p>
+
+          <h3>Google Gemini</h3>
+          <ul>
+            <li><strong>Strengths:</strong> Google Workspace integration, strong multimodal capabilities</li>
+            <li><strong>Best for:</strong> Google Workspace environments, research and fact-finding</li>
+            <li><strong>Pricing:</strong> Free | Advanced $20/mo (with Google One AI Premium)</li>
+          </ul>
+
+          <div class="info-box tip">
+            <h4>💡 Recommendation</h4>
+            <p>Claude and ChatGPT overlap significantly. Pick one and go deep rather than trying to use both. Add Microsoft Copilot if you're in a Microsoft-heavy environment.</p>
+          </div>
+
+          <!-- Section 3: Specialized Tools -->
+          <h2 id="specialized">Specialized Tools</h2>
+          
+          <h3>Design Tools</h3>
+          <ul>
+            <li><strong>Midjourney</strong> — AI image generation ($10-60/mo)</li>
+            <li><strong>v0 by Vercel</strong> — AI UI component generation (Free tier + usage)</li>
+            <li><strong>Figma AI</strong> — AI features within Figma (included in plans)</li>
+          </ul>
+
+          <h3>Documentation Tools</h3>
+          <ul>
+            <li><strong>Notion AI</strong> — AI writing within Notion ($8/member/mo add-on)</li>
+            <li><strong>Scribe</strong> — Automatic process documentation (Free tier, Pro $29/user/mo)</li>
+          </ul>
+
+          <h3>Meeting & Communication</h3>
+          <ul>
+            <li><strong>Otter.ai</strong> — Meeting transcription (Free tier, Pro $16.99/mo, Business $30/user/mo)</li>
+            <li><strong>Fireflies.ai</strong> — Meeting assistant (Free tier, Pro $18/mo)</li>
+          </ul>
+
+          <h3>Quick Reference Matrix</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Tool</th>
+                  <th>Primary Beneficiary</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Coding</td><td>GitHub Copilot</td><td>All developers</td><td>High</td></tr>
+                <tr><td>General</td><td>Claude/ChatGPT</td><td>Everyone</td><td>High</td></tr>
+                <tr><td>General</td><td>M365 Copilot</td><td>Office users</td><td>High (if MS ecosystem)</td></tr>
+                <tr><td>Design</td><td>v0</td><td>Frontend devs</td><td>Medium</td></tr>
+                <tr><td>Meetings</td><td>Otter.ai</td><td>Everyone</td><td>Medium</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Section 4: Build vs Buy -->
+          <h2 id="build-buy">Build vs. Buy Considerations</h2>
+          
+          <h3>When to Buy (Use Existing Tools)</h3>
+          <ul>
+            <li>✅ The tool solves a common, well-defined problem</li>
+            <li>✅ You need to move fast and validate before investing</li>
+            <li>✅ The tool integrates with your existing workflows</li>
+            <li>✅ Cost is reasonable relative to alternatives</li>
+            <li>✅ You don't have unique requirements</li>
+          </ul>
+
+          <h3>When to Build Custom Solutions</h3>
+          <ul>
+            <li>✅ You have unique data that provides competitive advantage</li>
+            <li>✅ Off-the-shelf tools don't meet specific requirements</li>
+            <li>✅ Security/compliance requires your own infrastructure</li>
+            <li>✅ You're building AI capabilities as a product or service</li>
+          </ul>
+
+          <div class="info-box important">
+            <h4>📋 The Most Common Pattern</h4>
+            <p><strong>Start with off-the-shelf</strong> → <strong>Identify gaps</strong> → <strong>Customize where needed</strong> → <strong>Build on APIs</strong> for custom integration</p>
+          </div>
+
+          <!-- Section 5: Building Your Stack -->
+          <h2 id="stack">Creating Your AI Tool Stack</h2>
+          
+          <h3>Assessment Questions</h3>
+          <p>For each potential tool, ask:</p>
+          <ol>
+            <li><strong>Who will use it?</strong> (Individuals, teams, whole company)</li>
+            <li><strong>What problem does it solve?</strong> (Be specific)</li>
+            <li><strong>What does it cost?</strong> (Per user, total, including adoption)</li>
+            <li><strong>What does it integrate with?</strong> (Your existing tools)</li>
+            <li><strong>What's the security posture?</strong> (Data handling, compliance)</li>
+          </ol>
+
+          <h3>Recommended Starting Stack (50-Person Firm)</h3>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Tool</th>
+                  <th>Users</th>
+                  <th>Monthly Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>General AI</td><td>Claude Team</td><td>20 key users</td><td>$500</td></tr>
+                <tr><td>Coding</td><td>GitHub Copilot Business</td><td>25 developers</td><td>$475</td></tr>
+                <tr><td>Meetings</td><td>Otter.ai Business</td><td>30 people</td><td>$900</td></tr>
+                <tr><td colspan="3"><strong>Total</strong></td><td><strong>~$1,875/mo</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="info-box tip">
+            <h4>💡 Estimated ROI</h4>
+            <p>If these tools save 1 hour/week per user, that's ~200 hours/month. At $75/hour average cost = $15,000 in recovered productivity—<strong>8x the cost</strong>.</p>
+          </div>
+
+          <!-- Exercise -->
+          <div id="exercise" class="exercise-box">
+            <h3>🏋️ Hands-On Exercise: Tool Evaluation</h3>
+            <p><strong>Duration:</strong> 15 minutes</p>
+            
+            <h4>Instructions</h4>
+            <p>Pick one category of tools from this module. Evaluate it for your organization:</p>
+
+            <ol>
+              <li><strong>Define the need</strong> (3 min)
+                <ul>
+                  <li>What problem are you trying to solve?</li>
+                  <li>Who would benefit?</li>
+                  <li>What does success look like?</li>
+                </ul>
+              </li>
+              
+              <li><strong>Compare options</strong> (5 min)
+                <ul>
+                  <li>List 2-3 tools that could work</li>
+                  <li>Compare pricing for your team size</li>
+                  <li>Note key differences</li>
+                </ul>
+              </li>
+              
+              <li><strong>Assess fit</strong> (4 min)
+                <ul>
+                  <li>Integration with existing tools?</li>
+                  <li>Security/compliance requirements?</li>
+                  <li>Buy-in from potential users?</li>
+                </ul>
+              </li>
+              
+              <li><strong>Make a recommendation</strong> (3 min)
+                <ul>
+                  <li>Which tool, if any?</li>
+                  <li>What's the pilot plan?</li>
+                  <li>How will you measure success?</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <!-- Key Takeaways -->
+          <h2 id="takeaways">Key Takeaways</h2>
+          
+          <div class="card" style="background: var(--gray-100);">
+            <ol>
+              <li><strong>Coding assistants are high-impact</strong> — GitHub Copilot or Cursor for developers provides immediate, measurable value</li>
+              <li><strong>General-purpose AI is versatile</strong> — Claude and ChatGPT overlap significantly; pick one and go deep</li>
+              <li><strong>Microsoft ecosystem has advantages</strong> — If you're all-in on Microsoft, Copilot integration is powerful</li>
+              <li><strong>Specialized tools have their place</strong> — Meeting transcription, documentation tools solve specific pain points</li>
+              <li><strong>Start simple, expand thoughtfully</strong> — Don't adopt 10 tools at once. Start with 2-3, prove value, then expand</li>
+              <li><strong>Build vs. buy is usually "buy first"</strong> — Use off-the-shelf until you outgrow it, then customize</li>
+            </ol>
+          </div>
+
+          <!-- Module Navigation -->
+          <div class="module-nav">
+            <a href="module-04.html">← Previous: Rapid Prototyping</a>
+            <a href="module-06.html">Next: Costs & Budgeting →</a>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p><strong>AI for Development Firm Executives</strong> | <a href="https://globalsoftware.ai">Global Software AI</a></p>
+    </div>
+  </footer>
+</body>
+</html>
