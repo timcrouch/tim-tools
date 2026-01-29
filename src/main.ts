@@ -11,6 +11,14 @@ interface App {
 // Live apps - these are ready to use
 const liveApps: App[] = [
   {
+    id: 'ai-course',
+    name: 'AI Developer Course',
+    description: '4-day hands-on training for developers. Covers prompting, coding assistants, agents, and building AI-powered tools.',
+    icon: '🎓',
+    path: '/ai-course/',
+    status: 'live',
+  },
+  {
     id: 'ai-survey',
     name: 'AI Course Pre-Assessment',
     description: 'Survey for gauging participant AI knowledge and goals before training sessions.',
