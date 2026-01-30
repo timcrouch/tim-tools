@@ -58,6 +58,14 @@ const liveApps: App[] = [
     path: '/apps/caffeine-tracker/',
     status: 'live',
   },
+  {
+    id: 'focus-timer',
+    name: 'Focus Timer',
+    description: 'Pomodoro-style focus sessions with stats tracking. Ship more, scroll less.',
+    icon: '🎯',
+    path: '/apps/focus-timer/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline
