@@ -66,6 +66,14 @@ const liveApps: App[] = [
     path: '/apps/focus-timer/',
     status: 'live',
   },
+  {
+    id: 'brew-tracker',
+    name: 'Brew Tracker',
+    description: 'Track your homebrew batches — cider, beer, wine, mead. Gravity readings, ABV calculations, and more.',
+    icon: '🍺',
+    path: '/apps/brew-tracker/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline

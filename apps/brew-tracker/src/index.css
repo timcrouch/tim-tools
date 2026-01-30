@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* Define custom theme colors for Tailwind 4 */
+@theme {
+  --color-cream: #FEF3C7;
+  --color-copper: #B45309;
+  --color-dark-brown: #451A03;
+}
+
+/* Bubble animation for fermenting status */
+@keyframes bubble {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-8px) scale(1.1);
+    opacity: 1;
+  }
+}
+
+.animate-bubble {
+  animation: bubble 2s ease-in-out infinite;
+}
+
+.animate-bubble-delay {
+  animation: bubble 2s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.animate-bubble-delay-2 {
+  animation: bubble 2s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Grain texture overlay */
+.grain-texture {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* Status badge colors */
+.status-fermenting {
+  @apply bg-amber-100 text-amber-800 border-amber-300;
+}
+
+.status-conditioning {
+  @apply bg-blue-100 text-blue-800 border-blue-300;
+}
+
+.status-bottled {
+  @apply bg-purple-100 text-purple-800 border-purple-300;
+}
+
+.status-ready {
+  @apply bg-green-100 text-green-800 border-green-300;
+}
+
+.status-finished {
+  @apply bg-gray-100 text-gray-800 border-gray-300;
+}
+
+/* Card styles */
+.brew-card {
+  @apply bg-white rounded-2xl shadow-lg border border-amber-100 overflow-hidden transition-all duration-200 hover:shadow-xl hover:border-amber-200;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 active:scale-95 shadow-md hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-amber-100 hover:bg-amber-200 text-amber-800 font-semibold py-3 px-6 rounded-xl transition-all duration-200 active:scale-95;
+}
+
+.btn-danger {
+  @apply bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 active:scale-95;
+}
+
+/* Input styles */
+.input-field {
+  @apply w-full px-4 py-3 rounded-xl border-2 border-amber-200 focus:border-amber-500 focus:outline-none transition-colors bg-white;
+}
+
+/* Mobile-first touch targets */
+@media (max-width: 640px) {
+  .btn-primary, .btn-secondary, .btn-danger {
+    @apply min-h-12;
+  }
+  
+  .input-field {
+    @apply min-h-12 text-base;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FEF3C7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F59E0B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B45309;
+}
+
+body {
+  @apply bg-cream min-h-screen;
+}
