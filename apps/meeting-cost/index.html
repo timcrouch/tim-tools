@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Cost Calculator | Tim's Tools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Back to Tools</a>
+            <h1>💸 Meeting Cost Calculator</h1>
+            <p class="subtitle">Watch your meeting budget evaporate in real-time. Nothing kills scope creep like cold, hard numbers.</p>
+        </header>
+
+        <main>
+            <!-- Cost Display -->
+            <section class="cost-section">
+                <div class="cost-display">
+                    <div class="cost-label">Current Meeting Cost</div>
+                    <div class="cost-value" id="costDisplay">€0.00</div>
+                    <div class="cost-rate" id="rateDisplay">€0.00/min with 0 attendees</div>
+                </div>
+                
+                <div class="timer-display">
+                    <span class="timer-value" id="timerDisplay">00:00:00</span>
+                </div>
+
+                <div class="snark-display" id="snarkDisplay">
+                    Add attendees to start calculating the damage.
+                </div>
+                
+                <div class="timer-controls">
+                    <button class="btn-timer btn-start" id="startBtn">
+                        <span class="btn-icon">▶</span>
+                        <span class="btn-text">Start Meeting</span>
+                    </button>
+                    <button class="btn-timer btn-pause hidden" id="pauseBtn">
+                        <span class="btn-icon">⏸</span>
+                        <span class="btn-text">Pause</span>
+                    </button>
+                    <button class="btn-timer btn-end hidden" id="endBtn">
+                        <span class="btn-icon">⏹</span>
+                        <span class="btn-text">End Meeting</span>
+                    </button>
+                    <button class="btn-timer btn-reset" id="resetBtn">
+                        <span class="btn-icon">↺</span>
+                        <span class="btn-text">Reset</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Attendees Section -->
+            <section class="attendees-section">
+                <div class="section-header">
+                    <h2>👥 Attendees</h2>
+                    <button class="btn-add" id="addAttendeeBtn">+ Add Attendee</button>
+                </div>
+                
+                <div class="attendees-list" id="attendeesList">
+                    <!-- Attendees rendered here -->
+                </div>
+
+                <div class="empty-state visible" id="emptyAttendees">
+                    <div class="icon">🪑</div>
+                    <h3>No one's here yet</h3>
+                    <p>Add attendees with their hourly rates to start.</p>
+                </div>
+
+                <div class="quick-add">
+                    <span class="quick-label">Quick add:</span>
+                    <button class="btn-preset" data-role="Junior Dev" data-rate="50">Junior €50/h</button>
+                    <button class="btn-preset" data-role="Senior Dev" data-rate="100">Senior €100/h</button>
+                    <button class="btn-preset" data-role="Lead/Architect" data-rate="150">Lead €150/h</button>
+                    <button class="btn-preset" data-role="Manager" data-rate="125">Manager €125/h</button>
+                    <button class="btn-preset" data-role="Executive" data-rate="250">Exec €250/h</button>
+                </div>
+            </section>
+
+            <!-- Meeting Notes -->
+            <section class="notes-section">
+                <div class="notes-wrapper">
+                    <input type="text" id="meetingTopic" placeholder="Meeting topic (optional)" maxlength="100">
+                </div>
+            </section>
+
+            <!-- Stats -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <span class="stat-value" id="totalMeetings">0</span>
+                        <span class="stat-label">Total Meetings</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-content">
+                        <span class="stat-value" id="totalCost">€0</span>
+                        <span class="stat-label">Total Cost</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-content">
+                        <span class="stat-value" id="totalTime">0h</span>
+                        <span class="stat-label">Time in Meetings</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Meeting History -->
+            <section class="history-section">
+                <div class="history-header">
+                    <h2>📋 Recent Meetings</h2>
+                    <button class="btn-clear-history" id="clearHistoryBtn">Clear All</button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <!-- History entries rendered here -->
+                </div>
+                <div class="empty-state visible" id="emptyHistory">
+                    <div class="icon">📋</div>
+                    <h3>No meetings tracked yet</h3>
+                    <p>Your meeting history will appear here.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p class="footer-text">Built by Giterdone 😉 | Data stored locally | Maybe this meeting <em>could</em> be an email?</p>
+        </footer>
+    </div>
+
+    <!-- Add Attendee Modal -->
+    <div class="modal" id="attendeeModal">
+        <div class="modal-content">
+            <h2>Add Attendee</h2>
+            <form id="attendeeForm">
+                <div class="form-group">
+                    <label for="attendeeName">Name / Role</label>
+                    <input type="text" id="attendeeName" placeholder="e.g., Senior Developer" required>
+                </div>
+                <div class="form-group">
+                    <label for="attendeeRate">Hourly Rate (€)</label>
+                    <input type="number" id="attendeeRate" min="1" max="1000" placeholder="100" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="cancelAttendee">Cancel</button>
+                    <button type="submit" class="btn-save">Add Attendee</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

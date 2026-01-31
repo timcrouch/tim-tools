@@ -74,6 +74,14 @@ const liveApps: App[] = [
     path: '/apps/brew-tracker/',
     status: 'live',
   },
+  {
+    id: 'meeting-cost',
+    name: 'Meeting Cost Calculator',
+    description: 'Watch your meeting budget evaporate in real-time. Nothing kills scope creep like cold, hard numbers.',
+    icon: '💸',
+    path: '/apps/meeting-cost/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline
