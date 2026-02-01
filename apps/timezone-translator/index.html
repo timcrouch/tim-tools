@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timezone Translator | Tim's Tools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Back to Tools</a>
+            <h1>🌍 Timezone Translator</h1>
+            <p class="subtitle">When someone says 'EOD' but you're in 5 different timezones.</p>
+        </header>
+
+        <main>
+            <!-- Current Time in All Zones -->
+            <section class="clocks-section">
+                <h2>World Clocks</h2>
+                <div class="clocks-grid" id="clocksGrid">
+                    <!-- Rendered by JS -->
+                </div>
+                <button class="btn-add-zone" id="addZoneBtn">+ Add Timezone</button>
+            </section>
+
+            <!-- Time Converter -->
+            <section class="converter-section">
+                <h2>Convert Time</h2>
+                <div class="converter-card">
+                    <div class="converter-row">
+                        <div class="converter-input">
+                            <label>From</label>
+                            <div class="input-group">
+                                <input type="time" id="sourceTime" value="09:00">
+                                <select id="sourceZone">
+                                    <!-- Populated by JS -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="converter-arrow">→</div>
+                        <div class="converter-input">
+                            <label>To</label>
+                            <select id="targetZone">
+                                <!-- Populated by JS -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="converter-result" id="converterResult">
+                        <span class="result-time">--:--</span>
+                        <span class="result-diff"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Corporate Time Translator -->
+            <section class="corporate-section">
+                <h2>Corporate → Human Time</h2>
+                <p class="section-desc">What does "EOD" actually mean across your timezones?</p>
+                <div class="corporate-grid" id="corporateGrid">
+                    <!-- Rendered by JS -->
+                </div>
+            </section>
+
+            <!-- Visual Timeline -->
+            <section class="timeline-section">
+                <h2>Working Hours Overlap</h2>
+                <div class="timeline-wrapper" id="timelineWrapper">
+                    <!-- Rendered by JS -->
+                </div>
+                <div class="timeline-legend">
+                    <span class="legend-item"><span class="legend-box working"></span> Working hours (9-17)</span>
+                    <span class="legend-item"><span class="legend-box overlap"></span> Overlap</span>
+                    <span class="legend-item"><span class="legend-now"></span> Now</span>
+                </div>
+            </section>
+
+            <!-- Quick Reference -->
+            <section class="reference-section">
+                <h2>Quick Offset Reference</h2>
+                <div class="offset-table" id="offsetTable">
+                    <!-- Rendered by JS -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p class="footer-text">Built by Giterdone 😉 | Data stored locally</p>
+        </footer>
+    </div>
+
+    <!-- Add Zone Modal -->
+    <div class="modal" id="addZoneModal">
+        <div class="modal-content">
+            <h2>Add Timezone</h2>
+            <div class="form-group">
+                <label for="zoneLabel">Label (optional)</label>
+                <input type="text" id="zoneLabel" placeholder="e.g., Home, Office, Client">
+            </div>
+            <div class="form-group">
+                <label for="zoneSelect">Timezone</label>
+                <select id="zoneSelect">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" id="cancelZone">Cancel</button>
+                <button type="button" class="btn-save" id="saveZone">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

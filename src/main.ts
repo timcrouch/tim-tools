@@ -82,6 +82,14 @@ const liveApps: App[] = [
     path: '/apps/meeting-cost/',
     status: 'live',
   },
+  {
+    id: 'timezone-translator',
+    name: 'Timezone Translator',
+    description: "When someone says 'EOD' but you're in 5 different timezones. Converts corporate time to human time.",
+    icon: '🌍',
+    path: '/apps/timezone-translator/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline
@@ -115,14 +123,6 @@ const comingApps: App[] = [
     name: 'Name That Variable',
     description: 'Finally, an AI that understands temp2_final_v3_FIXED is not a good variable name. Suggestions may include snark.',
     icon: '🏷️',
-    path: '#',
-    status: 'coming-soon',
-  },
-  {
-    id: 'timezone-translator',
-    name: 'Timezone Translator',
-    description: "When someone says 'EOD' but you're in 5 different timezones. Converts corporate time to human time.",
-    icon: '🌍',
     path: '#',
     status: 'coming-soon',
   },
