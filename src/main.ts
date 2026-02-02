@@ -90,6 +90,14 @@ const liveApps: App[] = [
     path: '/apps/timezone-translator/',
     status: 'live',
   },
+  {
+    id: 'decision-journal',
+    name: 'Decision Journal',
+    description: "Log decisions with context. Revisit to learn from outcomes. Because 'I forgot why we did that' is not a post-mortem.",
+    icon: '📓',
+    path: '/apps/decision-journal/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline

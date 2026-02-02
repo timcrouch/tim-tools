@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Journal | Tim's Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Back to Tools</a>
+            <h1>🎯 Decision Journal</h1>
+            <p class="subtitle">Log decisions with context. Revisit to learn from outcomes. Your future self will thank you.</p>
+        </header>
+
+        <main>
+            <!-- Quick Stats -->
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-content">
+                        <span class="stat-value" id="totalDecisions">0</span>
+                        <span class="stat-label">Decisions Logged</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏳</div>
+                    <div class="stat-content">
+                        <span class="stat-value" id="pendingReviews">0</span>
+                        <span class="stat-label">Pending Reviews</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-content">
+                        <span class="stat-value" id="reviewedDecisions">0</span>
+                        <span class="stat-label">Reviewed</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Decision Form -->
+            <section class="form-section">
+                <button class="btn-new-decision" id="newDecisionBtn">
+                    <span class="btn-icon">+</span>
+                    <span>Log New Decision</span>
+                </button>
+            </section>
+
+            <!-- Filter Tabs -->
+            <section class="filter-section">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All</button>
+                    <button class="filter-tab" data-filter="pending">Pending Review</button>
+                    <button class="filter-tab" data-filter="reviewed">Reviewed</button>
+                </div>
+                <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="Search decisions...">
+                </div>
+            </section>
+
+            <!-- Decisions List -->
+            <section class="decisions-section">
+                <div class="decisions-list" id="decisionsList">
+                    <!-- Entries rendered by JS -->
+                </div>
+                <div class="empty-state" id="emptyState">
+                    <div class="icon">🤔</div>
+                    <h3>No decisions logged yet</h3>
+                    <p>Start capturing your important decisions — future you will appreciate the context.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <button id="exportBtn" class="btn-export">📤 Export</button>
+            <p class="footer-text">Built by Giterdone 😉 | Data stored locally</p>
+        </footer>
+    </div>
+
+    <!-- New/Edit Decision Modal -->
+    <div class="modal" id="decisionModal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Log New Decision</h2>
+            <form id="decisionForm">
+                <input type="hidden" id="decisionId">
+                
+                <div class="form-group">
+                    <label for="decisionTitle">Decision <span class="required">*</span></label>
+                    <input type="text" id="decisionTitle" placeholder="What did you decide?" required maxlength="200">
+                </div>
+                
+                <div class="form-group">
+                    <label for="decisionContext">Context / Why</label>
+                    <textarea id="decisionContext" placeholder="What led to this decision? What options did you consider?" rows="3"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="decisionExpected">Expected Outcome</label>
+                    <textarea id="decisionExpected" placeholder="What do you expect will happen as a result?" rows="2"></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="decisionCategory">Category</label>
+                        <select id="decisionCategory">
+                            <option value="business">🏢 Business</option>
+                            <option value="technical">💻 Technical</option>
+                            <option value="personal">👤 Personal</option>
+                            <option value="financial">💰 Financial</option>
+                            <option value="team">👥 Team</option>
+                            <option value="other">📌 Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewDate">Review Date</label>
+                        <input type="date" id="reviewDate">
+                        <span class="hint">When should you revisit this?</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="decisionConfidence">Confidence Level</label>
+                    <div class="confidence-slider">
+                        <input type="range" id="decisionConfidence" min="1" max="10" value="7">
+                        <div class="confidence-labels">
+                            <span>Uncertain</span>
+                            <span id="confidenceValue">7</span>
+                            <span>Very confident</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="cancelDecision">Cancel</button>
+                    <button type="submit" class="btn-save">Save Decision</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Review Modal -->
+    <div class="modal" id="reviewModal">
+        <div class="modal-content modal-review">
+            <h2>📊 Review Decision</h2>
+            
+            <div class="review-original">
+                <div class="review-header">
+                    <span class="review-category" id="reviewCategory"></span>
+                    <span class="review-date" id="reviewDate2"></span>
+                </div>
+                <h3 id="reviewTitle"></h3>
+                <div class="review-section">
+                    <strong>Context:</strong>
+                    <p id="reviewContext"></p>
+                </div>
+                <div class="review-section">
+                    <strong>Expected Outcome:</strong>
+                    <p id="reviewExpected"></p>
+                </div>
+                <div class="review-section">
+                    <strong>Confidence at time:</strong>
+                    <span id="reviewConfidence"></span>/10
+                </div>
+            </div>
+            
+            <form id="reviewForm">
+                <input type="hidden" id="reviewDecisionId">
+                
+                <div class="form-group">
+                    <label for="actualOutcome">What Actually Happened <span class="required">*</span></label>
+                    <textarea id="actualOutcome" placeholder="Describe the actual outcome..." rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lessonsLearned">Lessons Learned</label>
+                    <textarea id="lessonsLearned" placeholder="What would you do differently? What did you learn?" rows="2"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Was this decision successful?</label>
+                    <div class="outcome-buttons">
+                        <button type="button" class="outcome-btn" data-outcome="success">✅ Yes</button>
+                        <button type="button" class="outcome-btn" data-outcome="partial">🔶 Partially</button>
+                        <button type="button" class="outcome-btn" data-outcome="failure">❌ No</button>
+                        <button type="button" class="outcome-btn" data-outcome="tbd">⏳ Too Early</button>
+                    </div>
+                    <input type="hidden" id="outcomeResult">
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" id="cancelReview">Cancel</button>
+                    <button type="submit" class="btn-save">Save Review</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Decision Modal -->
+    <div class="modal" id="viewModal">
+        <div class="modal-content modal-view">
+            <div class="view-header">
+                <span class="view-category" id="viewCategory"></span>
+                <span class="view-date" id="viewDate"></span>
+            </div>
+            <h2 id="viewTitle"></h2>
+            
+            <div class="view-section">
+                <h4>📋 Context</h4>
+                <p id="viewContext"></p>
+            </div>
+            
+            <div class="view-section">
+                <h4>🎯 Expected Outcome</h4>
+                <p id="viewExpected"></p>
+            </div>
+            
+            <div class="view-section">
+                <h4>📊 Confidence</h4>
+                <p><span id="viewConfidence"></span>/10</p>
+            </div>
+            
+            <div class="view-section view-review-section" id="viewReviewSection" style="display: none;">
+                <h4>🔍 Review</h4>
+                <div class="review-outcome" id="viewOutcome"></div>
+                <p><strong>What happened:</strong> <span id="viewActual"></span></p>
+                <p><strong>Lessons:</strong> <span id="viewLessons"></span></p>
+                <p class="review-timestamp">Reviewed: <span id="viewReviewDate"></span></p>
+            </div>
+            
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" id="closeView">Close</button>
+                <button type="button" class="btn-edit" id="editFromView">Edit</button>
+                <button type="button" class="btn-delete" id="deleteFromView">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
