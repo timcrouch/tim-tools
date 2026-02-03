@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Roulette | Tim's Tools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Back to Tools</a>
+            <h1>🎰 Decision Roulette</h1>
+            <p class="subtitle">Can't decide? Let chaos theory choose for you.</p>
+        </header>
+
+        <main>
+            <!-- Wheel Section -->
+            <section class="wheel-section">
+                <div class="wheel-container">
+                    <div class="wheel-pointer">▼</div>
+                    <canvas id="wheelCanvas" width="340" height="340"></canvas>
+                </div>
+                <button class="btn-spin" id="spinBtn" disabled>
+                    <span class="btn-icon">🎲</span>
+                    <span class="btn-text">SPIN!</span>
+                </button>
+            </section>
+
+            <!-- Result Display -->
+            <section class="result-section hidden" id="resultSection">
+                <div class="result-card">
+                    <div class="result-label">The wheel has spoken:</div>
+                    <div class="result-value" id="resultValue">-</div>
+                    <div class="result-subtext">No backsies. 😏</div>
+                </div>
+            </section>
+
+            <!-- Options Input -->
+            <section class="options-section">
+                <h2>Your Options</h2>
+                <div class="option-input-wrapper">
+                    <input type="text" id="optionInput" placeholder="Add an option..." maxlength="50">
+                    <button class="btn-add" id="addBtn">Add</button>
+                </div>
+                <div class="options-list" id="optionsList">
+                    <!-- Options rendered here -->
+                </div>
+                <div class="empty-state" id="emptyState">
+                    <div class="icon">🤔</div>
+                    <h3>No options yet</h3>
+                    <p>Add at least 2 options to spin the wheel!</p>
+                </div>
+            </section>
+
+            <!-- Presets Section -->
+            <section class="presets-section">
+                <h2>Quick Presets</h2>
+                <div class="presets-grid">
+                    <button class="btn-preset" data-preset="lunch">🍕 Lunch</button>
+                    <button class="btn-preset" data-preset="dinner">🍽️ Dinner</button>
+                    <button class="btn-preset" data-preset="activity">🎮 Activity</button>
+                    <button class="btn-preset" data-preset="movie">🎬 Movie Genre</button>
+                    <button class="btn-preset" data-preset="coin">🪙 Coin Flip</button>
+                    <button class="btn-preset" data-preset="dice">🎲 Dice (d6)</button>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section class="history-section">
+                <div class="history-header">
+                    <h2>Recent Spins</h2>
+                    <button class="btn-clear" id="clearHistoryBtn">Clear</button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <!-- History rendered here -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p class="footer-text">Built by Giterdone 😉 | Data stored locally</p>
+            <p class="footer-note">Warning: May suggest the same place three times in a row. The universe works in mysterious ways.</p>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -98,18 +98,18 @@ const liveApps: App[] = [
     path: '/apps/decision-journal/',
     status: 'live',
   },
-];
-
-// Coming soon - ideas in the pipeline
-const comingApps: App[] = [
   {
     id: 'decision-roulette',
     name: 'Decision Roulette',
     description: "Can't decide where to eat? Let chaos theory choose for you. Warning: may suggest the same place three times in a row.",
     icon: '🎰',
-    path: '#',
-    status: 'coming-soon',
+    path: '/apps/decision-roulette/',
+    status: 'live',
   },
+];
+
+// Coming soon - ideas in the pipeline
+const comingApps: App[] = [
   {
     id: 'excuse-generator',
     name: 'Excuse Generator 3000',
