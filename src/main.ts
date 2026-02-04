@@ -106,6 +106,14 @@ const liveApps: App[] = [
     path: '/apps/decision-roulette/',
     status: 'live',
   },
+  {
+    id: 'rubber-duck',
+    name: 'Rubber Duck Debugger',
+    description: "Explain your bug to a duck that judges you gently. 90% of problems solve themselves mid-explanation. The duck takes credit.",
+    icon: '🦆',
+    path: '/apps/rubber-duck/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline

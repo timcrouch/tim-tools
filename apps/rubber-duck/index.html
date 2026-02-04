@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rubber Duck Debugger | Tim's Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="back-link">← Tim's Tools</a>
+      <div class="title-group">
+        <h1>🦆 Rubber Duck Debugger</h1>
+        <p class="subtitle">Explain your problem. The duck will judge you accordingly.</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="duck-container">
+        <div class="duck" id="duck">
+          <div class="duck-body">
+            <div class="duck-head">
+              <div class="duck-eye left"></div>
+              <div class="duck-eye right"></div>
+              <div class="duck-beak"></div>
+            </div>
+            <div class="duck-wing"></div>
+          </div>
+          <div class="duck-reflection"></div>
+        </div>
+        <div class="speech-bubble" id="speechBubble">
+          <p id="duckMessage">*stares expectantly* What seems to be the problem?</p>
+        </div>
+      </div>
+
+      <div class="debug-session" id="debugSession">
+        <div class="session-stage" id="stageIndicator">
+          <span class="stage active" data-stage="1">1. The Problem</span>
+          <span class="stage" data-stage="2">2. What You Expected</span>
+          <span class="stage" data-stage="3">3. What Actually Happened</span>
+          <span class="stage" data-stage="4">4. What You've Tried</span>
+          <span class="stage" data-stage="5">5. The Revelation</span>
+        </div>
+
+        <div class="input-section">
+          <label id="promptLabel">Describe your problem in plain English:</label>
+          <textarea 
+            id="userInput" 
+            placeholder="It's not working..."
+            rows="4"
+          ></textarea>
+          <div class="button-row">
+            <button id="submitBtn" class="primary-btn">Tell the Duck</button>
+            <button id="resetBtn" class="secondary-btn" style="display: none;">Start Over</button>
+          </div>
+        </div>
+
+        <div class="history" id="historySection" style="display: none;">
+          <h3>Session Log</h3>
+          <div id="historyList"></div>
+        </div>
+      </div>
+
+      <div class="stats-panel">
+        <h3>🏆 Debug Stats</h3>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="stat-value" id="totalSessions">0</span>
+            <span class="stat-label">Sessions</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="epiphanies">0</span>
+            <span class="stat-label">Epiphanies</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="avgStage">-</span>
+            <span class="stat-label">Avg Stage to Solution</span>
+          </div>
+        </div>
+        <p class="stats-note" id="statsNote">The duck has seen things. Mostly your code.</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>Built by <a href="https://github.com/clawdbot/clawdbot" target="_blank">Giterdone</a> at 3am • <a href="/">More Tools</a></p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
