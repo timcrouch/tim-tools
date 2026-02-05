@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Idea Parking Lot | Tim's Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="back-link">← Tim's Tools</a>
+      <div class="title-group">
+        <h1>🅿️ Idea Parking Lot</h1>
+        <p class="subtitle">Brain interrupt? Park it. Get back to work. Review later.</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Quick Capture -->
+      <div class="capture-zone">
+        <div class="capture-header">
+          <span class="zone-indicator">🚗 Quick Park</span>
+          <span class="shortcut-hint">Press Enter to park</span>
+        </div>
+        <input 
+          type="text" 
+          id="ideaInput" 
+          placeholder="That random idea that just interrupted you..."
+          autocomplete="off"
+        >
+        <div class="capture-options">
+          <div class="tag-selector">
+            <button class="tag-btn" data-tag="product">💡 Product</button>
+            <button class="tag-btn" data-tag="code">💻 Code</button>
+            <button class="tag-btn" data-tag="business">📈 Business</button>
+            <button class="tag-btn" data-tag="content">✍️ Content</button>
+            <button class="tag-btn" data-tag="personal">🏠 Personal</button>
+            <button class="tag-btn active" data-tag="random">🎲 Random</button>
+          </div>
+          <button id="parkBtn" class="park-btn">Park It 🅿️</button>
+        </div>
+      </div>
+
+      <!-- Parked Ideas -->
+      <div class="lot-section">
+        <div class="lot-header">
+          <h2>🚙 Parked Ideas</h2>
+          <div class="lot-controls">
+            <div class="filter-tabs">
+              <button class="filter-tab active" data-filter="all">All</button>
+              <button class="filter-tab" data-filter="product">💡</button>
+              <button class="filter-tab" data-filter="code">💻</button>
+              <button class="filter-tab" data-filter="business">📈</button>
+              <button class="filter-tab" data-filter="content">✍️</button>
+              <button class="filter-tab" data-filter="personal">🏠</button>
+              <button class="filter-tab" data-filter="random">🎲</button>
+            </div>
+            <input type="text" id="searchInput" placeholder="Search..." class="search-input">
+          </div>
+        </div>
+        
+        <div class="parking-lot" id="parkingLot">
+          <div class="empty-lot" id="emptyLot">
+            <div class="empty-icon">🅿️</div>
+            <p>Lot's empty. Your brain must be focused.</p>
+            <p class="empty-subtext">(That won't last long.)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Archived Ideas (Driven Away) -->
+      <div class="archive-section" id="archiveSection" style="display: none;">
+        <div class="archive-header" id="archiveToggle">
+          <h3>🚗💨 Driven Away <span id="archiveCount">(0)</span></h3>
+          <span class="toggle-icon">▼</span>
+        </div>
+        <div class="archive-list" id="archiveList"></div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-panel">
+        <h3>📊 Lot Statistics</h3>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="stat-value" id="totalParked">0</span>
+            <span class="stat-label">Total Parked</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="actedOn">0</span>
+            <span class="stat-label">Acted On</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="topCategory">-</span>
+            <span class="stat-label">Top Category</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="oldestIdea">-</span>
+            <span class="stat-label">Oldest Idea</span>
+          </div>
+        </div>
+        <p class="stats-note" id="statsNote">The best ideas come when you're doing something else.</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>Built by <a href="https://github.com/clawdbot/clawdbot" target="_blank">Giterdone</a> at 3am • <a href="/">More Tools</a></p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

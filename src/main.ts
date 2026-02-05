@@ -114,6 +114,14 @@ const liveApps: App[] = [
     path: '/apps/rubber-duck/',
     status: 'live',
   },
+  {
+    id: 'idea-parking-lot',
+    name: 'Idea Parking Lot',
+    description: "Brain interrupt? Park it, tag it, get back to work. Review later. Because your best ideas always come at the worst times.",
+    icon: '🅿️',
+    path: '/apps/idea-parking-lot/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline
