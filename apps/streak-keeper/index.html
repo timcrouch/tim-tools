@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Streak Keeper | Tim's Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="back-link">← Tim's Tools</a>
+      <div class="title-group">
+        <h1>🔥 Streak Keeper</h1>
+        <p class="subtitle">Build momentum. One day at a time. Don't break the chain.</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="add-habit-section">
+        <form id="addHabitForm">
+          <input 
+            type="text" 
+            id="habitInput" 
+            placeholder="Add a new habit to track..."
+            maxlength="50"
+            autocomplete="off"
+          >
+          <button type="submit" class="add-btn">+ Add Habit</button>
+        </form>
+      </div>
+
+      <div class="habits-container" id="habitsContainer">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">🔥</div>
+          <h3>No habits yet</h3>
+          <p>Add your first habit above and start building streaks.</p>
+        </div>
+      </div>
+
+      <div class="stats-panel" id="statsPanel" style="display: none;">
+        <h3>📊 Your Stats</h3>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="stat-value" id="totalHabits">0</span>
+            <span class="stat-label">Active Habits</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="longestStreak">0</span>
+            <span class="stat-label">Longest Streak</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="todayProgress">0%</span>
+            <span class="stat-label">Today's Progress</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="totalCheckins">0</span>
+            <span class="stat-label">Total Check-ins</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="achievements-panel" id="achievementsPanel" style="display: none;">
+        <h3>🏆 Milestones</h3>
+        <div class="achievements-list" id="achievementsList"></div>
+      </div>
+    </main>
+
+    <footer>
+      <p>Built by <a href="https://github.com/clawdbot/clawdbot" target="_blank">Giterdone</a> at 3am • <a href="/">More Tools</a></p>
+    </footer>
+  </div>
+
+  <div class="celebration" id="celebration"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

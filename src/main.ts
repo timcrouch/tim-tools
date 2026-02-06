@@ -122,6 +122,14 @@ const liveApps: App[] = [
     path: '/apps/idea-parking-lot/',
     status: 'live',
   },
+  {
+    id: 'streak-keeper',
+    name: 'Streak Keeper',
+    description: "Build momentum. Track habits with visual streaks, milestones, and weekly views. Don't break the chain.",
+    icon: '🔥',
+    path: '/apps/streak-keeper/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline
