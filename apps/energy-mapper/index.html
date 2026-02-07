@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy Mapper | Tim's Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="back-link">← Tim's Tools</a>
+      <div class="title-group">
+        <h1>⚡ Energy Mapper</h1>
+        <p class="subtitle">Find your peak hours. Schedule hard work when you're sharp, not when you're running on fumes.</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Quick Check-in -->
+      <section class="checkin-section">
+        <h2>How's your energy right now?</h2>
+        <div class="energy-levels" id="energyLevels">
+          <button class="energy-btn" data-level="1" title="Running on empty">
+            <span class="emoji">😴</span>
+            <span class="label">Drained</span>
+          </button>
+          <button class="energy-btn" data-level="2" title="Low energy">
+            <span class="emoji">😐</span>
+            <span class="label">Low</span>
+          </button>
+          <button class="energy-btn" data-level="3" title="Steady state">
+            <span class="emoji">🙂</span>
+            <span class="label">Okay</span>
+          </button>
+          <button class="energy-btn" data-level="4" title="Feeling good">
+            <span class="emoji">😊</span>
+            <span class="label">Good</span>
+          </button>
+          <button class="energy-btn" data-level="5" title="Peak performance">
+            <span class="emoji">🔥</span>
+            <span class="label">Peak</span>
+          </button>
+        </div>
+        <p class="last-checkin" id="lastCheckin"></p>
+      </section>
+
+      <!-- Today's Curve -->
+      <section class="today-section">
+        <h2>📊 Today's Energy Curve</h2>
+        <div class="chart-container" id="todayChart">
+          <div class="chart-empty" id="chartEmpty">
+            <p>Check in a few times today to see your energy curve.</p>
+          </div>
+          <div class="chart" id="chart" style="display: none;">
+            <div class="chart-y-axis">
+              <span>🔥</span>
+              <span>😊</span>
+              <span>🙂</span>
+              <span>😐</span>
+              <span>😴</span>
+            </div>
+            <div class="chart-bars" id="chartBars"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Insights -->
+      <section class="insights-section" id="insightsSection" style="display: none;">
+        <h2>💡 Insights</h2>
+        <div class="insights-grid" id="insightsGrid">
+          <div class="insight-card">
+            <span class="insight-value" id="peakHour">--</span>
+            <span class="insight-label">Peak Hour</span>
+          </div>
+          <div class="insight-card">
+            <span class="insight-value" id="lowHour">--</span>
+            <span class="insight-label">Low Hour</span>
+          </div>
+          <div class="insight-card">
+            <span class="insight-value" id="avgEnergy">--</span>
+            <span class="insight-label">Avg Energy</span>
+          </div>
+          <div class="insight-card">
+            <span class="insight-value" id="totalCheckins">0</span>
+            <span class="insight-label">Check-ins</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Weekly Pattern -->
+      <section class="weekly-section" id="weeklySection" style="display: none;">
+        <h2>📅 Weekly Patterns</h2>
+        <div class="heatmap" id="heatmap"></div>
+        <div class="heatmap-legend">
+          <span>Low</span>
+          <div class="legend-gradient"></div>
+          <span>High</span>
+        </div>
+      </section>
+
+      <!-- History -->
+      <section class="history-section" id="historySection" style="display: none;">
+        <h2>📜 Recent Check-ins</h2>
+        <div class="history-list" id="historyList"></div>
+        <button class="clear-btn" id="clearHistory">Clear All Data</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built by <a href="https://github.com/clawdbot/clawdbot" target="_blank">Giterdone</a> at 3am • <a href="/">More Tools</a></p>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -130,6 +130,14 @@ const liveApps: App[] = [
     path: '/apps/streak-keeper/',
     status: 'live',
   },
+  {
+    id: 'energy-mapper',
+    name: 'Energy Mapper',
+    description: "Find your peak hours. Track energy levels throughout the day to discover when you're sharpest (and when to take a break).",
+    icon: '⚡',
+    path: '/apps/energy-mapper/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline
