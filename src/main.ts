@@ -138,6 +138,14 @@ const liveApps: App[] = [
     path: '/apps/energy-mapper/',
     status: 'live',
   },
+  {
+    id: 'shortcut-shelf',
+    name: 'Shortcut Shelf',
+    description: "Store the shortcuts you always forget. Keyboard combos, CLI commands, snippets — search instantly, copy, and go.",
+    icon: '⌨️',
+    path: '/apps/shortcut-shelf/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline

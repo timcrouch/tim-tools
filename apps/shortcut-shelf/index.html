@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shortcut Shelf | Tim's Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="back-link">← Tim's Tools</a>
+      <div class="title-group">
+        <h1>⌨️ Shortcut Shelf</h1>
+        <p class="subtitle">Store the shortcuts you always forget. Search instantly. Copy and go.</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Quick Search -->
+      <div class="search-zone">
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search shortcuts, commands, or apps..."
+            autocomplete="off"
+          >
+          <span class="shortcut-hint">⌘K</span>
+        </div>
+      </div>
+
+      <!-- Add New Shortcut -->
+      <div class="add-zone" id="addZone">
+        <div class="add-header" id="addToggle">
+          <span class="add-icon">➕</span>
+          <span>Add New Shortcut</span>
+          <span class="toggle-arrow">▼</span>
+        </div>
+        <div class="add-form" id="addForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="appInput">App / Context</label>
+              <input type="text" id="appInput" placeholder="e.g., VSCode, Terminal, Git">
+            </div>
+            <div class="form-group category-group">
+              <label>Type</label>
+              <div class="category-btns">
+                <button class="cat-btn active" data-cat="keyboard">⌨️ Keyboard</button>
+                <button class="cat-btn" data-cat="cli">💻 CLI</button>
+                <button class="cat-btn" data-cat="snippet">📝 Snippet</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="keysInput">Shortcut / Command</label>
+            <input type="text" id="keysInput" class="mono-input" placeholder="e.g., ⌘⇧P or git stash pop">
+          </div>
+          <div class="form-group">
+            <label for="descInput">What it does</label>
+            <input type="text" id="descInput" placeholder="e.g., Opens command palette">
+          </div>
+          <div class="form-group">
+            <label for="tagsInput">Tags <span class="optional">(optional, comma-separated)</span></label>
+            <input type="text" id="tagsInput" placeholder="e.g., navigation, productivity">
+          </div>
+          <button id="addBtn" class="add-btn">Add to Shelf 📚</button>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-bar">
+        <div class="filter-tabs">
+          <button class="filter-tab active" data-filter="all">All</button>
+          <button class="filter-tab" data-filter="keyboard">⌨️ Keyboard</button>
+          <button class="filter-tab" data-filter="cli">💻 CLI</button>
+          <button class="filter-tab" data-filter="snippet">📝 Snippet</button>
+        </div>
+        <div class="app-filter">
+          <select id="appFilter">
+            <option value="all">All Apps</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Shortcuts List -->
+      <div class="shelf" id="shelf">
+        <div class="empty-shelf" id="emptyShelf">
+          <div class="empty-icon">📚</div>
+          <h3>Your shelf is empty</h3>
+          <p>Add your first shortcut above. You'll thank yourself later.</p>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-panel" id="statsPanel">
+        <h3>📊 Shelf Stats</h3>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="stat-value" id="totalShortcuts">0</span>
+            <span class="stat-label">Shortcuts</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="totalApps">0</span>
+            <span class="stat-label">Apps</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="totalCopies">0</span>
+            <span class="stat-label">Times Copied</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="mostUsedApp">-</span>
+            <span class="stat-label">Top App</span>
+          </div>
+        </div>
+        <p class="stats-note">"I know I set up an alias for that..." — you, every week</p>
+      </div>
+    </main>
+
+    <footer>
+      <p>Built by <a href="https://github.com/clawdbot/clawdbot" target="_blank">Giterdone</a> at 3am • <a href="/">More Tools</a></p>
+    </footer>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
