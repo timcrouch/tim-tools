@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yak Shave Tracker | Tim's Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="back-link">← Tim's Tools</a>
+      <div class="title-row">
+        <h1>🐃 Yak Shave Tracker</h1>
+      </div>
+      <p class="subtitle">Track the rabbit holes. Know when you're 5 tangents deep.</p>
+    </header>
+
+    <main>
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <div class="stat">
+          <span class="stat-value" id="active-count">0</span>
+          <span class="stat-label">Active Shaves</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="total-count">0</span>
+          <span class="stat-label">All Time</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="deepest-shave">0</span>
+          <span class="stat-label">Deepest Dive</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="avg-depth">0</span>
+          <span class="stat-label">Avg Depth</span>
+        </div>
+      </div>
+
+      <!-- New Shave -->
+      <section class="new-shave-section">
+        <h2>Start a New Shave</h2>
+        <p class="hint">What were you <em>actually</em> trying to do?</p>
+        <div class="input-row">
+          <input type="text" id="original-goal" placeholder="e.g., Fix the login bug" maxlength="200">
+          <button id="start-shave" class="btn-primary">Start Shave</button>
+        </div>
+      </section>
+
+      <!-- Active Shaves -->
+      <section class="active-section">
+        <h2>Active Shaves 🔥</h2>
+        <div id="active-shaves" class="shave-list">
+          <div class="empty-state" id="no-active">
+            <div class="icon">🧘</div>
+            <p>No active shaves. Staying focused, are we?</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- History -->
+      <section class="history-section">
+        <h2>Shave History</h2>
+        <div class="filter-row">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="completed">✅ Completed</button>
+          <button class="filter-btn" data-filter="abandoned">💀 Abandoned</button>
+        </div>
+        <div id="history-list" class="shave-list">
+          <div class="empty-state" id="no-history">
+            <div class="icon">📭</div>
+            <p>No shave history yet. First time here?</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Add Tangent Modal -->
+    <div class="modal-overlay" id="tangent-modal">
+      <div class="modal">
+        <h3>Add a Tangent 🌀</h3>
+        <p class="hint">What distracted you?</p>
+        <input type="text" id="tangent-input" placeholder="e.g., Needed to update npm first" maxlength="200">
+        <div class="modal-buttons">
+          <button class="btn-secondary" id="cancel-tangent">Cancel</button>
+          <button class="btn-primary" id="confirm-tangent">Add Tangent</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Complete Modal -->
+    <div class="modal-overlay" id="complete-modal">
+      <div class="modal">
+        <h3>Close This Shave</h3>
+        <p class="hint">Did you actually accomplish the original goal?</p>
+        <div class="modal-buttons">
+          <button class="btn-danger" id="mark-abandoned">💀 Abandoned</button>
+          <button class="btn-success" id="mark-completed">✅ Completed</button>
+        </div>
+        <button class="btn-text" id="cancel-complete">Keep Shaving</button>
+      </div>
+    </div>
+
+    <footer>
+      <p>💡 Pro tip: If you're adding your 4th tangent, maybe take a step back.</p>
+    </footer>
+  </div>
+
+  <script type="module" src="main.ts"></script>
+</body>
+</html>

@@ -146,6 +146,14 @@ const liveApps: App[] = [
     path: '/apps/shortcut-shelf/',
     status: 'live',
   },
+  {
+    id: 'yak-shave',
+    name: 'Yak Shave Tracker',
+    description: "Track the rabbit holes. Start with one task, end up 5 tangents deep. At least now you'll know how you got there.",
+    icon: '🐃',
+    path: '/apps/yak-shave/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline
