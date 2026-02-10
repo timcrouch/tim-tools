@@ -154,6 +154,14 @@ const liveApps: App[] = [
     path: '/apps/yak-shave/',
     status: 'live',
   },
+  {
+    id: 'where-was-i',
+    name: 'Where Was I?',
+    description: "Interrupted? Quick-save your mental state. Restore it when you're back. Because context-switching is expensive.",
+    icon: '🧠',
+    path: '/apps/where-was-i/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline

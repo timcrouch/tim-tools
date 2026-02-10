@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where Was I? | Tim's Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="back-link">← Tim's Tools</a>
+      <h1>🧠 Where Was I?</h1>
+      <p class="subtitle">Interrupted? Save your mental state. Restore it later.</p>
+    </header>
+
+    <main>
+      <!-- Quick Save Section -->
+      <section class="save-section">
+        <h2>🚨 Quick Save Context</h2>
+        <form id="save-form">
+          <div class="form-group">
+            <label for="project">Project / Area</label>
+            <input type="text" id="project" placeholder="e.g., Compliance Copilot, Tim's Tools, Email..." list="project-suggestions">
+            <datalist id="project-suggestions"></datalist>
+          </div>
+          
+          <div class="form-group">
+            <label for="doing">What were you doing?</label>
+            <textarea id="doing" rows="2" placeholder="e.g., Refactoring the auth flow, debugging the webhook..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="state">Where exactly were you?</label>
+            <textarea id="state" rows="2" placeholder="e.g., Line 247 of auth.ts, about to add error handling..."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="next">Next step was...</label>
+            <textarea id="next" rows="2" placeholder="e.g., Test the edge case with expired tokens..."></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group priority-group">
+              <label for="priority">Priority</label>
+              <select id="priority">
+                <option value="normal">Normal</option>
+                <option value="high">🔥 High</option>
+                <option value="low">Low</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-save">💾 Save Context</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Saved Contexts -->
+      <section class="contexts-section">
+        <div class="section-header">
+          <h2>📚 Saved Contexts</h2>
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="resumed">Resumed</button>
+            <button class="filter-btn" data-filter="all">All</button>
+          </div>
+        </div>
+        <div id="contexts-list" class="contexts-list">
+          <!-- Contexts rendered here -->
+        </div>
+        <div id="empty-state" class="empty-state" style="display: none;">
+          <div class="icon">🎯</div>
+          <h3>No saved contexts</h3>
+          <p>Next time you get interrupted, save your mental state above.</p>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats-section">
+        <h2>📊 Interruption Stats</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="stat-total">0</div>
+            <div class="stat-label">Total Saves</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-resumed">0</div>
+            <div class="stat-label">Restored</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-abandoned">0</div>
+            <div class="stat-label">Abandoned</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-top-project">-</div>
+            <div class="stat-label">Most Interrupted</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Because "where was I?" is the most expensive question in software development.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
