@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ship Log | Tim's Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="back-link">← Tim's Tools</a>
+      <h1>🚢 Ship Log</h1>
+      <p class="subtitle">Captain's log of what you shipped. Never forget what you did this week.</p>
+    </header>
+
+    <main>
+      <!-- Quick Log Section -->
+      <section class="log-section">
+        <h2>📝 Log a Ship</h2>
+        <form id="log-form">
+          <div class="form-row main-input">
+            <div class="form-group flex-grow">
+              <input type="text" id="entry" placeholder="What did you ship? (e.g., Fixed auth bug, Deployed v2.1, Reviewed 5 PRs...)" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group project-group">
+              <input type="text" id="project" placeholder="Project (optional)" list="project-suggestions">
+              <datalist id="project-suggestions"></datalist>
+            </div>
+            <div class="form-group tag-group">
+              <select id="tag">
+                <option value="">Type...</option>
+                <option value="shipped">🚀 Shipped</option>
+                <option value="fixed">🔧 Fixed</option>
+                <option value="reviewed">👀 Reviewed</option>
+                <option value="wrote">✍️ Wrote</option>
+                <option value="meeting">🤝 Meeting</option>
+                <option value="learned">💡 Learned</option>
+                <option value="other">📦 Other</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-log">Log It</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- View Controls -->
+      <section class="controls-section">
+        <div class="view-tabs">
+          <button class="view-tab active" data-view="day">Today</button>
+          <button class="view-tab" data-view="week">This Week</button>
+          <button class="view-tab" data-view="month">This Month</button>
+          <button class="view-tab" data-view="all">All Time</button>
+        </div>
+        <div class="controls-right">
+          <input type="text" id="search" placeholder="🔍 Search..." class="search-input">
+          <button id="export-btn" class="btn-export" title="Copy for standup">📋</button>
+        </div>
+      </section>
+
+      <!-- Log Entries -->
+      <section class="entries-section">
+        <div id="entries-container">
+          <!-- Entries rendered here, grouped by day -->
+        </div>
+        <div id="empty-state" class="empty-state" style="display: none;">
+          <div class="icon">⚓</div>
+          <h3>No ships logged yet</h3>
+          <p>Start logging what you accomplish. Small wins count!</p>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats-section">
+        <h2>📊 Ship Stats</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="stat-today">0</div>
+            <div class="stat-label">Today</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-week">0</div>
+            <div class="stat-label">This Week</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-streak">0</div>
+            <div class="stat-label">Day Streak 🔥</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-total">0</div>
+            <div class="stat-label">All Time</div>
+          </div>
+        </div>
+        <div class="streak-calendar" id="streak-calendar">
+          <!-- Mini calendar rendered here -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>"What did I even do this week?" — Never again.</p>
+    </footer>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" style="display: none;"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

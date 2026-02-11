@@ -162,6 +162,14 @@ const liveApps: App[] = [
     path: '/apps/where-was-i/',
     status: 'live',
   },
+  {
+    id: 'ship-log',
+    name: 'Ship Log',
+    description: "Captain's log of what you shipped. Prep for standups, track wins, and never say 'what did I even do this week?' again.",
+    icon: '🚢',
+    path: '/apps/ship-log/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline
