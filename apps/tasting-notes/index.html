@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasting Notes — Tim's Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Back to Tim's Tools</a>
+            <h1>🥃 Tasting Notes</h1>
+            <p class="subtitle">Your personal flavor journal. Spirits, wine, coffee, beer — rate it, map it, remember it.</p>
+        </header>
+
+        <!-- Add New Tasting -->
+        <section class="card add-section" id="add-section">
+            <div class="card-header" id="toggle-form">
+                <h2>+ New Tasting</h2>
+                <span class="toggle-icon" id="toggle-icon">▸</span>
+            </div>
+            <form id="tasting-form" class="hidden">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="name" placeholder="e.g. Lagavulin 16" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="category">
+                            <option value="whiskey">🥃 Whiskey</option>
+                            <option value="wine">🍷 Wine</option>
+                            <option value="beer">🍺 Beer</option>
+                            <option value="coffee">☕ Coffee</option>
+                            <option value="spirits">🍸 Spirits</option>
+                            <option value="other">🧪 Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Origin / Producer</label>
+                        <input type="text" id="origin" placeholder="e.g. Islay, Scotland">
+                    </div>
+                    <div class="form-group">
+                        <label>Price (optional)</label>
+                        <input type="text" id="price" placeholder="e.g. €45">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Flavor Profile</label>
+                    <div class="flavor-grid">
+                        <div class="flavor-slider">
+                            <span>Sweet</span>
+                            <input type="range" id="f-sweet" min="0" max="5" value="0">
+                            <span class="flavor-val" id="v-sweet">0</span>
+                        </div>
+                        <div class="flavor-slider">
+                            <span>Bitter</span>
+                            <input type="range" id="f-bitter" min="0" max="5" value="0">
+                            <span class="flavor-val" id="v-bitter">0</span>
+                        </div>
+                        <div class="flavor-slider">
+                            <span>Smoky</span>
+                            <input type="range" id="f-smoky" min="0" max="5" value="0">
+                            <span class="flavor-val" id="v-smoky">0</span>
+                        </div>
+                        <div class="flavor-slider">
+                            <span>Fruity</span>
+                            <input type="range" id="f-fruity" min="0" max="5" value="0">
+                            <span class="flavor-val" id="v-fruity">0</span>
+                        </div>
+                        <div class="flavor-slider">
+                            <span>Spicy</span>
+                            <input type="range" id="f-spicy" min="0" max="5" value="0">
+                            <span class="flavor-val" id="v-spicy">0</span>
+                        </div>
+                        <div class="flavor-slider">
+                            <span>Floral</span>
+                            <input type="range" id="f-floral" min="0" max="5" value="0">
+                            <span class="flavor-val" id="v-floral">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Overall Rating</label>
+                    <div class="star-rating" id="star-rating">
+                        <span class="star" data-val="1">★</span>
+                        <span class="star" data-val="2">★</span>
+                        <span class="star" data-val="3">★</span>
+                        <span class="star" data-val="4">★</span>
+                        <span class="star" data-val="5">★</span>
+                    </div>
+                    <input type="hidden" id="rating" value="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea id="notes" rows="3" placeholder="Tasting notes, food pairings, occasion..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="submit-btn">Save Tasting</button>
+                    <button type="button" class="btn btn-ghost" id="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Filters -->
+        <section class="filters">
+            <div class="filter-pills" id="filter-pills">
+                <button class="pill active" data-filter="all">All</button>
+                <button class="pill" data-filter="whiskey">🥃</button>
+                <button class="pill" data-filter="wine">🍷</button>
+                <button class="pill" data-filter="beer">🍺</button>
+                <button class="pill" data-filter="coffee">☕</button>
+                <button class="pill" data-filter="spirits">🍸</button>
+                <button class="pill" data-filter="other">🧪</button>
+            </div>
+            <div class="sort-control">
+                <select id="sort-by">
+                    <option value="date-desc">Newest</option>
+                    <option value="date-asc">Oldest</option>
+                    <option value="rating-desc">Top Rated</option>
+                    <option value="name-asc">A → Z</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Tastings List -->
+        <section id="tastings-list" class="tastings-list">
+            <!-- Rendered by JS -->
+        </section>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state hidden">
+            <div class="icon">🥃</div>
+            <h3>No tastings yet</h3>
+            <p>Add your first tasting to start building your flavor journal.</p>
+        </div>
+
+        <!-- Stats -->
+        <section class="card stats-section" id="stats-section">
+            <h2>📊 Your Stats</h2>
+            <div class="stats-grid" id="stats-grid"></div>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

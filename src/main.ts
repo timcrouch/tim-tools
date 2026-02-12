@@ -163,6 +163,14 @@ const liveApps: App[] = [
     status: 'live',
   },
   {
+    id: 'tasting-notes',
+    name: 'Tasting Notes',
+    description: "Your personal flavor journal. Rate spirits, wine, coffee, beer — with radar charts, star ratings, and tasting stats. Because 'it was good' isn't a tasting note.",
+    icon: '🥃',
+    path: '/apps/tasting-notes/',
+    status: 'live',
+  },
+  {
     id: 'ship-log',
     name: 'Ship Log',
     description: "Captain's log of what you shipped. Prep for standups, track wins, and never say 'what did I even do this week?' again.",
