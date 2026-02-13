@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Retro | Tim's Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="back-link">← Tim's Tools</a>
+      <h1>🔄 Weekly Retro</h1>
+      <p class="subtitle">Quick weekly retrospective. What worked, what didn't, what's next.</p>
+    </header>
+
+    <main>
+      <!-- Current Week Form -->
+      <section class="retro-form-section">
+        <div class="week-header">
+          <h2 id="week-label">Week of ...</h2>
+          <span class="week-number" id="week-number"></span>
+        </div>
+
+        <div class="retro-columns">
+          <div class="retro-column good">
+            <h3>✅ What went well</h3>
+            <div class="items-list" id="good-items"></div>
+            <div class="add-item">
+              <input type="text" id="good-input" placeholder="Something that worked..." class="item-input">
+              <button onclick="addItem('good')" class="btn-add">+</button>
+            </div>
+          </div>
+
+          <div class="retro-column bad">
+            <h3>❌ What didn't</h3>
+            <div class="items-list" id="bad-items"></div>
+            <div class="add-item">
+              <input type="text" id="bad-input" placeholder="Something to improve..." class="item-input">
+              <button onclick="addItem('bad')" class="btn-add">+</button>
+            </div>
+          </div>
+
+          <div class="retro-column try">
+            <h3>🧪 Try next week</h3>
+            <div class="items-list" id="try-items"></div>
+            <div class="add-item">
+              <input type="text" id="try-input" placeholder="Something to try..." class="item-input">
+              <button onclick="addItem('try')" class="btn-add">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="retro-footer">
+          <div class="mood-section">
+            <span class="mood-label">Week mood:</span>
+            <div class="mood-buttons">
+              <button class="mood-btn" data-mood="1" title="Rough week">😩</button>
+              <button class="mood-btn" data-mood="2" title="Below average">😕</button>
+              <button class="mood-btn" data-mood="3" title="Okay">😐</button>
+              <button class="mood-btn" data-mood="4" title="Good week">😊</button>
+              <button class="mood-btn" data-mood="5" title="Killed it">🔥</button>
+            </div>
+          </div>
+          <button onclick="saveRetro()" class="btn-save" id="save-btn">Save Retro</button>
+        </div>
+      </section>
+
+      <!-- Mood Trend -->
+      <section class="trend-section" id="trend-section" style="display:none">
+        <h2>📈 Mood Trend</h2>
+        <div class="mood-chart" id="mood-chart"></div>
+      </section>
+
+      <!-- Past Retros -->
+      <section class="history-section" id="history-section" style="display:none">
+        <h2>📚 Past Retros</h2>
+        <div id="history-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

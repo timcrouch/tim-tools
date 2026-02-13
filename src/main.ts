@@ -171,6 +171,14 @@ const liveApps: App[] = [
     status: 'live',
   },
   {
+    id: 'weekly-retro',
+    name: 'Weekly Retro',
+    description: "End-of-week retrospective in 60 seconds. What worked, what didn't, what to try next. Mood tracking and trends over time.",
+    icon: '🔄',
+    path: '/apps/weekly-retro/',
+    status: 'live',
+  },
+  {
     id: 'ship-log',
     name: 'Ship Log',
     description: "Captain's log of what you shipped. Prep for standups, track wins, and never say 'what did I even do this week?' again.",

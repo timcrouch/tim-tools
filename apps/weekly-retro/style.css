@@ -1,0 +1,298 @@
+:root {
+  --bg-dark: #0a0a0f;
+  --bg-card: #12121a;
+  --bg-card-hover: #1a1a24;
+  --bg-input: #1a1a24;
+  --border: #2a2a3a;
+  --text-primary: #f0f0f5;
+  --text-secondary: #8888a0;
+  --text-muted: #5a5a70;
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --retro-green: #22c55e;
+  --retro-red: #ef4444;
+  --retro-blue: #3b82f6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+
+header { margin-bottom: 2.5rem; text-align: center; }
+
+.back-link {
+  display: inline-block;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--accent); }
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle { color: var(--text-secondary); font-size: 1.1rem; }
+
+section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 { font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; }
+
+.week-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.week-number {
+  background: var(--accent);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Retro Columns */
+.retro-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 700px) {
+  .retro-columns { grid-template-columns: 1fr; }
+}
+
+.retro-column {
+  background: var(--bg-input);
+  border-radius: 12px;
+  padding: 1rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.retro-column h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.retro-column.good h3 { border-bottom: 2px solid var(--retro-green); }
+.retro-column.bad h3 { border-bottom: 2px solid var(--retro-red); }
+.retro-column.try h3 { border-bottom: 2px solid var(--retro-blue); }
+
+.items-list { flex: 1; margin-bottom: 0.75rem; }
+
+.retro-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.retro-item:last-child { border-bottom: none; }
+
+.retro-item span { flex: 1; }
+
+.retro-item .delete-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.retro-item:hover .delete-btn { opacity: 1; }
+
+.add-item { display: flex; gap: 0.5rem; }
+
+.item-input {
+  flex: 1;
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.85rem;
+}
+.item-input:focus { outline: none; border-color: var(--accent); }
+
+.btn-add {
+  background: var(--accent);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-add:hover { background: var(--accent-hover); }
+
+/* Footer */
+.retro-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.mood-section { display: flex; align-items: center; gap: 0.75rem; }
+.mood-label { color: var(--text-secondary); font-size: 0.9rem; }
+
+.mood-buttons { display: flex; gap: 0.25rem; }
+
+.mood-btn {
+  background: var(--bg-input);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.mood-btn:hover { background: var(--bg-card-hover); transform: scale(1.1); }
+.mood-btn.selected { border-color: var(--accent); background: var(--bg-card-hover); transform: scale(1.15); }
+
+.btn-save {
+  background: var(--accent);
+  border: none;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-save:hover { background: var(--accent-hover); }
+.btn-save.saved { background: var(--success); }
+
+/* Mood Chart */
+.mood-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 120px;
+  padding: 0.5rem 0;
+}
+
+.mood-bar-wrapper {
+  flex: 1;
+  max-width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.mood-bar {
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.3s;
+  min-height: 4px;
+}
+
+.mood-bar-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* History */
+.history-entry {
+  background: var(--bg-input);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.history-entry:hover { background: var(--bg-card-hover); }
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.history-week { font-weight: 600; font-size: 0.95rem; }
+.history-mood { font-size: 1.3rem; }
+
+.history-summary {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.history-detail {
+  display: none;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.history-detail.open { display: block; }
+
+.history-col h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.history-col { margin-bottom: 0.5rem; }
+
+.history-col ul {
+  list-style: none;
+  padding: 0;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.history-col ul li::before { margin-right: 0.5rem; }
+.history-col.good ul li::before { content: '✅'; }
+.history-col.bad ul li::before { content: '❌'; }
+.history-col.try ul li::before { content: '🧪'; }
