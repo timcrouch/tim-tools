@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burn Rate | Tim's Tools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="back-link">← Back to Tools</a>
+            <h1>🔥 Burn Rate</h1>
+            <p class="subtitle">Track every subscription bleeding your wallet. Knowledge is power. Cancellation is savings.</p>
+        </header>
+
+        <main>
+            <!-- Summary Cards -->
+            <section class="summary-section">
+                <div class="summary-card monthly">
+                    <span class="summary-label">Monthly Burn</span>
+                    <span class="summary-value" id="monthlyBurn">€0</span>
+                </div>
+                <div class="summary-card yearly">
+                    <span class="summary-label">Yearly Burn</span>
+                    <span class="summary-value" id="yearlyBurn">€0</span>
+                </div>
+                <div class="summary-card count">
+                    <span class="summary-label">Active Subs</span>
+                    <span class="summary-value" id="subCount">0</span>
+                </div>
+                <div class="summary-card upcoming">
+                    <span class="summary-label">Next Renewal</span>
+                    <span class="summary-value" id="nextRenewal">—</span>
+                </div>
+            </section>
+
+            <!-- Category Breakdown -->
+            <section class="breakdown-section">
+                <h2>Category Breakdown</h2>
+                <div id="categoryBars" class="category-bars"></div>
+            </section>
+
+            <!-- Add Subscription -->
+            <section class="add-section">
+                <h2>Add Subscription</h2>
+                <form id="addForm" class="add-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="subName">Name</label>
+                            <input type="text" id="subName" placeholder="e.g. GitHub Copilot" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subCost">Cost</label>
+                            <input type="number" id="subCost" step="0.01" min="0" placeholder="9.99" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="subCurrency">Currency</label>
+                            <select id="subCurrency">
+                                <option value="€" selected>€ EUR</option>
+                                <option value="$">$ USD</option>
+                                <option value="£">£ GBP</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="subCycle">Cycle</label>
+                            <select id="subCycle">
+                                <option value="monthly" selected>Monthly</option>
+                                <option value="yearly">Yearly</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="quarterly">Quarterly</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="subCategory">Category</label>
+                            <select id="subCategory">
+                                <option value="dev-tools">🛠 Dev Tools</option>
+                                <option value="ai">🤖 AI & LLMs</option>
+                                <option value="cloud">☁️ Cloud & Infra</option>
+                                <option value="saas">📦 SaaS</option>
+                                <option value="media">🎬 Media & Entertainment</option>
+                                <option value="productivity">⚡ Productivity</option>
+                                <option value="domains">🌐 Domains & Hosting</option>
+                                <option value="security">🔒 Security</option>
+                                <option value="other">📌 Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="subRenewal">Next Renewal</label>
+                            <input type="date" id="subRenewal">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label for="subNotes">Notes <span class="optional">(optional)</span></label>
+                            <input type="text" id="subNotes" placeholder="e.g. Cancel if not using by March">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-add">🔥 Add to the Fire</button>
+                </form>
+            </section>
+
+            <!-- Subscription List -->
+            <section class="list-section">
+                <div class="list-header">
+                    <h2>Subscriptions</h2>
+                    <div class="list-controls">
+                        <select id="filterCategory" class="filter-select">
+                            <option value="all">All Categories</option>
+                        </select>
+                        <select id="sortBy" class="filter-select">
+                            <option value="cost-desc">Cost ↓</option>
+                            <option value="cost-asc">Cost ↑</option>
+                            <option value="name">Name</option>
+                            <option value="renewal">Next Renewal</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="subList" class="sub-list">
+                    <p class="empty-state">No subscriptions yet. Add one above to start tracking your burn.</p>
+                </div>
+            </section>
+
+            <!-- Export -->
+            <section class="export-section">
+                <button id="exportBtn" class="btn-export">📋 Copy Summary</button>
+                <button id="clearBtn" class="btn-clear">🗑 Clear All</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

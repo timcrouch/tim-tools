@@ -99,6 +99,14 @@ const liveApps: App[] = [
     status: 'live',
   },
   {
+    id: 'burn-rate',
+    name: 'Burn Rate',
+    description: "Track every subscription bleeding your wallet. Knowledge is power. Cancellation is savings.",
+    icon: '🔥',
+    path: '/apps/burn-rate/',
+    status: 'live',
+  },
+  {
     id: 'decision-roulette',
     name: 'Decision Roulette',
     description: "Can't decide where to eat? Let chaos theory choose for you. Warning: may suggest the same place three times in a row.",
