@@ -194,6 +194,14 @@ const liveApps: App[] = [
     path: '/apps/ship-log/',
     status: 'live',
   },
+  {
+    id: 'sourdough-calc',
+    name: 'Sourdough Calculator',
+    description: "Baker's math, rise time estimates, starter feeding tracker, and bake log. Because great bread is just flour, water, time, and obsessive temperature monitoring.",
+    icon: '🍞',
+    path: '/apps/sourdough-calc/',
+    status: 'live',
+  },
 ];
 
 // Coming soon - ideas in the pipeline

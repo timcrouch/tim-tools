@@ -1,0 +1,452 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #0a0a0f;
+    --bg-card: #12121a;
+    --bg-hover: #1a1a25;
+    --border: #2a2a3a;
+    --text: #e4e4e7;
+    --text-muted: #71717a;
+    --accent: #8b5cf6;
+    --accent-hover: #a78bfa;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --bread: #d4a06a;
+    --bread-dark: #8b6914;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--accent);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.tab {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-family: inherit;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.tab:hover {
+    color: var(--text);
+}
+
+.tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Cards */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+}
+
+/* Forms */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.form-group.full-width {
+    margin-bottom: 1rem;
+}
+
+label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+input, select, textarea {
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem 0.8rem;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.temp-input {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.temp-input input {
+    flex: 1;
+}
+
+.temp-input select {
+    width: 70px;
+}
+
+.ratio-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ratio-inputs input {
+    width: 60px;
+    text-align: center;
+}
+
+.ratio-inputs span {
+    color: var(--text-muted);
+    font-weight: bold;
+}
+
+.hydration-hint {
+    font-size: 0.8rem;
+    color: var(--bread);
+    font-style: italic;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+}
+
+.btn-danger {
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+.btn-danger:hover {
+    background: var(--danger);
+    color: white;
+}
+
+/* Recipe Output */
+.recipe-output {
+    background: var(--bg-dark);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-top: 1rem;
+}
+
+.recipe-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.recipe-row:last-child {
+    border-bottom: none;
+    font-weight: 600;
+    color: var(--bread);
+    padding-top: 0.75rem;
+    margin-top: 0.25rem;
+    border-top: 2px solid var(--border);
+}
+
+.recipe-row .ingredient {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.recipe-row .amount {
+    font-variant-numeric: tabular-nums;
+    color: var(--accent-hover);
+    font-weight: 500;
+}
+
+/* Rise Output */
+.rise-output {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .rise-output {
+        grid-template-columns: 1fr;
+    }
+}
+
+.rise-card {
+    background: var(--bg-dark);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.rise-card .rise-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.rise-card .rise-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--bread);
+}
+
+.rise-card .rise-detail {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+/* Health Stats */
+.health-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .health-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.stat {
+    text-align: center;
+    background: var(--bg-dark);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.stat-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.stat-value.happy { color: var(--success); }
+.stat-value.hungry { color: var(--warning); }
+.stat-value.dead { color: var(--danger); }
+
+/* Feeding History */
+.feeding-history {
+    margin-top: 1.5rem;
+}
+
+.feeding-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+.feeding-entry:last-child {
+    border-bottom: none;
+}
+
+.feeding-time {
+    color: var(--text-muted);
+}
+
+/* Star Rating */
+.star-rating {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.star {
+    font-size: 1.5rem;
+    color: var(--border);
+    cursor: pointer;
+    transition: color 0.15s;
+}
+
+.star.active {
+    color: var(--warning);
+}
+
+.star:hover {
+    color: var(--warning);
+}
+
+/* Bake Entries */
+.bake-entries {
+    margin-top: 1.5rem;
+}
+
+.bake-entry {
+    background: var(--bg-dark);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.bake-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.bake-name {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.bake-date {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.bake-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+}
+
+.bake-stars {
+    color: var(--warning);
+    font-size: 0.9rem;
+}
+
+.bake-notes {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.35rem;
+}
+
+.bake-actions {
+    margin-top: 0.5rem;
+    text-align: right;
+}
+
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem;
+    font-style: italic;
+}
